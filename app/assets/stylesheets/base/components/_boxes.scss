@@ -1,0 +1,5 @@
+.box {
+  @include color-set($box-bg-color);
+  padding: 1em;
+  margin: 1em;
+}

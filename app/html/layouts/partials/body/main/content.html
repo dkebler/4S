@@ -1,0 +1,12 @@
+<section id="content">
+    <h2> A Heading for content section</h2>
+    <article>
+    <time>{{ .Date.Format "January, 2006" }}</time>
+    <div id="article__title">{{ .Title }}</div>
+    <div id="article__subtitle">{{ .Params.subtitle }}</div>
+        {{ .Content }}
+   </article>  
+</section>
+
+
+

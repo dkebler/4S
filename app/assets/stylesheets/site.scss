@@ -1,0 +1,55 @@
+/*************************/
+/*   This is the main scss file that pulls in all other sytlesheets into a single
+/*   site stytle sheet that can later be minified.
+/*   /framework /scss/sitesytle.scss 
+/*************************/
+
+
+////
+/// This is a poster comment.
+/// It will apply annotations to all items from file.
+/// @group API
+/// @author Hugo Giraudel
+////
+
+/*  
+/*  VENDOR CUSTOM SETTINGS */
+// Load in any sass libraries and packages
+@import 'vendors/packages';
+
+// Edit this to change any of the foundation framework global defaults - specific changes can be done in a theme
+// although any change there should be noted as a foundation specific setting.
+// @import 'vendors/foundation-settings';
+
+/*  END - VENDOR CUSTOM SETTINGS */
+
+/* CUSTOM SASS CODES USED FOR THIS SITE.  */
+//  Commonly useful ones could later be put into a library for use in other sites
+@import 'utils/debug';  // comment out to turn off debugging.
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+/* END - CUSTOM SASS CODES USED FOR THIS SITE.  */
+
+/* BASE STYLING INCLUDING THE BASE(DEFAULT) THEME  */
+//  The base theme (like all themes) is a package made of a color, component, layout and typography theme
+//  Base styling structure can be overridden by loading  a theme 'package'
+@import 'base/reset';
+
+// anything outside the base theme that needs to be reset or set before loading the base theme
+@import 'base/base-theme';
+
+// THE base(default) theme package.  Look inside to see the various pieces
+/* END - BASE STYLING INCLUDING THE BASE(DEFAULT) THEME  */
+
+/* CUSTOM THEME OVERRIDE  */
+// Override part or all of a base theme by importing only ONE custom theme file found in /themes folder
+// @import 'themes/20-something';
+// @import 'themes/old-fart';
+// @import 'themes/geek-blog';
+/* END - CUSTOM THEME OVERRIDE  */
+
+// DEBUGGING
+// see uitls/_debug.scss  -  comment to turn off debugging
+// @include debug($debug-list);
