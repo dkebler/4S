@@ -7,21 +7,29 @@ var config       = require('../config/sass');
 var autoprefixer = require('gulp-autoprefixer');
 var gutil        = require('gulp-util');
 
-///////////////
+// loads up the paths for scss files in bower packages
 gulp.task('sass-bower', function () {
 
 var path  = require('path');
 var sassBower    = require('main-bower-files');
+var json = require('json-file');
 
-   console.log('current directory: ' + __dirname);  
-var base_path = path.resolve('bower_components');
+var rcfile = path.resolve('.bowerrc');
+console.log('bower rc:' + rcfile);
+ 
+// Load a JSON file 
+var bowerrc = json.read(rcfile);
+
+console.log('bower directory:' + bowerrc.get('directory'));
+
+var base_path = path.resolve(bowerrc.get('directory'));
    console.log('base_path:' + base_path); 
 
   // grab all the full paths
 var scss_paths = sassBower({
   base: base_path,
   filter: '**/_*.scss',
-  debugging: true,
+  debugging: false,
   includeDev: true
   
 });
@@ -36,10 +44,11 @@ for (var i=0; i<scss_paths.length; i++){
 
 console.log('scss_paths:' + scss_paths); 
 
+bowerrc.set('scss_paths', scss_paths);
+bowerrc.writeSync();
 
 });
 
-///////////////////
 
 
 
@@ -49,25 +58,29 @@ gulp.task('sass', function () {
 var path  = require('path');
 var sassBower    = require('main-bower-files');
 
-var base_path = path.resolve('bower_components');
-//   console.log('base_path:' + base_path); 
+//////  This part loads in the scss paths stored in .bowerrc
+var json = require('json-file');
+var rcfile = path.resolve('.bowerrc');
+// console.log('bower rc:' + rcfile);
+ 
+// Load a JSON file 
+var bowerrc = json.read(rcfile);
 
-  // grab all the full paths
-var scss_paths = sassBower({
-  base: base_path,
-  filter: '**/_*.{scss,sass}',
-//  debugging: true,
-  includeDev: true
-  
-});
+/*
+console.log(bowerrc.data);
+console.log ('bower directory:' + bowerrc.get('directory'));
+console.log('scss paths:' + bowerrc.get('scss_paths'));
+*/ 
 
-for (var i=0; i<scss_paths.length; i++){
-  scss_paths[i] = path.dirname(scss_paths[i]);
-}  
+var scss_paths = bowerrc.get('scss_paths');
 
-//   console.log('scss_paths:' + scss_paths); 
+//console.log('scss paths:' + scss_paths);
+if (typeof scss_paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
+if (scss_paths == null) {console.log('no scss bower paths available');}
 
+////////////////
 
+// Now process the scss
   return gulp.src(config.src,scss_paths)
 
     .pipe(sourcemaps.init())
