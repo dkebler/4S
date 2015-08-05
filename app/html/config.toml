@@ -1,4 +1,4 @@
-baseurl = "http://localhost:3000"
+baseurl = ""
 languageCode = "en-us"
 title = "Hugo Complete Starter Website"
 [params]

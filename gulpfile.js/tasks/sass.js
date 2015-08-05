@@ -58,7 +58,7 @@ gulp.task('sass', function () {
 var path  = require('path');
 var sassBower    = require('main-bower-files');
 
-//////  This part loads in the scss paths stored in .bowerrc
+//////  This part loads in the scss paths stored in .bowerrc by the sass-bower task above
 var json = require('json-file');
 var rcfile = path.resolve('.bowerrc');
 // console.log('bower rc:' + rcfile);
@@ -74,11 +74,11 @@ console.log('scss paths:' + bowerrc.get('scss_paths'));
 
 var scss_paths = bowerrc.get('scss_paths');
 
+
+/////////////// Fix this so it gives an error if paths are not available.
 //console.log('scss paths:' + scss_paths);
 if (typeof scss_paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
 if (scss_paths == null) {console.log('no scss bower paths available');}
-
-////////////////
 
 // Now process the scss
   return gulp.src(config.src,scss_paths)

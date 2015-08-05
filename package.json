@@ -64,6 +64,7 @@
     "express": "^4.12.2",
     "gulp-gh-pages": "^0.4.0",
     "gulp-run": "^1.6.8",
+    "gulp-s3": "^0.3.0",
     "gulp-shell": "^0.4.2",
     "morgan": "^1.5.1",
     "open": "0.0.5"

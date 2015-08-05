@@ -1,11 +1,11 @@
 +++
 Categories = ["default"]
 Description = ""
-Tags = ["Meat", "Vegetables", "Fruits", "Cerals", "Confections", "Dairy"]
+Tags = ["Meat", "Vegetables", "Fruits", "Cerals", "Confections"]
 date = "2015-01-16T09:59:35-08:00"
 title = "Test Home Page"
 +++
-Take this out
+[favorite meats](/meat/favs)
 
 # First Level Header
 
