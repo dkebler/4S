@@ -1,13 +1,13 @@
-hugo-sass-bower-gulp-s3-starter
+##Hugo-Sass-Bower-Gulp-S3-Starter
 
-__NOTE:__ This is currently a work in progress.  Still improving and adding gulp tasks (deployment to s3 now working). Hugo template still in progress including sass styling.  This read.me has many mising details. Still even at this point its a great head start.
+__NOTE:__ This is currently a work in progress.  A ways to go before I could call this even 0.1.0.  Still even at this point its a great head start and will be even more so once I get to find tuning the hugo template in a fully functioning site that can be then modified to suit.
 
 Get going with a functioning site using Hugo (static site builder) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code and gulp to glue it all together into a nice workflow.  Deploy to S3 no server needed!
 
 __Nice Feature:__ By using Gulp and node-sass I have replaced the config.rb of compass so that you can continue to use just the filename of bower packages (no need for a path)!!!
  
 
-#Prerequisites
+##Prerequisites
 
 1. You'll need node.js and npm installed first and of course git.  For Linux check out nodesource for best way to get the latest installed.  https://github.com/nodesource/distributions
 2. Hugo is not a node.js package it needs to be installed (to the commandline).  Hugo developers maintain binaries for all platforms so it's easy.  https://gohugo.io/
