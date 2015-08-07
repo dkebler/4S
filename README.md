@@ -26,7 +26,7 @@ npm install gulp -g
 now grab the repo and install the project's local node dependencies
 
 ```
-git clone https://github.com/dkebler/hugo-sass-bower-gulp-starter.git  <path/to/mysitename>
+git clone https://github.com/dkebler/Hugo-Sass-Bower-Gulp-S3-Starter.git  <path/to/mysitename>
 cd  <path/to/mysitename>
 npm install
 ```
