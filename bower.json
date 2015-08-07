@@ -14,7 +14,6 @@
     "color-schemer": "~0.2.8",
     "sass-flex-mixin": "~1.0.1",
     "sass-mq": "~3.2.3",
-    "sassy-maps": "~0.4.0",
-    "hover": "~2.0.2"
+    "sassy-maps": "~0.4.0"
   }
 }

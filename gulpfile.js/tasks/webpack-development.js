@@ -1,4 +1,4 @@
-var assign       = require('object-assign')
+// var assign       = require('object-assign')
 var config       = require('../config/webpack')('development')
 var gulp         = require('gulp')
 var logger       = require('../lib/compileLogger')

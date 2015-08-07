@@ -9,11 +9,21 @@ var gulp = require('gulp');
 // 5) Update asset references in HTML
 // 6) Report filesizes
 
+/*
 gulp.task('rev', [
   'rev-assets',
-  'rev-iconfont-workaround',
+//  'rev-iconfont-workaround',
   'rev-update-references',
   'rev-css',
   'update-html',
   'size-report'
-]);
+*/
+
+// no need to list all above as they chain up the list no matter which one gets invoked.
+// For now rev-inconfont-workaround has an issue to taking it out.  see "update-references"
+
+gulp.task('rev', [
+  'size-report',
+  ]);
+
+

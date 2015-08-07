@@ -26,7 +26,7 @@ var bowerrc = json.read(rcfile);
 var base_path = path.resolve(bowerrc.get('directory'));
 //   console.log('base_path:' + base_path); 
 
-  // grab all the full paths, package MUST appear in bower.json so use --save-dev option when installing
+// grab all the full paths, package MUST appear in bower.json so use --save-dev option when installing
 var scss_paths = sassBower({
   base: base_path,
   filter: ['**/_*.scss','**/*.scss'],
@@ -35,19 +35,14 @@ var scss_paths = sassBower({
   
 });
 
-console.log('after main bower files:' + scss_paths.length); 
-
-
+console.log('number of scss "main" files found' + scss_paths.length); 
 
 var scss_paths_log ='';
-
 for (var i=0; i<scss_paths.length; i++){
   scss_paths_log = scss_paths_log + scss_paths[i] + '\n';
 // libsass wants only the parent directory of each "main" file so remove the filenames
   scss_paths[i] = path.dirname(scss_paths[i]);
 }  
-
-// function array-to-lines (an_array) { for v }
 
 console.log('scss_paths:' + scss_paths_log ); 
 

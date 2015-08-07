@@ -95,8 +95,9 @@ Then you'll need to run this task to grab the paths for sass processing by libsa
 gulp sass-bower   
 ```
 
+It will store the path of any new packages that has a scss main file such that you can now just use a simple @import('') without the directory path and libsass will find it when compiling scss (yea).   Eventually it will even put that @import into a scss file of your choosing.  In this repo that would be `_packages.scss_`
 
-## Todo 
+## Todos
 no particular order
 
 * . create a `gulp bower` task that will install or uninstall a package and then run gulp-sass-bower to update paths for node-sass then open the `_vendor.scss` file and add an @import line for the installed package. My dream task for adding bower packages!
@@ -105,8 +106,11 @@ no particular order
 * substitute js CDNs in html for production and make sure they stay up to date maybe with cdnizer, gulp-cdnizer.
 * Finish up Hugo Holy Grail flexbox template and styling with RWD throughout. Including dummy content, showing tag use and tag cloud, navigation, fancy buttons....
 * Switch over to using the AWS-CLI SDK to avoid python version dependency
-* Develop tests for all.
+* Take out unit tests for now since static site doesn't currently have any client js.
 * Helper function to generate deployment string, and/or move to aws-sdk for S3 deployment.
+*  Dump using rev and just do a simple, css, js, and html minify for production.  Cloud do a replace in the template maybe via Hugo cli and code or just search and replace in all rendered html.
+*  Get wiredup working for bower
+*  
 
 
 

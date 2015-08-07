@@ -12,10 +12,10 @@ gulp.task('deploy', ['build:production'], function() {
 
   // TODO write a helper function to create this string.  Try using lodash to get option key names
   var cmd = 'aws s3 sync ' + config.src + ' s3://'+ config.testing.bucket +' \
-  --profile '+ config.options.profile + ' --grants '+ config.options.grants;
+  --profile '+ config.options.profile + ' --grants '+ config.options.grants + ' --delete ';
   // --profile '+ config.options.profile + ' --grants '+ config.options.grants +' --dryrun ' ;
 
-// console.log('cmd: ' + cmd);
+  console.log('cmd: ' + cmd);
   console.log('Writing Files from ' + config.src + ' to ' + config.testing.bucket);
 
   exec(cmd, function(error, stdout, stderr) {

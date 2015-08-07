@@ -7,9 +7,9 @@ var fonts    = require('../config/fonts');
 var watch    = require('gulp-watch');
 
 gulp.task('watch', ['browserSync'], function() {
-  watch(images.src, function() { gulp.start('images'); });
+//watch(images.src, function() { gulp.start('images'); });
   watch(sass.watch, function() { gulp.start('sass'); });
-  watch(iconFont.src, function() { gulp.start('iconFont'); });
-  watch(fonts.src, function() { gulp.start('fonts'); });
+//  watch(iconFont.src, function() { gulp.start('iconFont'); });
+//  watch(fonts.src, function() { gulp.start('fonts'); });
   watch(html.watch, function() { gulp.start('html'); });  // html templating system
 });

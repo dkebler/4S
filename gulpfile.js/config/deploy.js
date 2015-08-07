@@ -6,7 +6,8 @@ module.exports = {
 	options: {
 		profile:'hwdeploy',
 		grants:'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
-		dryrun:''
+		dryrun:'',
+		delete:''
 	},	
 // use this for testing bucket	
 	testing: {

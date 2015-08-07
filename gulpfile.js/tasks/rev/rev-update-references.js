@@ -3,7 +3,9 @@ var gulp         = require('gulp');
 var revReplace   = require('gulp-rev-replace')
 
 // 3) Update asset references with reved filenames in compiled css + js
-gulp.task('rev-update-references', ['rev-iconfont-workaround'], function(){
+// gulp.task('rev-update-references', ['rev-iconfont-workaround'], function(){
+// workaround for now.  It has a bug	
+gulp.task('rev-update-references', ['rev-assets'], function(){	
   var manifest = gulp.src(config.publicDirectory + "/rev-manifest.json");
 
   return gulp.src(config.publicDirectory + '/**/**.{css,js}')
