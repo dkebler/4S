@@ -1,6 +1,6 @@
 ##Hugo-Sass-Bower-Gulp-S3-Starter
 
-__NOTE:__ This is currently a work in progress.  A ways to go before I could call this even 0.1.0.  Still even at this point its a great head start and will be even more so once I get to find tuning the hugo template in a fully functioning site that can be then modified to suit.
+__NOTE:__ This is currently a work in progress.  A ways to go before I could call this even 0.1.0.  Still even at this point its a great head start and will be even more so once I get to fine tuning the [Hugo](gohugo.io) template in a fully functioning site that can be then modified to suit.
 
 Get going with a functioning site using Hugo (static site builder) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code and gulp to glue it all together into a nice workflow.  Deploy to S3 no server needed!
 
