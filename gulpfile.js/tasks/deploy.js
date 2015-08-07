@@ -10,7 +10,7 @@ var exec = require('child_process').exec;
 gulp.task('deploy', ['build:production'], function() {
 // gulp.task('deploy', function() { 
 
-  // write a helper function to create this string.  Try using lodash to get option key names
+  // TODO write a helper function to create this string.  Try using lodash to get option key names
   var cmd = 'aws s3 sync ' + config.src + ' s3://'+ config.testing.bucket +' \
   --profile '+ config.options.profile + ' --grants '+ config.options.grants;
   // --profile '+ config.options.profile + ' --grants '+ config.options.grants +' --dryrun ' ;

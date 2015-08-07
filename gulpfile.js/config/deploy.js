@@ -2,6 +2,7 @@ var config = require('./')
 
 module.exports = {
 	src: config.publicDirectory,
+// options for aws sync that would normally go on the commandline.	
 	options: {
 		profile:'hwdeploy',
 		grants:'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',

@@ -11,38 +11,45 @@ var gutil        = require('gulp-util');
 gulp.task('sass-bower', function () {
 
 var path  = require('path');
-var sassBower    = require('main-bower-files');
+var sassBower  = require('main-bower-files');
 var json = require('json-file');
 
 var rcfile = path.resolve('.bowerrc');
-console.log('bower rc:' + rcfile);
+// console.log('bower rc:' + rcfile);
  
 // Load a JSON file 
 var bowerrc = json.read(rcfile);
 
-console.log('bower directory:' + bowerrc.get('directory'));
+// console.log('bower directory:' + bowerrc.get('directory'));
+// console.log('sass paths before: ' + bowerrc.get('scss_paths'));
 
 var base_path = path.resolve(bowerrc.get('directory'));
-   console.log('base_path:' + base_path); 
+//   console.log('base_path:' + base_path); 
 
-  // grab all the full paths
+  // grab all the full paths, package MUST appear in bower.json so use --save-dev option when installing
 var scss_paths = sassBower({
   base: base_path,
-  filter: '**/_*.scss',
-  debugging: false,
+  filter: ['**/_*.scss','**/*.scss'],
+  debugging: true,
   includeDev: true
   
 });
 
+console.log('after main bower files:' + scss_paths.length); 
+
+
+
+var scss_paths_log ='';
 
 for (var i=0; i<scss_paths.length; i++){
-  // we need to use the parent directories of the main files, not the files themselves
-  // so ./bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap.scss
-  // becomes ./bower_components/bootstrap-sass-official/assets/stylesheets
+  scss_paths_log = scss_paths_log + scss_paths[i] + '\n';
+// libsass wants only the parent directory of each "main" file so remove the filenames
   scss_paths[i] = path.dirname(scss_paths[i]);
 }  
 
-console.log('scss_paths:' + scss_paths); 
+// function array-to-lines (an_array) { for v }
+
+console.log('scss_paths:' + scss_paths_log ); 
 
 bowerrc.set('scss_paths', scss_paths);
 bowerrc.writeSync();
@@ -50,13 +57,9 @@ bowerrc.writeSync();
 });
 
 
-
-
-
 gulp.task('sass', function () {
 
 var path  = require('path');
-var sassBower    = require('main-bower-files');
 
 //////  This part loads in the scss paths stored in .bowerrc by the sass-bower task above
 var json = require('json-file');
@@ -75,7 +78,6 @@ console.log('scss paths:' + bowerrc.get('scss_paths'));
 var scss_paths = bowerrc.get('scss_paths');
 
 
-/////////////// Fix this so it gives an error if paths are not available.
 //console.log('scss paths:' + scss_paths);
 if (typeof scss_paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
 if (scss_paths == null) {console.log('no scss bower paths available');}

@@ -1,7 +1,7 @@
 var config = require('./')
 
 module.exports = {
-  watch: config.sourceDirectory + '/html/**/*.*',
-  src: config.sourceDirectory + '/html/',
-  dest: '../../'+config.publicDirectory
+  watch: config.sourceDirectory + '/' + config.htmlGenerator + '/**/*.*',
+  src: config.sourceDirectory + '/' + config.htmlGenerator + '/',
+  dest: '../../' + config.publicDirectory
   }
