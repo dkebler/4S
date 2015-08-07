@@ -15,9 +15,10 @@ __Nice Feature:__ By using Gulp and node-sass I have replaced the config.rb of c
  
 
 ### Install node dependencies
+
+Global dependencies that you'll need for command line.  You'll need to preface with `sudo` on Linux.
+
 ```
-// Needed for command line invocation
-// will need to preference with sudo on Linux
 npm install bower -g
 npm install gulp -g
 ```
@@ -25,12 +26,12 @@ npm install gulp -g
 now grab the repo and install the project's local node dependencies
 
 ```
-git clone https://github.com/dkebler/hugo-sass-bower-gulp-starter.git  <path/to/myprojectname>
+git clone https://github.com/dkebler/hugo-sass-bower-gulp-starter.git  <path/to/mysitename>
 cd  <path/to/mysitename>
 npm install
 ```
 
-All commands now from terminal at root of your project set above.
+All commands now from terminal at root of your project/site set above.
 
 ### Development
 ```
