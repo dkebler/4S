@@ -9,16 +9,28 @@ __Nice Feature:__ By using Gulp and node-sass I have replaced the config.rb of c
 
 #Prerequisites
 
-1. You'll need node.js and npm installed first. For Linux check out nodesource for best way to get the latest installed.  https://github.com/nodesource/distributions
+1. You'll need node.js and npm installed first and of course git.  For Linux check out nodesource for best way to get the latest installed.  https://github.com/nodesource/distributions
 2. Hugo is not a node.js package it needs to be installed (to the commandline).  Hugo developers maintain binaries for all platforms so it's easy.  https://gohugo.io/
 3. Deploy to S3 uses the AWS-CLI.  That in turn is written in Python.  So you'll need Python loaded Easiest way to install that to get the latest version is using pip which you may need to install. I have a TODO to switch this over to the node.js aws-cli SDK but for now it's an outside dependency. https://github.com/aws/aws-cli
  
 
-### Install dependencies
+### Install node dependencies
 ```
+// Needed for command line invocation
+// will need to preference with sudo on Linux
+npm install bower -g
+npm install gulp -g
+```
+
+now grab the repo and install the project's local node dependencies
+
+```
+git clone https://github.com/dkebler/hugo-sass-bower-gulp-starter.git  <path/to/myprojectname>
+cd  <path/to/mysitename>
 npm install
 ```
 
+All commands now from terminal at root of your project set above.
 
 ### Development
 ```
@@ -83,7 +95,6 @@ You need to configure three parts.
 
 ### Adding Bower Packages 
 ```
-npm install -g bower
 bower install --save-dev <package>
 ```
 
