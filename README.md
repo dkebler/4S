@@ -1,6 +1,6 @@
 ##Hugo-Sass-Bower-Gulp-S3-Starter
 
-__NOTE:__ This is currently a work in progress.  A ways to go before I could call this even 0.1.0.  Still even at this point its a great head start and will be even more so once I get to fine tuning the [Hugo](gohugo.io) template in a fully functioning site that can be then modified to suit.
+__NOTE:__ This is currently a work in progress, a way to go before I could call this even 0.1.0.  Still even at this point it's a great head start and will be even more so once I get to fine tuning the [Hugo](http://gohugo.io/) template in a fully functioning site that can be then modified to suit.
 
 Get going with a functioning site using Hugo (static site builder) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code and gulp to glue it all together into a nice workflow.  Deploy to S3 no server needed!
 
@@ -122,7 +122,7 @@ no particular order
 * Helper function to generate deployment string, and/or move to aws-sdk for S3 deployment.
 *  Dump using rev and just do a simple, css, js, and html minify for production.  Cloud do a replace in the template maybe via Hugo cli and code or just search and replace in all rendered html.
 *  Get wiredup working for bower
-*  
+*  switch from gulp-sequence to run-sequence
 
 
 

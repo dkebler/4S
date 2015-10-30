@@ -1,11 +1,7 @@
 {
-  "name": "webapp",
+  "name": "Hugo-Sass-Bower-Gulp",
   "private": true,
-  "dependencies": {
-    "jquery": "~2.1.1",
-    "modernizr": "~2.8.1",
-    "normalize-scss": "~3.0.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "chai": "~3.0.0",
     "mocha": "~2.2.5",
@@ -14,6 +10,19 @@
     "color-schemer": "~0.2.8",
     "sass-flex-mixin": "~1.0.1",
     "sass-mq": "~3.2.3",
-    "sassy-maps": "~0.4.0"
+    "sassy-maps": "~0.4.0",
+    "flexiblegs-scss-plus": "~5.3.1",
+    "hover": "~2.0.2",
+    "materialize": "~0.97.0",
+    "kickstart": "file:////mnt/AllData/hacking/frameworks/kickstart/.git/#sass-bower",
+    "lumux": "file:////mnt/AllData/hacking/frameworks/lumX/.git/#bower-scss",
+    "normalize-scss": "~3.0.3"
+  },
+  "overrides": {
+    "hover": {
+      "main": [
+        "scss/hover.scss"
+      ]
+    }
   }
 }

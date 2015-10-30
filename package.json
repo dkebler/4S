@@ -20,6 +20,7 @@
   "dependencies": {},
   "devDependencies": {
     "autostrip-json-comments": "0.0.4",
+    "bower-main": "^0.2.14",
     "browser-sync": "^2.0.0",
     "compression": "^1.4.1",
     "del": "^1.1.1",
@@ -30,6 +31,7 @@
     "gulp-gh-pages": "^0.4.0",
     "gulp-iconfont": "latest",
     "gulp-imagemin": "^0.6.2",
+    "gulp-main-bower-files": "^1.2.1",
     "gulp-minify-css": "^0.3.11",
     "gulp-notify": "^1.4.2",
     "gulp-rename": "^1.2.0",

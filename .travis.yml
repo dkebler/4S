@@ -1,5 +1,6 @@
+// edit this is necessary
 language: node_js
-env: TRAVIS_CI=true
+env: TRAVIS_CI=false
 node_js:
   - "0.12"
 before_script:
