@@ -11,5 +11,6 @@ gulp.task('watch', ['browserSync'], function() {
   watch(sass.watch, function() { gulp.start('sass'); });
 //  watch(iconFont.src, function() { gulp.start('iconFont'); });
 //  watch(fonts.src, function() { gulp.start('fonts'); });
+console.log('Watch'); 
   watch(html.watch, function() { gulp.start('html'); });  // html templating system
 });

@@ -1,0 +1,23 @@
+<figure 
+{{ with .Get "position" }}class="{{.}}"{{ end }}>
+{{ with .Get "link"}}<a href="{{.}}">{{ end }}
+
+<img src="{{ .Page.Params.imagespath }}{{ .Get "filename" }}"{{ if or (.Get "alt") (.Get "caption") }}alt="{{ with .Get "alt"}}{{.}}{{else}}{{ .Get "caption" }}{{ end }}"{{ end }} />
+{{ if .Get "link"}}</a>{{ end }}
+
+{{ if or (or (.Get "title") (.Get "caption")) (.Get "attr")}} 
+
+<figcaption>
+
+{{ if or (.Get "caption") (.Get "attr")}}<p>
+{{ .Get "caption" }}
+{{ with .Get "attrlink"}}<a href="{{.}}"> {{ end }}
+{{ .Get "attr" }}
+{{ if .Get "attrlink"}}</a> {{ end }}
+</p> {{ end }}
+
+</figcaption>
+
+{{ end }}
+
+</figure>

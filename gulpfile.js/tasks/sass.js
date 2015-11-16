@@ -2,7 +2,6 @@ var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var sass         = require('gulp-sass');
 var sourcemaps   = require('gulp-sourcemaps');
-var handleErrors = require('../lib/handleErrors');
 var config       = require('../config/sass');
 var autoprefixer = require('gulp-autoprefixer');
 var gutil        = require('gulp-util');
@@ -11,6 +10,8 @@ var gutil        = require('gulp-util');
 gulp.task('sass-bower', function () {
 
 var path  = require('path');
+
+// TRY USING WIREDEP HERE INSTEAD OF MAIN BOWER FILES
 var sassBower  = require('main-bower-files');
 var json = require('json-file');
 
@@ -82,7 +83,7 @@ if (scss_paths == null) {console.log('no scss bower paths available');}
 
     .pipe(sourcemaps.init())
     .pipe(sass({includePaths: scss_paths}))
-        .on('error', handleErrors)
+ //      .on('error', handleErrors)
         .on('end', function(){ gutil.log('Libsass done...'); })
  // autoprefixer before sourcemaps write per gulp-autoprefixer   
     .pipe(autoprefixer(config.autoprefixer))
