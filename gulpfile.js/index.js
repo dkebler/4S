@@ -11,6 +11,8 @@
   when you run `gulp`.
 */
 
+require('console.table');  // make this available to any task
+
 var requireDir = require('require-dir');
 
 // Require all tasks in gulp/tasks, including subfolders

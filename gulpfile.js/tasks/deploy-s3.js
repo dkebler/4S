@@ -5,12 +5,13 @@ var exec = require('child_process').exec;
 // for debugging
 // var gutil        = require('gulp-util');
 
+// TODO live argument that switches to live bucket  => gulp deploy-s3 live
+var bucket = config.testing.bucket;  //  change this line for live bucket 
 
 gulp.task('deploy-s3', ['build:production'], function() {
-// gulp.task('deploy', function() { 
 
   // TODO write a helper function to create this string.  Try using lodash to get option key names
-  var cmd = 'aws s3 sync ' + config.src + ' s3://'+ config.testing.bucket +' \
+  var cmd = 'aws s3 sync ' + config.src + ' s3://'+ bucket +' \
   --profile '+ config.options.profile + ' --grants '+ config.options.grants + ' --delete ';
   // --profile '+ config.options.profile + ' --grants '+ config.options.grants +' --dryrun ' ;
 

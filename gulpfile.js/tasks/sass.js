@@ -1,89 +1,34 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
-var sass         = require('gulp-sass');
+// for sass compiling
+var process_sass = require('gulp-sass');  //uses node-sass
 var sourcemaps   = require('gulp-sourcemaps');
-var config       = require('../config/sass');
 var autoprefixer = require('gulp-autoprefixer');
+// config files
+var config       = require('../config/sass');
+
+// used to get console log in pipes
 var gutil        = require('gulp-util');
-
-// loads up the paths for scss files in bower packages
-gulp.task('sass-bower', function () {
-
-var path  = require('path');
-
-// TRY USING WIREDEP HERE INSTEAD OF MAIN BOWER FILES
-var sassBower  = require('main-bower-files');
-var json = require('json-file');
-
-var rcfile = path.resolve('.bowerrc');
-// console.log('bower rc:' + rcfile);
- 
-// Load a JSON file 
-var bowerrc = json.read(rcfile);
-
-// console.log('bower directory:' + bowerrc.get('directory'));
-// console.log('sass paths before: ' + bowerrc.get('scss_paths'));
-
-var base_path = path.resolve(bowerrc.get('directory'));
-//   console.log('base_path:' + base_path); 
-
-// grab all the full paths, package MUST appear in bower.json so use --save-dev option when installing
-var scss_paths = sassBower({
-  base: base_path,
-  filter: ['**/_*.scss','**/*.scss'],
-  debugging: true,
-  includeDev: true
-  
-});
-
-console.log('number of scss "main" files found' + scss_paths.length); 
-
-var scss_paths_log ='';
-for (var i=0; i<scss_paths.length; i++){
-  scss_paths_log = scss_paths_log + scss_paths[i] + '\n';
-// libsass wants only the parent directory of each "main" file so remove the filenames
-  scss_paths[i] = path.dirname(scss_paths[i]);
-}  
-
-console.log('scss_paths:' + scss_paths_log ); 
-
-bowerrc.set('scss_paths', scss_paths);
-bowerrc.writeSync();
-
-});
+// read/write objects <> json files
+var jsonfile = require('jsonfile')
+// for pipe error handling
+var plumber = require('gulp-plumber');
+var onError = require('../lib/errorHandler')
 
 
+/**************** PRECCOMPILE - SASS-SCSS  **************/
 gulp.task('sass', function () {
-
-var path  = require('path');
-
-//////  This part loads in the scss paths stored in .bowerrc by the sass-bower task above
-var json = require('json-file');
-var rcfile = path.resolve('.bowerrc');
-// console.log('bower rc:' + rcfile);
- 
-// Load a JSON file 
-var bowerrc = json.read(rcfile);
-
-/*
-console.log(bowerrc.data);
-console.log ('bower directory:' + bowerrc.get('directory'));
-console.log('scss paths:' + bowerrc.get('scss_paths'));
-*/ 
-
-var scss_paths = bowerrc.get('scss_paths');
 
 
 //console.log('scss paths:' + scss_paths);
-if (typeof scss_paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
-if (scss_paths == null) {console.log('no scss bower paths available');}
+if (typeof config.sasspaths == 'undefined') {console.log('scss bower paths NOT retrieved');}
+if (config.sasspaths == null) {console.log('no scss bower paths available');}
 
 // Now process the scss
-  return gulp.src(config.src,scss_paths)
-
+  return gulp.src(config.src,config.sasspaths)
+    .pipe(plumber({errorHandler: onError}))
     .pipe(sourcemaps.init())
-    .pipe(sass({includePaths: scss_paths}))
- //      .on('error', handleErrors)
+    .pipe(process_sass({includePaths: config.sasspaths}))
         .on('end', function(){ gutil.log('Libsass done...'); })
  // autoprefixer before sourcemaps write per gulp-autoprefixer   
     .pipe(autoprefixer(config.autoprefixer))
@@ -91,7 +36,46 @@ if (scss_paths == null) {console.log('no scss bower paths available');}
     .pipe(sourcemaps.write('.'))
         .on('end', function(){ gutil.log('SourceMaps Written...'); })
     .pipe(gulp.dest(config.dest))
-    
+           .on('end', function(){ gutil.log('Written to Destination - Sync Browser'); })
     .pipe(browserSync.reload({stream:true}));
+
+});
+// ALL DONE
+
+
+/***** Prepare and Array of Bower Library Paths to use with gulp node-sass in task above *****/
+
+
+
+// Get array of paths for all bower sass libraries and put in sass.json file.  Will use this with node-sass 
+gulp.task('sass-bower', function () {
+
+var wd_config      = require('../config/wiredep');  
+
+// hold bower sass/scss library paths
+var sass = {};  
+
+// add access to dev dependencies since that's what the scss libs are.
+wd_config.devDependencies = 'true';   
+
+// Let wiredep grab all the bower lib references
+var bowerLibs = require('wiredep')(wd_config);
+
+// get both .scss and .sass files, both will work with node-sass
+if( "scss" in bowerLibs ) sass.paths = bowerLibs.scss;
+if( "sass" in bowerLibs ) sass.paths = sass.paths.concat(bowerLibs.sass);
+if ( !("sass" in bowerLibs || "scss" in bowerLibs)  ) {console.log("no sass or scss libs, exiting"); return;}
+
+// libsass wants only the parent directory of each "main" file so remove the filenames
+for (var i=0; i<sass.paths.length; i++){
+  sass.paths[i] = require('path').dirname(sass.paths[i]);
+}  
+
+console.table(sass.paths); 
+
+// now write them out to a json file that can be used in the node-sass call
+//console.log(wd_config.directory);
+
+jsonfile.writeFile(config.sasspathsfile, sass, function (err) {console.error(err)});
 
 });

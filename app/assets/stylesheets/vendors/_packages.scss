@@ -30,11 +30,14 @@
 // https://github.com/alexwolfe/Buttons
 // @import 'buttons';
 
+// .sass lib test
+@import 'breakpoint-slicer';
+
 /* https://github.com/at-import/modular-scale,  http://gakimball.github.io/responsive-modular-scale/ */
 @import 'modular-scale';
 
 /* https://github.com/heygrady/scss-blend-modes, not needed for color-schemer if not blending colors  */
-/* @import 'blend-modes'; */
+// @import 'blend-modes'; 
 
 /* https://github.com/at-import/color-schemer */
 @import 'color-schemer';

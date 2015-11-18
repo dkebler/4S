@@ -1,14 +1,22 @@
 var config = require('./')
+var wd_config      = require('./wiredep');
+var jsonfile = require('jsonfile')
+
+var file = config.appRoot + "/" +  wd_config.directory + "/sass.json"
+var sass = jsonfile.readFileSync(file);
+
+console.log('after read');
+console.table(sass.paths);
+
+if (typeof sass.paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
+if (sass.paths == null) {console.log('no scss bower paths available');} 
 
 module.exports = {
   autoprefixer: { browsers: ['last 2 version'] },
-//  src: config.sourceAssets + "/stylesheets/**/*.{sass,scss}",
   src: config.sourceAssets + "/stylesheets/site.scss",
   watch: config.sourceAssets + "/stylesheets/" + '/**/*.*',
   dest: config.publicAssets + '/stylesheets',
-  settings: {
-//  indentedSyntax: true, // Enable .sass syntax!
-//  imagePath: 'assets/images' // Used by the image-url helper
-//  includePaths: scss_paths
-  }
+  sasspathsfile: file,
+  sasspaths: sass.paths
 }
+
