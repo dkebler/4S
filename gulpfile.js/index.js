@@ -12,6 +12,8 @@
 */
 
 require('console.table');  // make this available to any task
+DEBUG = false;
+//DEBUG = true;
 
 var requireDir = require('require-dir');
 

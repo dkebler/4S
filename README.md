@@ -1,10 +1,14 @@
 ##Hugo-Sass-Bower-Gulp-S3-Starter
 
-__NOTE:__ This is currently a work in progress, a way to go before I could call this even 0.1.0.  Still even at this point it's a great head start and will be even more so once I get to fine tuning the [Hugo](http://gohugo.io/) template in a fully functioning site that can be then modified to suit.
+__THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart maybe even a noob into creating excellent and professional "static" generated websites with a coherent and complete workflow including deployment.  Lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together....who can blame them that's how they make money.  
 
-Get going with a functioning site using Hugo (static site builder) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code and gulp to glue it all together into a nice workflow.  Deploy to S3 no server needed!
+__THE GOAL__:  The ultimate goal is to create a honest to god complete starter repo including workflow, templates, styling, responsive layout, example content, deployment starter for static generating sites with essentially nothing left out, but flexible in terms of being modified to suit. 
 
-__Nice Feature:__ By using Gulp and node-sass I have replaced the config.rb of compass so that you can continue to use just the filename of bower packages (no need for a path)!!!
+__UPDATE NOTE:__ This is currently a work in progress  What I am tagging 0.0.2 represents stripping and paring out all the extraneous stuff from the original fork I began with and knocking out a few of the [TODOS](#todos) and thus I am tagging it 0.0.2. (0.0.1 represents my first major effort).  Even though it still far from prime time it's a great head start and will be even more so once I get to cross off most the those TODOs. I'd welcome a collaborator with the same vision.
+
+Currently the project uses Hugo (static site generator) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code, gulp to glue it all together into a nice workflow, and finally deployment to S3 bucket or gh-pages no server needed!
+
+__Best Feature:__ By using Gulp, Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
  
 
 ##Prerequisites
@@ -45,11 +49,18 @@ look in gulpfile.js/tasks directory to see how the tasks are organized and seque
 
 
 ### Production/Deploy
+
+After scrubbing out the some things from the fork I started with I have a TODO to add back basic production tasks like don't add sourcemaps, minify the css, html, wire cdns, etc.
+
+You can still deploy but your site is not optimized until I add that functionality. 
+
 ```
-gulp deploy
+gulp deploy-S3
+or
+gulp deploy-gh
 ```
 
-deploy builds the production version of the site and then publishes it to your AWS S3-Bucket.  If you want to go to github then you need to resurrect the deploy.js.org file in the `gulpfile.js/tasks` directory.
+deploy builds the production version of the site and then publishes it to your AWS S3-Bucket.  
 
 ## Publish to S3
 
