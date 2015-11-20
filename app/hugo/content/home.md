@@ -7,10 +7,6 @@ title = "Test Home Page"
 +++
 [favorite meats](/meat/favs)
 
-
-Test
-
-
 # First Level Header
 
 ## Second Level Header

@@ -1,6 +1,7 @@
 var gulp         = require('gulp');
-var gulpSequence = require('gulp-sequence');
+var runSequence = require('run-sequence');
 
-gulp.task('build:production', function(cb) {
-gulpSequence('clean', 'sass', 'html', cb);
+// FIXME runSequence may not needed with gulp goes to 4.0+ replace with gulp.series or gulp.parallel.
+gulp.task('build:development', function(cb) {
+runSequence('clean',['sass', 'html'], cb);
 });
