@@ -7,11 +7,11 @@ var config       = require('../config/html');
 
 gulp.task('html', function () {
 
-var cmd = 'hugo --destination="'+ config.dest +'" --buildDrafts --source='+ config.src;
+var cmd = 'hugo -v --destination="'+ config.dest +'" --buildDrafts --source='+ config.src;
 console.log('cmd: ' + cmd);
 
 exec(cmd, function(error, stdout, stderr) {
-    console.log('Builder Says: ' + stdout);
+ //   console.log('Builder Says: ' + stdout);
         if (error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);

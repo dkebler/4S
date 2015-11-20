@@ -1,6 +1,7 @@
 baseurl = ""
 languageCode = "en-us"
 title = "Hugo Complete Starter Website"
+contentdir = "../.././content"
 [params]
   site-description = "Blah Blah"
   site-creator= "Jim Shoe"

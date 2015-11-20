@@ -9,5 +9,5 @@ gulp.task('watch', ['browserSync'], function() {
   watch(sass.watch, function() { gulp.start('sass'); });
   watch(fonts.src, function() { gulp.start('fonts'); });
   watch(images.src, function() { gulp.start('images'); });
-  watch(html.watch, function() { gulp.start('html'); });  // html templating system
+  watch(html.watch, function() { gulp.start('html'); });  // html hugo gen/templating system
 });
