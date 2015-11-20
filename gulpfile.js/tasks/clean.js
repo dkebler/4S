@@ -1,9 +1,11 @@
 var gulp = require('gulp');
-var del = require('del');
-var config = require('../config');
+const del = require('del');
+var config = require('../config/');
+var gutil = require('gulp-util');
 
-gulp.task('clean', function (cb) {
-  del([
-     config.publicDirectory
-  ], cb);
+
+gulp.task('clean', function() {
+	del([config.publicDirectory + '/**']).then(paths => {
+	gutil.log('Deleted files and folders in : ', paths);
+    });
 });

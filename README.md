@@ -2,11 +2,11 @@
 
 __THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart maybe even a noob into creating excellent and professional "static" generated websites with a coherent and complete workflow including deployment.  Lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together....who can blame them that's how they make money.  
 
-__THE GOAL__:  The ultimate goal is to create a honest to god complete starter repo including workflow, templates, styling, responsive layout, example content, deployment starter for static generating sites with essentially nothing left out, but flexible in terms of being modified to suit. 
+__THE GOAL__:  The ultimate goal is to create a honest to god complete starter repo (including workflow, templates, styling, responsive layout, example content, deployment) for static generating sites with essentially nothing left out, but flexible in terms of being modified to suit or using your preferred pieces (e.g. less rather than sass)
 
-__UPDATE NOTE:__ This is currently a work in progress  What I am tagging 0.0.2 represents stripping and paring out all the extraneous stuff from the original fork I began with and knocking out a few of the [TODOS](#todos) and thus I am tagging it 0.0.2. (0.0.1 represents my first major effort).  Even though it still far from prime time it's a great head start and will be even more so once I get to cross off most the those TODOs. I'd welcome a collaborator with the same vision.
+__UPDATE NOTE:__ This is currently a work in progress. What I am tagging as 0.0.2 represents stripping and paring out all the extraneous stuff from the original fork I began with and knocking out a few of the [TODOS](#todos) and thus I am tagging it 0.0.2. (0.0.1 represents my first major effort).  Even though it still far from prime time it's a great head start and will be even more so once I get to cross off most the those TODOs. I'd welcome a collaborator with the same vision.
 
-Currently the project uses Hugo (static site generator) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code, gulp to glue it all together into a nice workflow, and finally deployment to S3 bucket or gh-pages no server needed!
+Currently the project uses Hugo (static site generator) combined with sass for styling (using libsass), bower for code libraries, node/npm for additional functionality including js client code, gulp to glue it all together into a nice workflow, and finally deployment to a S3 bucket or gh-pages no web server needed!
 
 __Best Feature:__ By using Gulp, Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
  
@@ -35,18 +35,26 @@ cd  <path/to/mysitename>
 npm install
 ```
 
-All commands now from terminal at root of your project/site set above.
+
+## Gulp Workflow
+
+Gulp (if you don't know) is a task runner.  In this repo you'll find a gulpfile.js directory which contains a subirectores /tasks, /libs, /config.  /tasks/index.js loads in all the other tasks, /config/index.js is the base config file containing the important project paths.  Others are pretty self explanatory by filename, /lib contains some needed non-gulp task modules 
+
+A simple 
+
+```
+gulp help
+```
+
+will list all the tasks available.
 
 ### Development
 ```
 gulp
 ```
-the default task will build your development site by compiling your Hugo and Sass and fire up a local browser and then set a watch for your files.   Edit any watched file (app directory) and the site is rebuilt and browser refreshed.  Each invocation of gulp will delete the config.publicDirectory directory set in gulpfile.js/config/index.js. so that you get a fresh build
+the default task will build your development site by compiling the Sass, generating the html (via Hugo), fire up a syncing browser and then set a watch for your files.   Edit any watched file (in /app directory) and the site is rebuilt and browser refreshed.  Each restart of `gulp` will delete the config.publicDirectory directory set in gulpfile.js/config/index.js. so that you are sure to get a fresh build
 
 If node-sass does not get built correctly you may get errors about binding of libsass when compling the sass.  If so check out this post [libsass binding errors](http://stackoverflow.com/questions/29461831/libsass-bindings-not-found-when-using-node-sass-in-nodejs)
-
-look in gulpfile.js/tasks directory to see how the tasks are organized and sequences of tasks are called from "master" tasks
-
 
 ### Production/Deploy
 
@@ -60,7 +68,7 @@ or
 gulp deploy-gh
 ```
 
-deploy builds the production version of the site and then publishes it to your AWS S3-Bucket.  
+deploy-S3 builds the production version of the site (which is currently not being optimzied!) and then publishes it to your AWS S3-Bucket.  deploy-gh sends it to the github pages (gh-pages branch) of your github repo.
 
 ## Publish to S3
 
@@ -112,12 +120,6 @@ bower install --save-dev <package>
 
 be sure to use the --save or --save-dev option so listing of your package ends up in bower.json.
 
-Then you'll need to run this task to grab the paths for sass processing by libsass.  Only need to do this when you install or uninstall bower packages
-
-```
-gulp sass-bower   
-```
-
 It will store the path of any new packages that has a scss main file such that you can now just use a simple @import('') without the directory path and libsass will find it when compiling scss (yea).   Eventually it will even put that @import into a scss file of your choosing.  In this repo that would be `_packages.scss_`
 
 ## Todos
@@ -139,8 +141,12 @@ no particular order
 
  
 ============================
-This starter forked from https://github.com/greypants/gulp-starter/tree/2.0) which is branch of https://github.com/greypants/gulp-starter/tree/master
+This repo started as a fork from https://github.com/greypants/gulp-starter/tree/master
 
-There you will find more details about the gulp tasks.  I have dropped/modified a few but the but the essence is there, like autoprefixing and mini and uglifying with production.  For example I dropped out the gh-pages based deploy for S3 but the original task file is still in the repo.
+Much of the workflow in that repo has been removed for simplicity like revisioning and testing and webpack.
+
+This starter may be more appropriate for you in that it is set up for starting any webapp, not just a generated one, on the downside it of course is mostly just a workflow skeleton the rest is left up to your imagination and hours of work.
+
+
 
 

@@ -10,9 +10,7 @@
     "type": "git",
     "url": "https://github.com/dkebler/hugo-sass-bower-gulp-starter"
   },
-  "scripts": {
-    
-  },
+  "scripts": {},
   "dependencies": {},
   "devDependencies": {
     "app-root-path": "^1.0.0",
@@ -37,6 +35,7 @@
     "jsonfile": "^2.2.3",
     "open": "0.0.5",
     "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.4",
     "wiredep": "^3.0.0-beta"
   }
 }

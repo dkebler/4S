@@ -5,6 +5,5 @@ module.exports = {
     baseDir: config.publicDirectory,
   },
   files: ['public/**/*.html'],
-  port:3033,
-  browser: "firefox"
+  port:3033
 }
