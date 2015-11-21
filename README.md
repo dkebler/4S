@@ -70,13 +70,17 @@ gulp deploy-gh
 
 deploy-S3 builds the production version of the site (which is currently not being optimzied!) and then publishes it to your AWS S3-Bucket.  deploy-gh sends it to the github pages (gh-pages branch) of your github repo.
 
+### No Need for a Terminal Window
+
+If you are using sublime text 3 there is a package available called not surprisingly called [gulp](https://packagecontrol.io/packages/Gulp) which will give you access to your gulp tasks from multiple locations within sublime and you can see console output all in sublime.  I helped the author a bit with a documentation PR so I know it works great.
+
 ## Publish to S3
 
 As stated in the prerequisite you must have the AWS-CLI installed.  I have a Todo to use the node.js aws-sdk but for now that is a prerequisite. The commandline is a good idea anyway because it allows you to test out your connection outside of the gulp/node.js to be sure it is working.
 
 You need to configure three parts.
 1. `gulpfile.js/config/deploy-s3.js` with bucket and url names plus your aws profile name.  I set it up for two buckets so you can test your production on a test bucket before deploying it to your live bucket.  By default it's set to the testing bucket and for now you must edit the `gulpfile.js/tasks/deploy-s3.js` file to change that.
-2. Your credentials and config files in your home directory which contain your AWS keys and region etc and thus are NOT part of your repo for obvious security reasons. [aws configure](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).  Use the profile switch and then set that in deploy-s3.js.
+2. Your credentials and aws config files in your home directory which contain your AWS keys and region etc and thus are NOT part of your repo for obvious security reasons. [aws configure](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).  Use the profile switch and then set that in deploy-s3.js.
 3. Your policy for the IAM user associated with the AWS keys you are using.  This one worked for me.
  
 ```
@@ -117,16 +121,29 @@ You need to configure three parts.
 bower install --save-dev <package>
 ```
 
-be sure to use the --save or --save-dev option so listing of your package ends up in bower.json.
+be sure to use the --save or --save-dev option so a listing of your package ends up in bower.json.
 
 The sass task will automagically invoke a sass-bower module in /lib which uses wiredep to grab all the paths for bower libraries that have .sass/.scss.  This allows you to use a simple `@import('libname')` in your code and yet libsass (node-sass) will figure out where those live (yea!).
 
-In this repo I @import all bower scss packages in one file the `_packages.scss_` in the sass assests vendors folder.
+In this repo I @import all bower scss packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
 
 ### Styling
 
+##### Organization
+
+When it comes to styling I follow the "one file to rule them all" 7-1 philosophy found at these guidelines http://sass-guidelin.es/. written by the "God" of Sass Hugo Giraudel.  This makes is easier in terms of workflow because the sass/scss files are "assembled" within the sass and that single file (currently `site.scss`) is then compiled, prefixed and sourcemapped, and sent to the `/public`  folder as a .css.  That's one simple line to include it in your html header.  That's way better than having gulp work on dozens of individual sass files.  I more or less follow the 7-1 pattern which breaks out styling into logical pieces.  With the help of a sublime text plugin called "dependents" https://packagecontrol.io/packages/Dependents one can easily traverse the files (works on js files as well!).  This avoids the huge monolithic files.
+
+With the css/html I follow BEM naming conventions for ids and classes.
+
+##### Libraries
+
+   ##### Color
+
 ### Layout
 
+The page "layout" is done currently within [Hugo](http://gohugo.io) in a way very similar to jade, or handlebars or other templating tools.  There is a [TODO](#todo) to accommodate other generators/templating tools but for now it's Hugo.   
+
+The idea is to build an entire page out of rationally organized partials.  The default template page is called single.html located in `app/hugo/layouts/_default`  You'll see it imports just two partials (head and body) that then load in other "lower" partials as organized in the `/partials` subdirectory.  Currently these set of partials combine to form a holy grail layout based on flexboxes.  But obviously the `/body` partials could be reorganized/recoded into whatever layout/method you want.  This use of directories and partials integrates nicely with the 7-1 sass philosophy and makes it easier to find and style the various layout pieces.
 
 
 

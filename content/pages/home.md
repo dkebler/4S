@@ -1,11 +1,14 @@
 +++
-Categories = ["default"]
-Description = ""
+title = "Complete Site Generator"
+subtitle = "Getting A Jumpstart With a Starter"
+Description = "A Home Page for the Site"
+date = "2015-11-20"
 Tags = ["Meat", "Vegetables", "Fruits", "Cerals", "Confections"]
-date = "2015-01-16T09:59:35-08:00"
-title = "Test Home Page"
+Categories = ["default"]
 +++
 [favorite meats](/meat/favs)
+
+A test
 
 # First Level Header
 
@@ -23,6 +26,6 @@ title = "Test Home Page"
  {{% lorem 2p %}}
 
  {{% format box %}}
- This is some text in a box.
+ This is some text in a box. It uses a hugo shortcode to apply a styling class in this case "box"
  {{% lorem 1p %}}
  {{% /format %}}
