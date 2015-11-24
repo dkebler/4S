@@ -1,13 +1,17 @@
 var gulp         = require('gulp');
 var browserSync  = require('browser-sync');
 var exec = require('child_process').execSync;
-var config       = require('../config/html');
+var config     = require('../config/');
+var hugo       = require('../config/hugo');
 // var gutil        = require('gulp-util');
 
+gulp.task('hugo', function () {
 
-gulp.task('html', function () {
-
-var cmd = 'hugo -v --destination="'+ config.dest +'" --buildDrafts --source='+ config.src;
+var cmd = 'hugo' 
+			+ ' --baseUrl="' + config.url  + '"' 
+			+ ' --config="' + hugo.configPath + '"'     
+			+ ' --source="' + hugo.layouts + '"' 
+			+ ' --destination="../../'+ config.buildDirectory + config.buildSubdirectory[config.buildType] + '"';
 console.log('cmd: ' + cmd);
 
 exec(cmd, function(error, stdout, stderr) {

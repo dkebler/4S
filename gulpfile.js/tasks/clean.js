@@ -13,6 +13,7 @@ gulp.task('clean', function() {
 
 // using sync version
 gulp.task('clean', function() {
-	del.sync([config.publicDirectory + '/**']);
-	gutil.log('Deleted files and folders in : ', config.publicDirectory);
+	var dir = config.buildDirectory + config.buildSubdirectory[config.buildType]  + '/**'
+	del.sync([dir]);
+	gutil.log('Deleted files and folders in : ', dir );
 });

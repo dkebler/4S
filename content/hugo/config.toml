@@ -1,7 +1,7 @@
-baseurl = "dkebler.github.io/Hugo-Sass-Bower-Gulp-S3-Starter"
+baseurl = ""
 languageCode = "en-us"
 title = "Hugo Complete Starter Website"
-contentdir = "../../content/pages"
+contentdir = "../../content/hugo/pages"
 [params]
   site-description = "Blah Blah"
   site-creator= "Jim Shoe"

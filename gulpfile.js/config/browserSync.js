@@ -2,8 +2,9 @@ var config = require('./')
 
 module.exports = {
   server: {
-    baseDir: config.publicDirectory,
+   // baseDir: config.buildDirectory + config.buildSubdirectory[config.buildType]
+    baseDir: config.repoRoot +'/.builds/dev/'
   },
-  files: ['public/**/*.html'],
-  port:3033
+  files: [config.buildDirectory + config.buildSubdirectory[config.buildType] + '/**/*.html'],
+  port:config.localport
 }

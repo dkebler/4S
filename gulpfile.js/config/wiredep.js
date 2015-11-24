@@ -1,6 +1,6 @@
 var config = require('./') // config/index.js
-var bowerjson = require(config.appRoot + "/bower.json"); 
-var bowerrc = require('jsonfile').readFileSync(config.appRoot + "/.bowerrc");
+var bowerjson = require(config.repoRoot + "/bower.json"); 
+var bowerrc = require('jsonfile').readFileSync(config.repoRoot + "/.bowerrc");
 
 module.exports = {
 directory: bowerrc.directory,
