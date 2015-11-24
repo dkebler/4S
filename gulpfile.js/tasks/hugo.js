@@ -3,11 +3,11 @@ var browserSync  = require('browser-sync');
 var exec = require('child_process').execSync;
 var config     = require('../config/');
 var hugo       = require('../config/hugo');
-// var gutil        = require('gulp-util');
+var gutil        = require('gulp-util');
 
 gulp.task('hugo', function () {
 
-var cmd = 'hugo' 
+var cmd = 'hugo -v' 
 			+ ' --baseUrl="' + config.url  + '"' 
 			+ ' --config="' + hugo.configPath + '"'     
 			+ ' --source="' + hugo.layouts + '"' 
@@ -15,12 +15,13 @@ var cmd = 'hugo'
 console.log('cmd: ' + cmd);
 
 exec(cmd, function(error, stdout, stderr) {
- //   console.log('Builder Says: ' + stdout);
+    gutil.log('HugoBuilder Says: ' +  stdout);
+    gutil.log(stdout);
         if (error !== null) {
         console.log('stderr: ' + stderr);
         console.log('exec error: ' + error);
     }
-//   gutil.log(stdout);
+
 });
 
   
