@@ -12,7 +12,9 @@ module.exports = {
   autoprefixer: { browsers: ['last 2 version'] },
   src: config.assetsDirectory + "/styles/sass/site.scss",
   watch: config.assetsDirectory + "/styles/sass/" + '/**/*.*',
-  dest: config.buildDirectory + config.buildSubdirectory[config.buildType] + '/assets/styles/',
-  sasspaths: sass.paths
+  dest: '/assets/styles/',
+  paths: sass.paths
 }
+
+
 

@@ -18,5 +18,6 @@ module.exports = {
 	live: {
 		url: 'web.healthwrights.org',
 		bucket:'web.healthwrights.org'
-	}
+	},
+	location: 'testing' // default is to testing bucket
 }
