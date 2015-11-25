@@ -12,8 +12,8 @@ config.contentDirectory = "./content"
 // TODO have html templates be a submodule.
 config.htmlDirectory ="./html"; // html templates and other configs needed by the generator
 // put generator templates/files in subdirectory of config.html of the same name (e.g. html/hugo)
-config.localport = 8090; // default port number for localhost serving (dev)
-config.url = 'http://localhost:' + config.localport; // default localhost for dev
+config.localport = '8090'; // default port number for localhost serving (dev)
+config.url = 'localhost:' + config.localport; // default localhost for dev
 
 //console.table(config);
 //console.table(config.buildSubdirectory);

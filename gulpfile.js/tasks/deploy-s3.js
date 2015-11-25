@@ -22,8 +22,22 @@ console.log(config.url, bucket);
 var s3 = require('gulp-s3-upload');
 */
 
-gulp.task('deploy-s3', ['set-dist','build'], function() {
-  console.log('some deploy stuff');
+var runSequence = require('run-sequence');
+
+gulp.task('deploy-s3', function(cb) {
+config.buildType='dist'
+config.url = s3config[s3config.location].url
+console.log('deploy-s3', config.buildType, config.url )
+runSequence('clean',['sass',config.htmlGenerator], cb);
+});
+
+
+
+
+// gulp.task('deploy-s3', ['set-dist','build'], function() {
+//  console.log('some deploy stuff');
+
+
 
 /*
 gulp.src("")
@@ -32,7 +46,21 @@ gulp.src("")
              {maxRetries: 5}
              ));
  */            
-});
+// });
+
+// gulp.task('deploy-s3', ['set-dist','build'], function() {
+//  console.log('some deploy stuff');
+
+
+
+/*
+gulp.src("")
+        .pipe(s3(
+             {Bucket: s3config[s3config.location].bucket}, 
+             {maxRetries: 5}
+             ));
+ */            
+// });
 
 
 
