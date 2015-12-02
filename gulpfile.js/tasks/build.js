@@ -1,11 +1,9 @@
-var gulp         = require('gulp');
-var runSequence = require('run-sequence');
+var gulp = require('gulp');
 var config = require('../config/');
+var runSequence = require('run-sequence');
 
-// FIXME runSequence may not needed with gulp goes to 4.0+ replace with gulp.series or gulp.parallel.
 gulp.task('build', function(cb) {
+// could add in args for command line build, otherwise config must be set before coming here.
+runSequence('clean',['sass',config.htmlGenerator],cb);
+});	
 
-console.log('in build',process.env.buildType);
-if (config.buildType == 'dev') runSequence('clean',['sass',config.htmlGenerator], 'watch', cb);
-if (config.buildType == 'dist') runSequence('clean',['sass',config.htmlGenerator], cb);
-});

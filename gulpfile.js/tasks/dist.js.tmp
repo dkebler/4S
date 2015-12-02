@@ -1,0 +1,11 @@
+var gulp = require('gulp');
+var config = require('../config/');
+var runSequence = require('run-sequence')
+
+module.exports = (function(cb) {
+runSequence('clean',['sass',config.htmlGenerator],cb);
+return cb;
+
+}());
+
+
