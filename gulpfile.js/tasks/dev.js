@@ -5,10 +5,9 @@ var runSequence = require('run-sequence');
 gulp.task('dev', function(done) {
 config.buildType='dev';
 config.url = 'localhost:' + config.localport;
-console.log('building development, serving at', config.url )
-//runSequence('build','watch');
-runSequence('build',done);
+build = require('../lib/build');
+build(config,done);
 
-function done(){console.log('all done ready for development/content editing')}
+function done(){info('serving at: ' + config.url + ' ,ready for live editing')}
 });	
 

@@ -2,60 +2,39 @@ var gulp         = require('gulp');
 var open    = require('open');
 var config = require('../config/');
 
-// for debugging
-// var gutil        = require('gulp-util');
 var argv = require('yargs').argv;  
 var runSequence = require('run-sequence');
 
 gulp.task('deploy',function(cb) {
 
-var deploy = 's3'; // default location
-var argv = require('yargs').argv;  
+debug('arguments to deploy', argv, Object.keys(argv)[1]);
 
-if (argv.s3) deploy = 's3';
-if (argv.gh) deploy = 'gh';
+var deployto = 's3';
+if (Object.keys(argv)[1]!=='$0') {deployto = Object.keys(argv)[1]}
 
-var dplyconfig = require('../config/deploy-' + deploy );
+info('Starting deployment to', deployto, ',  building...'); 
+
+var dplyconfig = require('../config/deploy-' + deployto );
+
+debug(dplyconfig);
 
 // build the distribution folder
-config.buildType='dist'
-config.url = dplyconfig[dplyconfig.location].url
+config.buildType='dist';
+config.url = dplyconfig[dplyconfig.location].url;
 
-console.log('deploying to', deploy, ', bucket:', dplyconfig[dplyconfig.location].bucket );
+// runSequence('build', deploy);
+build = require('../lib/build');
+build(config,deploy);
 
-
-// runSequence('clean',['sass',config.htmlGenerator], deploy());
+function deploy() {
+    info('syncing after build')
+    debug('../lib/deploy-'+ deployto);
+    require('../lib/deploy-'+ deployto);
+    open(config.url);
+}
 
 });
 
-
-/* old AWS CLI code
-gulp.src("./.build/dist/**")
-   .pipe(s3({Bucket: "test.healthwrights.org"}));
-*/
-
-/*  // TODO write a helper function to create this string.  Try using lodash to get option key names
-  var cmd = 'aws s3 sync ' + config.src + ' s3://'+ bucket +' \
-  --profile '+ config.options.profile + ' --grants '+ config.options.grants + ' --delete ';
-  // --profile '+ config.options.profile + ' --grants '+ config.options.grants +' --dryrun ' ;
-
-  console.log('cmd: ' + cmd);
-  console.log('Writing Files from ' + config.src + ' to ' + config.testing.bucket);
-
-  exec(cmd, function(error, stdout, stderr) {
-  //   console.log('AWS-CLI Says: ' + stdout);
-          if (error !== null) {
-          console.log('stderr: ' + stderr);
-          console.log('exec error: ' + error);
-      }
-  //   gutil.log(stdout);
-  });
-
-  open(config.testing.url,"firefox");
-  
-});
-
-*/
 
 
 

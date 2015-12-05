@@ -1,19 +1,18 @@
 var config = require('./')
 
 module.exports = {
-	profile:'hwdeploy',  // aws profile with write privileges to bucket.
-	grants:'read=uri=http://acs.amazonaws.com/groups/global/AllUsers',
-	dryrun:'',
+	profile:'DGK-deploy',  // aws profile with write privileges to bucket.
 	delete:'',
 // use this for testing bucket	
 	testing: {
-		url: 'test.healthwrights.org',
-		bucket:'test.healthwrights.org'
+		region: 'us-west-2',
+		url: 'test.david.kebler.net',
+		bucket:'test.david.kebler.net'
 	},
 // use this for live production bucket	  	
 	live: {
-		url: 'web.healthwrights.org',
-		bucket:'web.healthwrights.org'
+		url: 'david.kebler.net',
+		bucket:'david.kebler.net'
 	},
-	location: 'testing' // default is to testing bucket
+	location: 'testing' // default is to testing bucket, "gulp deploy --s3 --live"  will switch to live
 }

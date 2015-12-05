@@ -2,9 +2,6 @@ var config = require('./')
 var fs = require('fs');
 var sass = require('../lib/sass-bower');
 
-console.log('sass power paths re/create');
-// console.table(sass.paths);
-
 if (typeof sass.paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
 if (sass.paths == null) {console.log('no scss bower paths available');} 
 

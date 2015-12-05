@@ -1,6 +1,7 @@
 var config = require('./')
 
+// TODO set
 module.exports = {
-  url: 'http://localhost:' + config.localport,
+  url: '',
   src:  config.buildDirectory + config.buildSubdirectory[config.buildType]  + '/**'
 }

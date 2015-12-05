@@ -3,6 +3,8 @@
 // This set of paths gets sent to node-sass in gulp sass task 
 // runs ons whenever gulp sass is called or when bower.json changes.
 
+
+
 module.exports = (function() {
 var jsonfile = require('jsonfile')
 var config = require('../config/')
@@ -27,9 +29,8 @@ for (var i=0; i<sass.paths.length; i++){
   sass.paths[i] = require('path').dirname(sass.paths[i]);
 }  
 
-console.log("in sass-bower"); 
 // console.table(sass.paths); 
-console.log(wd_config.directory);
+debug("bower directory", wd_config.directory);
 
 // no need to write them keep in memory?
 // now write them out to a json file that can be used in the node-sass call
@@ -37,4 +38,4 @@ console.log(wd_config.directory);
 
 return sass;
 
-}());
+}());  // immediately fun function on require

@@ -1,10 +1,9 @@
 // PRECCOMPILE - SASS-SCSS  
+
 var gulp         = require('gulp');
 var gulpif = require('gulp-if');
 var browserSync  = require('browser-sync');
 var argv = require('yargs').argv;
-
-var console = require('../lib/debug');
 
 // for sass compiling
 var process_sass = require('gulp-sass');  //uses node-sass
@@ -28,27 +27,28 @@ if (argv.dist) config.buildType='dist';    // gulp sass --dist     for one off s
 
 var dest = config.buildDirectory + config.buildSubdirectory[config.buildType] + sass.dest;
 
-console.log('sass - buildtype=', config.buildType);
+debug('Sass build type: ', config.buildType, ', output to: ',dest);
 
+
+// Only minify when building distribution
+// Only add sourcemaps and browser sync when building development
   return gulp.src(sass.src,sass.paths)
     .pipe(plumber({errorHandler: onError}))
     .pipe(gulpif(config.buildType === 'dev',sourcemaps.init()))
-    .pipe(process_sass({includePaths: sass.paths})).on('end', function(){ gutil.log('Libsass done...'); })
+    .pipe(process_sass({includePaths: sass.paths})).on('end', function(){ debug('Libsass done...'); })
  // autoprefixer before sourcemaps write per gulp-autoprefixer   
-    .pipe(autoprefixer(sass.autoprefixer)).on('end', function(){ gutil.log('Autoprefixer done...'); })
+    .pipe(autoprefixer(sass.autoprefixer)).on('end', function(){ debug('Autoprefixer done...'); })
     .pipe(gulpif(config.buildType === 'dev',
-        sourcemaps.write('.').on('end', function(){ gutil.log('SourceMaps Written...'); })
+        sourcemaps.write('.').on('end', function(){ debug('SourceMaps Written...'); })
         ))
     .pipe(gulpif(config.buildType === 'dist',
-        minify().on('end', function(){ gutil.log('CSS Minified...'); }) 
+        minify().on('end', function(){ debug('CSS Minified...'); }) 
         ))    
       .pipe(gulp.dest(dest))
-           .on('end', function(){ gutil.log('Css written to ' + dest ); })
- //   .pipe(browserSync.reload({stream:true}))
+           .on('end', function(){ debug('Css written to ' + dest ); })
       .pipe(gulpif(config.buildType === 'dev',
-        browserSync.stream().on('end', function(){ gutil.log('Browser Synced...'); }) 
+        browserSync.stream().on('end', function(){ debug('Browser Synced...'); }) 
         ))    
- // TODO  Promiseify this ?? I am returning a stream. 
      ;
 });
 

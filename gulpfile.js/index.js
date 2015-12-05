@@ -11,12 +11,13 @@
   when you run `gulp`.
 */
 
-// require('console.table');  // make this available to any task
+// require('console.table');  // for use with displaying object contents
 
-require('./lib/debug');
-
-console2.debug('debug-test');
+require('./lib/debug');  // See gulpfile.js/lib/debug.js to turn on/off/customize debugging
 
 var requireDir = require('require-dir');
 // Require all tasks in gulp/tasks, including subfolders
-requireDir('./tasks', { recurse: true });
+var tasks = requireDir('./tasks', { recurse: true });
+
+
+
