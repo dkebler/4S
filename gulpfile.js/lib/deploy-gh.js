@@ -1,14 +1,17 @@
-var gulp    = require('gulp');
-// var ghPages = require('gulp-gh-pages');
-var open    = require('open');
-var config  = require('../config/deploy-gh');
+var ghconfig  = require('../config/deploy-gh');
+var config = require('../config/');
+var ghpages = require('gh-pages');
 
-var production = true;
+module.exports = function(cb) {
 
-gulp.task('deploy-gh', ['build:dist'], function() {
-  return gulp.src(config.src)
-    .pipe(ghPages())
-    .on('end', function(){
-      open(config.url);
-    })
-});
+var deploySrc = config.buildDirectory + config.buildSubdirectory[config.buildType];  
+debug('deploy-gh', config.buildType, config.url, ghconfig[ghconfig.location], deploySrc);
+
+ghpages.publish(deploySrc, ghconfig[ghconfig.location], function(err) {
+	if (err) { console.log('error', err); return;}
+	info('build successfully sent to github');
+	debug(cb);
+	cb(); // just open it in browser for check.
+	})
+}
+

@@ -1,28 +1,24 @@
 var s3config  = require('../config/deploy-s3');
 var config = require('../config/');
-
 var s3 = require('s3');
 
-//use this or set region in S3 client options
-// s3.AWS.config.region = 'us-west-2';
-var client = s3.createClient({
-  s3Options: {
- // if not using profile you might use these but I suggest requiring a file   
-//  accessKeyId: 'mykey',
-//  secretAccessKey: 'mysecret',
-    region: 'us-west-2'
-  }
-});
+module.exports = function(cb) {
 
-// var AWS = require('aws-sdk');
-// AWS.config.region = 'us-west-2';
-// var s3 = new AWS.S3();
-
-// set a profile in ~/.aws/credentials -  
+// set a profile in ~/.aws/credentials -  or see s3 documentation for other credential injection.
 // The IAM user corresponding to this profile's credentials must have an access policy in AWS.
 process.env.AWS_PROFILE = s3config.profile;
 
-// Deploy to S3 bucket
+//use this or set region in S3 client options below, do not set for aws default region
+// s3.AWS.config.region = s3config[s3config.location].region;
+var client = s3.createClient({
+  s3Options: {
+ // if not using an aws profile (above) you might use these although would put them in ignored file , see s3 documentation    
+//  accessKeyId: 'mykey',
+//  secretAccessKey: 'mysecret',
+    region: s3config[s3config.location].region
+  }
+});
+
 var deploySrc = config.buildDirectory + config.buildSubdirectory[config.buildType];  
 
 debug('deploy-s3', config.buildType, config.url, s3config.profile, s3config[s3config.location].bucket, deploySrc);
@@ -32,7 +28,7 @@ var params = {
   ACL: 'public-read'
 };
 
-// bucket exists
+// bucket exists check?  no access from this s3 object.
 /*s3.headBucket(params, function(err, data) {
   if (err) {debug('bucket ', params.Bucket, ' does not exit'); debug2(err, err.stack);} // an error occurred
   else     debug('bucket ', params.Bucket, ' exits with access');           // successful response
@@ -61,10 +57,11 @@ uploader.on('progress', function() {
 });
 uploader.on('end', function() {
   info('done sycning ', deploySrc, 'to bucket', s3config[s3config.location].bucket );
+  cb(); // call openit (or some other such callback)
 }); 
 
 
- 
+ }
 
 
 

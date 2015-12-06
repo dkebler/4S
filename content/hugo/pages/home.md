@@ -8,8 +8,6 @@ Categories = ["default"]
 +++
 [favorite meats](/meat/favs)
 
-A test
-
 # First Level Header
 
 ## Second Level Header

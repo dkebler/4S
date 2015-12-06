@@ -4,9 +4,10 @@
 process.env.DEBUG_DIFF = 0;  // turn off millisecond diff
 
 var db = require('debug');
+var Table = require('easy-table')
 
 // comment an enable to disable that output.
-// db.enable('debug');
+db.enable('debug');
 // db.enable('debug2');
 db.enable('info');
 // ********************

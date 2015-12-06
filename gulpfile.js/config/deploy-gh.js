@@ -1,10 +1,9 @@
-var config = require('./')
-
 module.exports = {
-  	ghaccount:'dkebler',  // aws profile with write privileges to bucket.
-// use this for testing bucket	
-	testing: {
-		url: 'https://dkebler.github.io/Hugo-Sass-Bower-Gulp-S3-Starter',
- 	},
-	location: 'testing' // default is to testing bucket
+	location: 'default', 
+  	default: {
+		url: 'dkebler.github.io/Hugo-Sass-Bower-Gulp-S3-Starter',
+		// repo:'';  if not origin - for example to publish to your github root web
+		// branch: ''; if not gh-pages
+		// see gh-pages for other options
+ 	}
 }

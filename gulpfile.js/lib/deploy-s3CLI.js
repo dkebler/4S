@@ -1,14 +1,10 @@
 var s3config  = require('../config/deploy-s3CLI');
 var config = require('../config/');
 
-var s3 = require('s3');
-var client = s3.createClient({region: 'us-west-2',});
 
 // Deploy to S3 bucket
 var deploySrc = config.buildDirectory + config.buildSubdirectory[config.buildType];  
 process.env.AWS_PROFILE = s3config.profile;
-
-debug(process.env.AWS_PROFILE);
 
 debug('deploy-s3CLI', config.buildType, config.url, s3config.profile, s3config[s3config.location].bucket, deploySrc);
 
