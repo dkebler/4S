@@ -1,7 +1,7 @@
 // see paletton.com and color-schemer
 
 $picked-color: #275183; // Pick a color for your scheme:  
-$picked-color: #ff5183; // Pick a color for your scheme:  
+// $picked-color: #ff5183; // Pick a color for your scheme:  
 $cs-primary: hsl(hue($picked-color), 60%, 40%); // Adjust sat/lightness of the hue of picked color
 
 // Select your scheme from the list 
@@ -39,6 +39,7 @@ $footer-bg-color: ts-color($primary,-6);
 // components
 $box-bg-color: ts-color($quadrary,-6);
 $tags-bg-color: ts-color($quadrary,1);
+$button-color:  ts-color($tertiary,6);
 
 
 

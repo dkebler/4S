@@ -6,8 +6,14 @@ gulp.task('dev', function(done) {
 config.buildType='dev';
 config.url = 'localhost:' + config.localport;
 build = require('../lib/build');
-build(config,done);
+build(config,watch);
 
-function done(){info('serving at: ' + config.url + ' ,ready for live editing')}
+function watch() {
+    info('dev build complete:  watching for changes');
+    watchAll = require('../lib/watchAll');
+    watchAll(config);
+    }
+
 });	
+
 

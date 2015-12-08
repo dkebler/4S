@@ -34,6 +34,7 @@ function deploy() {
  }
 
 function openit() {
+	info('deployment to', deployto, ' commplete');
 	info('opening http://', config.url, ' in browser')
 	var open = require('open');
 	open('http://'+ config.url);  

@@ -53,7 +53,7 @@
   padding: 0.2em 0.5em;
 }
 
-@mixin button-colors($button-color: #ececec, $button-text-color: #2d2d2d) {
+@mixin button-colors($button-color: #000000, $button-text-color: #2d2d2d) {
   color: $button-text-color;
   background: {
     color: $button-color;

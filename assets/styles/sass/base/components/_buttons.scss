@@ -1,27 +1,45 @@
 // http://thecodingdesigner.com/journal/balancing-ideal-sass-and-ideal-css
 
+%button {
+  @include button-base;
+  @include button-colors();
+}
+%button-cta {
+  @extend %button;
+  @include button-colors($button-color: #bada55);
+}
 
-// input[type="submit"] {
-//   @extend %button;
-// }
-// input[type="reset"] {
-//   @extend %button;
-// }
-// button {
-//   @extend %button;
-//   @media (min-width: 32em) {
-//     @include button-base;
-//     @include button-colors($button-color: #c0ffee);
-//   }
-// }
+%button-coffee {
+  @include button-base;
+  @include button-colors($button-color: #c0ffee);
+}
 
-// .cta {
-//   input[type="submit"] {
-//     @extend %button-cta;
-//   }
-//   @media (min-width: 32em) {
-//     @include button-base;
-//     @include button-colors($button-color: #c0ffee);
-//     width: 100%;
-//   }
-// }
+%full-width {
+  width: 100%;
+}
+
+
+input[type="submit"] {
+  @extend %button;
+}
+input[type="reset"] {
+  @extend %button;
+}
+button, #button, .button {
+  @extend %button;
+  @media (min-width: 32em) {
+    @include button-base;
+    @include button-colors($button-color);
+  }
+}
+
+.cta {
+  input[type="submit"] {
+    @extend %button-cta;
+  }
+  @media (min-width: 32em) {
+    @include button-base;
+    @include button-colors($button-color);
+    width: 100%;
+  }
+}
