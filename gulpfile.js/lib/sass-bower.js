@@ -3,15 +3,12 @@
 // This set of paths gets sent to node-sass in gulp sass task 
 // runs ons whenever gulp sass is called or when bower.json changes.
 
-
-
 module.exports = (function() {
 var jsonfile = require('jsonfile')
 var config = require('../config/')
 var wd_config      = require('../config/wiredep');  // wiredep used to get the paths, so check config/wiredep.js
 
-// hold bower sass/scss library paths
-var sass = {};  
+var sass = {};  // holds bower sass/scss library paths
 
 // add access to dev dependencies since that's what the scss/sass libs are.
 wd_config.devDependencies = 'true';   
@@ -31,11 +28,16 @@ for (var i=0; i<sass.paths.length; i++){
 
 // console.table(sass.paths); 
 debug("bower directory", wd_config.directory);
+debug2(sass.paths);
 
-// no need to write them keep in memory?
 // now write them out to a json file that can be used in the node-sass call
-// jsonfile.writeFile(file, sass, function (err) {console.error(err)});
+jsonfile.writeFile(config.repoRoot +'/gulpfile.js/config/sass-bower.json', sass, function (err) {
+	  if (err) {console.error(err); return;}
+	  info('sass bower paths written to sass-bower.json');
 
-return sass;
+	  });
 
-}());  // immediately fun function on require
+// and return as object in memory.
+// return sass;
+
+}());  // immediately run function on require

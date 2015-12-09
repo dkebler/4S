@@ -1,3 +1,7 @@
 {
-	"directory" : "bower_components"
+	"directory" : "bower_components",
+	"scripts": {
+    "postinstall": "gulp sass:paths",
+    "postuninstall": "gulp sass:paths"
+     }
 }

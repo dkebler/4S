@@ -1,6 +1,6 @@
 var config = require('./')
-var fs = require('fs');
-var sass = require('../lib/sass-bower');
+// generate list of paths to bower sass/scss libraries
+var sass = require('./sass-bower'); // json file of paths
 
 if (typeof sass.paths == 'undefined') {console.log('scss bower paths NOT retrieved');}
 if (sass.paths == null) {console.log('no scss bower paths available');} 

@@ -10,7 +10,8 @@
     "sass-mq": "~3.2.3",
     "sassy-maps": "~0.4.0",
     "normalize-scss": "~3.0.3",
-    "breakpoint-slicer": "~2.x.x"
+    "breakpoint-slicer": "~2.x.x",
+    "sass-mediaqueries": "~1.6.1"
   },
   "overrides": {}
 }

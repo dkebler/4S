@@ -24,7 +24,7 @@ function secondFunction(callback){
 
 firstFunction(secondFunction);*/
 
-
+// promise based sequence
 var Promise = require('es6-promise').Promise
   , state = {}
   ;
