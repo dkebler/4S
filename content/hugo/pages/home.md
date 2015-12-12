@@ -10,6 +10,8 @@ Categories = ["default"]
 
 {{% button url="http://david.kebler.net" text="David Kebler" size="large" target="new"%}}
 
+[comment]: # (This actually is the most platform independent comment)
+
 # First Level Header
 
 ## Second Level Header
