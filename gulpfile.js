@@ -24,8 +24,11 @@ gulp.task('default', ['dev']);
 gulp.task('dev', function() {
 Config.buildType='dev';
 Config.url = 'localhost:' + Config.localport;
-build = require(Config.libDirectory + 'build');
-build(watch);  // callback is watch function
+require(Config.libDirectory + 'build')
+  .then (function(result) {console.log(result)})
+  .then (function() {console.log('start watching')})
+// .then(require(Config.libDirectory + 'watchAll'));
+// build.then(watch,error);
 
 function watch() {
     info('dev build complete:  watching for changes');
