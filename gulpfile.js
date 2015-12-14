@@ -6,10 +6,15 @@ Configfilepath = require('./package').configfilepath || 'config/';
 var ds = require('dot-slash').enforce;
 Config = require(ds(Configfilepath));
 
+// Promise = require('any-promise');
+// Promise = require('q');
+Promise = require('bluebird');
+
 var gulp = require('gulp');
 require(Config.libDirectory + 'debug');  // see debug.js in library to turn on/off/customize debugging
-
 var argv = require('yargs').argv;  // for gulp tasks accepting arguments (deploy)
+
+
 
 // *********************
 // Task - DEFAULT
@@ -17,26 +22,24 @@ var argv = require('yargs').argv;  // for gulp tasks accepting arguments (deploy
 // *********************
 gulp.task('default', ['dev']);
 
+
 // *******************
 // Task - DEV
 // Builds development version of assets and html and then starts browser with sync and a file watcher
 // *******************
 gulp.task('dev', function() {
-Config.buildType='dev';
-Config.url = 'localhost:' + Config.localport;
-require(Config.libDirectory + 'build')
-  .then (function(result) {console.log(result)})
-  .then (function() {console.log('start watching')})
-// .then(require(Config.libDirectory + 'watchAll'));
-// build.then(watch,error);
 
-function watch() {
-    info('dev build complete:  watching for changes');
-    var watchAll = require(Config.libDirectory + 'watchAll');
-    watchAll(error);  //error is callback when something in watching fails.
-    }
+return  new Promise(function(resolve, reject) {
+  Config.buildType='dev';
+  Config.url = 'localhost:' + Config.localport;
+  require(Config.libDirectory + 'build')
+    .then (res => {info(res)})
+    .then(require(Config.libDirectory + 'watchAll'))
+    .catch(function(e){config.log('error: ', e)})
+    .done;
+})
 
-function error(){console.log('something bad happened while watching');}
+function error(){console.log('something bad happened');}
 
 });
 
@@ -110,27 +113,12 @@ require(config.libDirectory + '/todo');
 });
 
 // ************************
-// Task - TODO
-// generate a todo.md in root of all repo todos.  uses leasot  https://github.com/pgilad/leasot
-// *************************
-var open = require('gulp-open');
-gulp.task('todo:view',['todo'], function() {
-    gulp.src('./TODO.md')
- //   .pipe(open());
-
-      .pipe(open({uri: 'localhost:3030', app: 'firefox'}));
-
-});
-
-
-// ************************
 // Task - TEST
 // want to test come code?  Just put it in testing.js in the library directory
 // *************************
 gulp.task('test', function() {
 require(Config.libDirectory + 'testing');
 });
-
 
 // ************************
 // Task - HELP

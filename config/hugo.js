@@ -1,14 +1,14 @@
-var config = require('./')
+var html =  Config.htmlDirectory + Config.htmlGenerator ;
+var contentdir = Config.contentDirectory + Config.htmlGenerator;
 
-var html =  config.htmlDirectory + '/' + config.htmlGenerator ;
-var content = config.contentDirectory + '/' + config.htmlGenerator;
+debug('md content directory: ', contentdir)
 
-// TODO need to open up the readwrite the config.toml file and write out the contentdir setting.
+// TODO need to open up for readwrite the config.toml file and write out the contentdir setting with "content" variable.
 
 module.exports = {
   layouts: html,
-  configPath : content + '/config.toml',	
-  pages: content + '/pages',
-  data:  content + '/data',
-  watch: [html + '/**/*.*',content + '/**/*.*']
+  configPath : contentdir + '/config.toml',
+  pages: contentdir + '/pages',
+  data:  contentdir + '/data',
+  watch: [html + '/**/*.*',contentdir + '/**/*.*']
   }

@@ -1,26 +1,26 @@
 // see paletton.com and color-schemer
 
 $picked-color: #275183; // Pick a color for your scheme:  
-// $picked-color: #ff5183; // Pick a color for your scheme:  
+// $picked-color: #ff5183; // Pick a color for your scheme:
 $cs-primary: hsl(hue($picked-color), 60%, 40%); // Adjust sat/lightness of the hue of picked color
 
-// Select your scheme from the list 
+// Select your scheme from the list
 $cs-scheme: accented-analogic; // mono, complement, triad, tetrad, analogic, accented-analogic
 $cs-hue-offset: 30; // How degrees distant do you want the hue offsets to be:
 $cs-brightness-offset: 0;  // How distant do you want tints and shades to be from their base:
 $cs-color-model: ryb; // which model rgb, ryb
 
-//  Generate set of your four main colors based on the settings above, 
+//  Generate set of your four main colors based on the settings above,
 //  see  @import('../../packages/color-schemer/stylesheets/color-schemer')
 $primary : cs-primary();
 $secondary : cs-secondary();
 $tertiary : cs-tertiary();
 $quadrary : cs-quadrary();
 
-$ts-offset: 10%;  //increment amount to shift tint or shade of a color 
+$ts-offset: 10%;  //increment amount to shift tint or shade of a color
 
 /////////////////////////////////////
-// Colors Set here together for convenience but can be reset 
+// Colors Set here together for convenience but can be reset
 // in any partial.  See layout partial for where color gets set in selector
 //////////////////////////////////////
 
@@ -106,41 +106,41 @@ $button-color:  ts-color($tertiary,6);
 
 
 
-// $debug-list: join($debug-list, '---LOCATION-base/_color.scss:27'); 
+// $debug-list: join($debug-list, '---LOCATION-base/_color.scss:27');
 // $debug-list: join($debug-list, ());
 
 
 
 // @include cs-style(primary,cs-primary());
-// @include cs-style(primary-l,tint(cs-primary(),$ts-offset)); 
-// @include cs-style(primary-ll,tint(cs-primary(),$ts-offset*2)); 
-// @include cs-style(primary-lll,tint(cs-primary(),$ts-offset*3)); 
-// @include cs-style(primary-d,shade(cs-primary(),$ts-offset)); 
-// @include cs-style(primary-dd,shade(cs-primary(),$ts-offset*2)); 
+// @include cs-style(primary-l,tint(cs-primary(),$ts-offset));
+// @include cs-style(primary-ll,tint(cs-primary(),$ts-offset*2));
+// @include cs-style(primary-lll,tint(cs-primary(),$ts-offset*3));
+// @include cs-style(primary-d,shade(cs-primary(),$ts-offset));
+// @include cs-style(primary-dd,shade(cs-primary(),$ts-offset*2));
 // @include cs-style(primary-ddd,shade(cs-primary(),$ts-offset*3));
 
 // @include cs-style(secondary,cs-secondary());
-// @include cs-style(secondary-l,tint(cs-secondary(),$ts-offset)); 
-// @include cs-style(secondary-ll,tint(cs-secondary(),$ts-offset*2)); 
-// @include cs-style(secondary-lll,tint(cs-secondary(),$ts-offset*3)); 
-// @include cs-style(secondary-d,shade(cs-secondary(),$ts-offset)); 
-// @include cs-style(secondary-dd,shade(cs-secondary(),$ts-offset*2)); 
+// @include cs-style(secondary-l,tint(cs-secondary(),$ts-offset));
+// @include cs-style(secondary-ll,tint(cs-secondary(),$ts-offset*2));
+// @include cs-style(secondary-lll,tint(cs-secondary(),$ts-offset*3));
+// @include cs-style(secondary-d,shade(cs-secondary(),$ts-offset));
+// @include cs-style(secondary-dd,shade(cs-secondary(),$ts-offset*2));
 // @include cs-style(secondary-ddd,shade(cs-secondary(),$ts-offset*3));
 
 // @include cs-style(tertiary,cs-tertiary());
-// @include cs-style(tertiary-l,tint(cs-tertiary(),$ts-offset)); 
-// @include cs-style(tertiary-ll,tint(cs-tertiary(),$ts-offset*2)); 
-// @include cs-style(tertiary-lll,tint(cs-tertiary(),$ts-offset*3)); 
-// @include cs-style(tertiary-d,shade(cs-tertiary(),$ts-offset)); 
-// @include cs-style(tertiary-dd,shade(cs-tertiary(),$ts-offset*2)); 
+// @include cs-style(tertiary-l,tint(cs-tertiary(),$ts-offset));
+// @include cs-style(tertiary-ll,tint(cs-tertiary(),$ts-offset*2));
+// @include cs-style(tertiary-lll,tint(cs-tertiary(),$ts-offset*3));
+// @include cs-style(tertiary-d,shade(cs-tertiary(),$ts-offset));
+// @include cs-style(tertiary-dd,shade(cs-tertiary(),$ts-offset*2));
 // @include cs-style(tertiary-ddd,shade(cs-tertiary(),$ts-offset*3));
 
 // @include cs-style(quadrary,cs-quadrary());
-// @include cs-style(quadrary-l,tint(cs-quadrary(),$ts-offset)); 
-// @include cs-style(quadrary-ll,tint(cs-quadrary(),$ts-offset*2)); 
-// @include cs-style(quadrary-lll,tint(cs-quadrary(),$ts-offset*3)); 
-// @include cs-style(quadrary-d,shade(cs-quadrary(),$ts-offset)); 
-// @include cs-style(quadrary-dd,shade(cs-quadrary(),$ts-offset*2)); 
+// @include cs-style(quadrary-l,tint(cs-quadrary(),$ts-offset));
+// @include cs-style(quadrary-ll,tint(cs-quadrary(),$ts-offset*2));
+// @include cs-style(quadrary-lll,tint(cs-quadrary(),$ts-offset*3));
+// @include cs-style(quadrary-d,shade(cs-quadrary(),$ts-offset));
+// @include cs-style(quadrary-dd,shade(cs-quadrary(),$ts-offset*2));
 // @include cs-style(quadrary-ddd,shade(cs-quadrary(),$ts-offset*3));
 
 
@@ -148,7 +148,7 @@ $button-color:  ts-color($tertiary,6);
 //   display: inline-block;
 //   width: 800px;
 //   margin: 10px 0 0 0;
-// } 
+// }
 
 // .box-small {
 //   display: inline-block;
