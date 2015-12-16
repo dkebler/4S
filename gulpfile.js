@@ -14,7 +14,7 @@ var gulp = require('gulp');
 require(Config.libDirectory + 'debug');  // see debug.js in library to turn on/off/customize debugging
 var argv = require('yargs').argv;  // for gulp tasks accepting arguments (deploy)
 
-
+function error(){console.log('something bad happened');}
 
 // *********************
 // Task - DEFAULT
@@ -29,17 +29,21 @@ gulp.task('default', ['dev']);
 // *******************
 gulp.task('dev', function() {
 
-return  new Promise(function(resolve, reject) {
-  Config.buildType='dev';
-  Config.url = 'localhost:' + Config.localport;
-  require(Config.libDirectory + 'build')
-    .then (res => {info(res)})
-    .then(require(Config.libDirectory + 'watchAll'))
-    .catch(function(e){config.log('error: ', e)})
-    .done;
-})
+var sequence = new require('promise-sequence');
 
-function error(){console.log('something bad happened');}
+var build = require(Config.libDirectory + 'build');
+var watch = require(Config.libDirectory +'watch');
+
+Config.buildType='dev';
+Config.url = 'localhost:' + Config.localport;
+
+//  return sequence([build,watch]);
+
+return  build()
+   .then(res => console.log('build complete'))
+   .then(watch)
+   .catch(function(e){console.log('error: ', e)})
+   ;
 
 });
 
@@ -48,43 +52,44 @@ function error(){console.log('something bad happened');}
 // Task - DEPLOY
 // Builds distribution version of assets and html and then deploys based on default (s3) or argument passed (e.g. --gh)
 // *******************
-gulp.task('deploy',function(cb) {
 
-debug('arguments to deploy', argv, Object.keys(argv)[1]);
 
-var deployto = 's3';
+gulp.task('deploy',function() {
+
+var sequence = new require('promise-sequence');
+
+var deployto = 's3';  // default
 if (Object.keys(argv)[1]!=='$0') {deployto = Object.keys(argv)[1]}
+debug('arguments to deploy, all, 1, 2 :', argv, Object.keys(argv)[1],Object.keys(argv)[2]);
 
-info('Starting deployment to', deployto, ',  building...');
+// used to open a browser to view deployed site
 
-var dplyconfig = require(Config.configDirectory, + 'deploy-' + deployto );
+var view = function(){require('open')('http://' + Config.url)};
+var build = require(Config.libDirectory + 'build');
+var sync = require(Config.libDirectory +'deploy-'+ deployto);
 
-if (Object.keys(argv)[2]!=='$0') {dplyconfig.location = Object.keys(argv)[2]}
-debug(dplyconfig);
+info('Starting deployment to', deployto);
 
-// build the distribution folder
+var cdeploy = require(Config.configDirectory + 'deploy-' + deployto );
+
+// see if location is other than default based on CLI arguments
+if (Object.keys(argv)[2]!== undefined) {cdeploy.location = Object.keys(argv)[2]}
+
+debug('bucket location: ',cdeploy.location);
+debug2('deployment config: ',cdeploy);
+
 Config.buildType='dist';
-Config.url = dplyconfig[dplyconfig.location].url;
+Config.url = cdeploy[cdeploy.location].url;
+
 debug('deployurl', Config.url);
 
-var build = require(Config.libDirectory + 'build');
-build(config,deploy);
+return build()
+      .then(res => console.log('build complete'))
+      .then(sync)
+      .then(view)
+      .catch(function(e){console.log('error: ', e)});
 
-function deploy() {
-    info('deploying after build')
-    debug('deploy to ' + deployto);
-    var dp = require(Config.libDirectory +'deploy-'+ deployto);
-    dp(openit);
- }
-
-function openit() {
-	info('deployment to', deployto, ' commplete');
-	info('opening http://', config.url, ' in browser')
-	var open = require('open');
-	open('http://'+ config.url);
-  }
-
-
+// return sequence([build,sync,view]);
 
 });
 
@@ -103,12 +108,11 @@ require('../lib/sass-bower')();
 
 // ************************
 // Task - TODO
-// generate a todo.md in root of all repo todos.  uses leasot  https://github.com/pgilad/leasot
+// generate a todo.md in root of repo.  uses leasot  https://github.com/pgilad/leasot
 // *************************
-// TODO use different package than gulp-todo  for example (gulp-comments)
 gulp.task('todo', function() {
 
-require(config.libDirectory + '/todo');
+require(Config.libDirectory + '/todo')();
 
 });
 
@@ -117,7 +121,24 @@ require(config.libDirectory + '/todo');
 // want to test come code?  Just put it in testing.js in the library directory
 // *************************
 gulp.task('test', function() {
-require(Config.libDirectory + 'testing');
+
+var foo = require(Config.libDirectory + 'testing').vfs;
+
+function bar() {
+    console.log('Now doing Bar stuff');
+}
+
+function oopsBar() {
+    console.log('Something went wrong up before');
+}
+
+var p = foo('./builds/**/*.*' );
+
+return p.then( bar, oopsBar );
+
+// console.log(p);
+
+
 });
 
 // ************************

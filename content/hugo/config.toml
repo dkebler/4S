@@ -1,7 +1,11 @@
-baseurl = ""
+# baseurl = ""  this is set at runtime in commandline
 languageCode = "en-us"
-title = "Hugo Complete Starter Website"
+title = "Code Coots"
+# TODO set this dynamically from code
 contentdir = "../../content/hugo/pages"
+[blackfriday]
+  hrefTargetBlank = true
+  plainIDAnchors = true
 [params]
   site-description = "Blah Blah"
   site-creator= "Jim Shoe"
@@ -24,4 +28,4 @@ contentdir = "../../content/hugo/pages"
     name = "Twitter"
     url = "www.twitter.com"
     weight = 200
-    identifier = "twitter"    
+    identifier = "twitter"

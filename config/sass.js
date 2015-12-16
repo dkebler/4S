@@ -1,4 +1,3 @@
-var config = require('./')
 // generate list of paths to bower sass/scss libraries
 var sass = require('./sass-bower'); // json file of paths
 
@@ -7,8 +6,8 @@ if (sass.paths == null) {console.log('no scss bower paths available');}
 
 module.exports = {
   autoprefixer: { browsers: ['last 2 version'] },
-  src: config.assetsDirectory + "/styles/sass/site.scss",
-  watch: config.assetsDirectory + "/styles/sass/" + '/**/*.*',
+  src: Config.assetsDirectory + "styles/sass/site.scss",
+  watch: Config.assetsDirectory + "styles/sass/" + '**/*.*',
   dest: 'assets/styles/',
   paths: sass.paths
 }

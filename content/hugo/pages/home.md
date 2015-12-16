@@ -8,7 +8,9 @@ Categories = ["default"]
 +++
 [favorite meats](/meat/favs)
 
-This is a test
+**This is some test for the homepage**
+
+Now for something completely different
 
 {{% button url="http://david.kebler.net" text="David Kebler" size="large" target="new"%}}
 
