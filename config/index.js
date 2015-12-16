@@ -2,7 +2,7 @@ var config = {}
 
 // If you want to move this file or rename it you can do that with a 'configfilepath' entry in package.json
 // It must be the "path/to/filename".  If absent it will default to config/index.js
-// TODO Deal with ./ , following / and relative paths in a more flexible way
+// TODO Deal with ./ , following / and relative paths in a more flexible way using relative module.
 // All directory paths in this form  "./path/to/place/"
 config.repoRoot = require('app-root-path').path; // root of repo/project in the file system, used for absolute references
 config.configDirectory = './config/';  //  directory where collection of config files resides.

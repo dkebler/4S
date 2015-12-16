@@ -10,7 +10,7 @@ Categories = ["default"]
 
 **This is some test for the homepage**
 
-Now for something completely different
+Deployment working yea!
 
 {{% button url="http://david.kebler.net" text="David Kebler" size="large" target="new"%}}
 

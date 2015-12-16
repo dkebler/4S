@@ -84,8 +84,9 @@ Config.url = cdeploy[cdeploy.location].url;
 debug('deployurl', Config.url);
 
 return build()
-      .then(res => console.log('build complete'))
+      .then(res => info('build complete'))
       .then(sync)
+      .then(res => info('opening browser'))
       .then(view)
       .catch(function(e){console.log('error: ', e)});
 
