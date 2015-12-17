@@ -1,10 +1,10 @@
 // Gulp Task File, see /lib for details of various tasks
 
 // set global master config file path in package.json or use default  config/index.js
-Configfilepath = require('./package').configfilepath || 'config/';
+CONFIGFILEPATH = require('./package').configfilepath || 'config/';
 // Have the main config file be global
 var ds = require('dot-slash').enforce;
-Config = require(ds(Configfilepath));
+Config = require(ds(CONFIGFILEPATH));
 
 // Promise = require('any-promise');
 // Promise = require('q');
@@ -40,8 +40,7 @@ Config.url = 'localhost:' + Config.localport;
 //  return sequence([build,watch]);
 
 return  build()
-   .then(res => console.log('build complete'))
-   .then(watch)
+   .then(res => console.log('build complete'))   .then(watch)
    .catch(function(e){console.log('error: ', e)})
    ;
 
@@ -60,7 +59,7 @@ var sequence = new require('promise-sequence');
 
 var deployto = 's3';  // default
 if (Object.keys(argv)[1]!=='$0') {deployto = Object.keys(argv)[1]}
-debug('arguments to deploy, all, 1, 2 :', argv, Object.keys(argv)[1],Object.keys(argv)[2]);
+Debug('arguments to deploy, all, 1, 2 :', argv, Object.keys(argv)[1],Object.keys(argv)[2]);
 
 // used to open a browser to view deployed site
 
@@ -68,25 +67,25 @@ var view = function(){require('open')('http://' + Config.url)};
 var build = require(Config.libDirectory + 'build');
 var sync = require(Config.libDirectory +'deploy-'+ deployto);
 
-info('Starting deployment to', deployto);
+Info('Starting deployment to', deployto);
 
 var cdeploy = require(Config.configDirectory + 'deploy-' + deployto );
 
 // see if location is other than default based on CLI arguments
 if (Object.keys(argv)[2]!== undefined) {cdeploy.location = Object.keys(argv)[2]}
 
-debug('bucket location: ',cdeploy.location);
-debug2('deployment config: ',cdeploy);
+Debug('bucket location: ',cdeploy.location);
+Debug2('deployment config: ',cdeploy);
 
 Config.buildType='dist';
 Config.url = cdeploy[cdeploy.location].url;
 
-debug('deployurl', Config.url);
+Debug('deployurl', Config.url);
 
 return build()
-      .then(res => info('build complete'))
+      .then(res => Info('build complete'))
       .then(sync)
-      .then(res => info('opening browser'))
+      .then(res => Info('opening browser'))
       .then(view)
       .catch(function(e){console.log('error: ', e)});
 
@@ -123,22 +122,24 @@ require(Config.libDirectory + '/todo')();
 // *************************
 gulp.task('test', function() {
 
-var foo = require(Config.libDirectory + 'testing').vfs;
+// var foo = require(Config.libDirectory + 'testing').vfs;
+//
+// function bar() {
+//     console.log('Now doing Bar stuff');
+// }
+//
+// function oopsBar() {
+//     console.log('Something went wrong up before');
+// }
+//
+// var p = foo('./builds/**/*.*' );
+//
+// Debug(p);
+//
+// return p.then( bar, oopsBar );
 
-function bar() {
-    console.log('Now doing Bar stuff');
-}
 
-function oopsBar() {
-    console.log('Something went wrong up before');
-}
-
-var p = foo('./builds/**/*.*' );
-
-return p.then( bar, oopsBar );
-
-// console.log(p);
-
+Debug("globals: ", global);
 
 });
 
