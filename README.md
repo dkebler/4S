@@ -224,7 +224,7 @@ To publish to Github is as easy as
 1.  setting the url (required) in the 'config/deploy-gh.js config file.   `<your username>.github.io/<your repo name>`
 2.  Getting a github access token and setting up a `.git-credentials` file in your home directory with a line like this `https://<your access token>:x-oauth-basi@github.com`
 
-By defualt it will publish to the gh-pages branch of your origin repo on Github. The url will be <username>.github.io/<github repo name>.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
+By default it will publish to the gh-pages branch of your origin repo on Github. The url will be `<username>.github.io/<github repo name>`.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
 
 ## Libraries
 
