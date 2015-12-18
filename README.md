@@ -32,7 +32,7 @@
 
 Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), Bower for scss/sass libraries, Gulp for command line tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
 
-In a self-referential way of course this repo is used to deploy the current template/content found in this repo :-).  You can check out how the "front end" is evoling here 
+In a self-referential way of course this repo is used to deploy the current template/content found in this repo :-).  You can check out how the "front end" is evoling here
 
 __Best Feature:__ By using Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
 
@@ -219,7 +219,12 @@ aws_access_key_id =  <access key from IAM user you created with policy below>
 
 #### Publishing to Github Pages
 
-To publish to Github is as easy as setting the url (required) in the 'config/deploy-gh.js config file.  By defualt it will publish to the gh-pages branch of your origin repo on Github. The url will be <username>.github.io/<github repo name>.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
+To publish to Github is as easy as
+
+1.  setting the url (required) in the 'config/deploy-gh.js config file.   `<your username>.github.io/<your repo name>`
+2.  Getting a github access token and setting up a `.git-credentials` file in your home directory with a line like this `https://<your access token>:x-oauth-basi@github.com`
+`
+By defualt it will publish to the gh-pages branch of your origin repo on Github. The url will be <username>.github.io/<github repo name>.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
 
 ## Libraries
 

@@ -13,7 +13,6 @@ Categories = ["default"]
 Another fine spare rib you've gotten us into Olie
 
 
-
 {{% button url="http://google.com" text="Google me" size="large" target="new"%}}
 
 [comment]: # (This actually is the most platform independent comment)
