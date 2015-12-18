@@ -1,6 +1,6 @@
 {  "globals": {
     "Config": true,
-    "CONFIGFILEPATH": true,
+    "Configfilepath": true,
     "Debug": true,
     "Info" : true,
     "Debug2" : true,

@@ -1,7 +1,7 @@
 var html =  Config.htmlDirectory + Config.htmlGenerator ;
 var contentdir = Config.contentDirectory + Config.htmlGenerator;
 
-debug('md content directory: ', contentdir)
+Debug('md content directory: ', contentdir)
 
 // TODO need to open up for readwrite the config.toml file and write out the contentdir setting with "content" variable.
 

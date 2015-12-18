@@ -6,13 +6,15 @@ date = "2015-11-20"
 Tags = ["Meat", "Vegetables", "Fruits", "Cerals", "Confections"]
 Categories = ["default"]
 +++
-[favorite meats](/meat/favs)
+* [favorite meats](/meat/favs)
+* [meat blog](/blog)
+* [meats.com](http://meats.com/)
 
-**This is some test for the homepage**
+Another fine spare rib you've gotten us into Olie
 
-Deployment working yea!
 
-{{% button url="http://david.kebler.net" text="David Kebler" size="large" target="new"%}}
+
+{{% button url="http://google.com" text="Google me" size="large" target="new"%}}
 
 [comment]: # (This actually is the most platform independent comment)
 

@@ -1,37 +1,42 @@
-## Hugo-Sass-Bower-Gulp-S3-Starter
+# Super-Static-Site-Starter (4S)
 
 <!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-	- [Hugo-Sass-Bower-Gulp-S3-Starter](#hugo-sass-bower-gulp-s3-starter)
-	- [Installation](#installation)
-		- [Prerequisites](#prerequisites)
-		- [Install node dependencies](#install-node-dependencies)
-	- [Repo Organization](#repo-organization)
-		- [Directories](#directories)
-		- [Files](#files)
-	- [Gulp and Workflow](#gulp-and-workflow)
-		- [Development](#development)
-		- [Production/Deploy](#productiondeploy)
-	- [Publishing to S3](#publishing-to-s3)
-		- [Adding Bower Packages](#adding-bower-packages)
-		- [Styling](#styling)
-				- [Organization](#organization)
-				- [Libraries](#libraries)
-		- [HTML Templates and Layout](#html-templates-and-layout)
-		- [Your Content](#your-content)
-	- [Todos](#todos)
+- [Hugo-Sass-Bower-Gulp-S3-Starter](#hugo-sass-bower-gulp-s3-starter)
+- [Installation](#installation)
+	- [Prerequisites](#prerequisites)
+	- [Install node dependencies](#install-node-dependencies)
+- [Repo Organization](#repo-organization)
+	- [Directories](#directories)
+	- [Files](#files)
+- [Gulp and Workflow](#gulp-and-workflow)
+	- [Development](#development)
+	- [Production/Deploy](#productiondeploy)
+- [Publishing to S3](#publishing-to-s3)
+	- [Adding Bower Packages](#adding-bower-packages)
+	- [Styling](#styling)
+		- [Organization](#organization)
+		- [Libraries](#libraries)
+	- [HTML Templates and Layout](#html-templates-and-layout)
+	- [Your Content](#your-content)
+- [Todos](#todos)
 <!-- /TOC -->
 
+## Status
 
-__THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart even a noob into creating excellent and professional "static" generated websites using a coherent and complete workflow including deployment.  There are lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together...and with excellent documentation.... Who can blame them that's how they make money. So if I am wrong on this please point me to such repos.  I probably won't give up my efforts but will inform visitors to these other great alternative repos.  
-
-__THE GOAL__:  The ultimate goal is to create a honest to god complete current techology static site starter repo including workflow, html templates, styling, responsive layout, example content, multip deployment options and more) for static generating sites with essentially nothing left out, but flexible in terms of being modified to suit, (e.g. stylus rather than or in addition to sass, wintersmith instead of hugo).  Eventually envisioned is a sibling fork of this repo for a single page webapp.
-
-__UPDATE NOTE:__ This is currently a work in progress. What I am tagging as 0.0.2 represents stripping and paring out all the extraneous stuff from the original fork I began with and knocking out a bunch of the [TODOS](#todos) and thus I am tagging it 0.0.2. (0.0.1 represents my first major effort).  Even though it is still far from prime time it's a great head start and will be even more so once I get to cross more of those [TODOS](#todos). I'd welcome a collaborator with the same vision.  Completed TODOs are noted in the [releases](https://github.com/dkebler/Hugo-Sass-Bower-Gulp-S3-Starter/releases).  
-
-Currently the project uses the [Hugo](https://gohugo.io/) (static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), bower for code sass libraries, Gulp for tasks and piping, and finally deployment to a S3 bucket or gh-pages (no web server needed)!  
+Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), bower for code sass libraries, Gulp for tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
 
 __Best Feature:__ By using Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
+
+__Where it Stands:__ This project is currently under development with only a minor 0.1.0 release so far.  Anticipated is about one minor release every month until 1.0 is reached.  If want to see the latest look at the working-x branch(s).  Even though it is still a ways from prime-time in terms of the front end the development and deployment tasks are totally functional.   It's a great head start and will be even more so once I get to cross more of these [TODOS](#todos). I'd welcome a collaborator with the same vision.  Completed TODOs are noted in the[releases](https://github.com/dkebler/Super-Static-Site-Starter/releases).  
+
+## Movtivation
+
+__THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart even a noob into creating excellent and professional "static" generated websites using a coherent and complete workflow including deployment. There are lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together in a flexible, customizable way and with excellent documentation. Who can blame them that's how they make money. So if I am wrong on this please point me to such repos.  I probably won't give up my efforts but will inform visitors to these other great alternatives.  
+
+__THE GOAL__:  The ultimate goal is to create a honest to god complete current techology static site starter repo including development and deployment workflows, html templates, styling, responsive layout, example content, multi-deployment options and more.  The idea is to create a repo where nothing is left out or half baked, not just another "skeleton". Yet the starter should be flexible in terms of being modified to suit (e.g. stylus rather than and/or in addition to sass, Wintersmith instead of Hugo, modify, Jade instead of Hugo templates. CSS styling that easy to customize).  Both backend(dev/deploy workflows) and front end is all covered.  Eventually the goal is to extend this effort to a sibling repo that takes the same approach for a single page webapp.
+
+
 
 
 ## Installation
