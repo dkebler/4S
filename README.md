@@ -2,30 +2,37 @@
 
 <!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Hugo-Sass-Bower-Gulp-S3-Starter](#hugo-sass-bower-gulp-s3-starter)
-- [Installation](#installation)
-	- [Prerequisites](#prerequisites)
-	- [Install node dependencies](#install-node-dependencies)
-- [Repo Organization](#repo-organization)
-	- [Directories](#directories)
-	- [Files](#files)
-- [Gulp and Workflow](#gulp-and-workflow)
-	- [Development](#development)
-	- [Production/Deploy](#productiondeploy)
-- [Publishing to S3](#publishing-to-s3)
-	- [Adding Bower Packages](#adding-bower-packages)
+- [Super-Static-Site-Starter (4S)](#super-static-site-starter-4s)
+	- [Status](#status)
+	- [Movtivation](#movtivation)
+	- [Installation](#installation)
+		- [Prerequisites](#prerequisites)
+		- [Dependencies](#dependencies)
+	- [Repo Organization](#repo-organization)
+		- [Directories](#directories)
+		- [Files](#files)
+	- [Workflow](#workflow)
+		- [Development](#development)
+		- [Production/Deploy](#productiondeploy)
+			- [Publishing to S3](#publishing-to-s3)
+			- [Publishing to Github Pages](#publishing-to-github-pages)
+	- [Libraries](#libraries)
+		- [Workflow](#workflow)
+		- [Bower for the Browser](#bower-for-the-browser)
+			- [Sass](#sass)
+			- [Javascript](#javascript)
+		- [NPM (node_modules)](#npm-nodemodules)
 	- [Styling](#styling)
-		- [Organization](#organization)
-		- [Libraries](#libraries)
 	- [HTML Templates and Layout](#html-templates-and-layout)
-	- [Your Content](#your-content)
-- [Todos](#todos)
-
+	- [The Actual Content](#the-actual-content)
+	- [TODOS](#todos)
 <!-- /TOC -->
 
 ## Status
 
 Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), Bower for scss/sass libraries, Gulp for command line tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
+
+In a self-referential way of course this repo is used to deploy the current template/content found in this repo :-).  You can check out how the "front end" is evoling here 
 
 __Best Feature:__ By using Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
 
@@ -44,7 +51,7 @@ __THE GOAL__:  The ultimate goal is to create a honest to god complete current t
 1. You'll need node.js and npm installed first and of course git.  For Linux check out nodesource for best way to get the latest installed.  https://github.com/nodesource/distributions
 2. Hugo is not a node.js package it needs to be installed (to the commandline).  Hugo developers maintain binaries for all platforms so it's easy.  https://gohugo.io/
 
-### Install node dependencies
+### Dependencies
 
 Global dependencies that you'll need for command line.  You'll need to preface with `sudo` on Linux.
 
@@ -128,7 +135,7 @@ bower.json  * bower settings
 config/index.js   * the master configuration file of this repo (unless you change it from this default location)
 ````
 
-## Gulp and Workflow
+## Workflow
 
 Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one I am prepared to maybe drop all together.  So rather than have "everything" be a gulp task which is what I saw in other repos I have discovered it much better to limit gulp tasks to launching ones a human would actually need to run from the command line.  So instead the "tasks" the workflow appear as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's file stream pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
 
@@ -271,7 +278,7 @@ Now for the meat, that actual textual content.  This too has modularized into it
 
 ## TODOS
 
-List below our future release tasks.  Also listed in [TODO.md](/TODO.md) are todos and fixme's in the code.  Of course anyone wanting to further this project is welcome to join in.  PRs and filling issues are encouraged.
+List below our future release tasks.  Also listed in [TODOs.md](/TODOs.md) are todos and fixme's in the code.  Of course anyone wanting to further this project is welcome to join in.  PRs and filling issues are encouraged.
 
 More or less in order of priority
 
