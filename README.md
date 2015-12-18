@@ -226,6 +226,8 @@ To publish to Github is as easy as
 
 By default it will publish to the gh-pages branch of your origin repo on Github. The url will be `<username>.github.io/<github repo name>`.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
 
+Please note that is can take up to a few minutes for github servers to serve up changes so be patient and hit refresh (these is no automatic browser sync with deployment).
+
 ## Libraries
 
 Libraries exist in the repo with different intents and purposes and they were designed to be kept separate.
