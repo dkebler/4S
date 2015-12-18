@@ -31,6 +31,7 @@ var watch = require(Config.libDirectory + 'watch');
 
 gulp.task('dev', function() {
 
+// TODO all below to dev.js in /lib and require
   Config.buildType = 'dev';
   Config.url = 'localhost:' + Config.localport;
 
@@ -54,6 +55,7 @@ var view = require('open');
 
 gulp.task('deploy', function() {
 
+// TODO all below to deploy.js in /lib and require
   var deployto = 's3'; // default
   if (Object.keys(argv)[1] !== '$0') {
     deployto = Object.keys(argv)[1]
@@ -111,7 +113,7 @@ require('./lib/sass-bower');
 
 // ************************
 // Task - TEST
-// want to test come code?  Just put it in testing.js in the library directory
+// want to test come code?  Just put it here or in testing.js in the library directory
 // *************************
 gulp.task('test', function() {
 

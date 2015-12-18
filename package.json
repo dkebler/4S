@@ -1,14 +1,14 @@
 {
-  "name": "hugo-sass-bower-gulp-starter",
-  "version": "0.0.1",
-  "description": "Static Website Builder (Hugo, Bower, Sass) with Dev Env and Deploy",
+  "name": "super-static-site-starter",
+  "version": "0.1.0",
+  "description": "COMPLETE Static Website Builder with Dev Environment and Deployment",
   "engines": {
     "node": "5.x.x",
     "npm": "3.x.x"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dkebler/hugo-sass-bower-gulp-starter"
+    "url": "https://github.com/dkebler/Super-Static-Site-Starter"
   },
   "scripts": {},
   "dependencies": {},

@@ -1,3 +1,2 @@
-*  Get the production task doing what it should ..minify, etc. (currently justs deploys the )
-
-Seperate 
+* Using JS Promises exclusively for flow control
+* 

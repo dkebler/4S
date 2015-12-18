@@ -20,11 +20,12 @@
 	- [HTML Templates and Layout](#html-templates-and-layout)
 	- [Your Content](#your-content)
 - [Todos](#todos)
+
 <!-- /TOC -->
 
 ## Status
 
-Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), bower for code sass libraries, Gulp for tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
+Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), Bower for scss/sass libraries, Gulp for command line tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
 
 __Best Feature:__ By using Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
 
@@ -34,10 +35,7 @@ __Where it Stands:__ This project is currently under development with only a min
 
 __THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart even a noob into creating excellent and professional "static" generated websites using a coherent and complete workflow including deployment. There are lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together in a flexible, customizable way and with excellent documentation. Who can blame them that's how they make money. So if I am wrong on this please point me to such repos.  I probably won't give up my efforts but will inform visitors to these other great alternatives.  
 
-__THE GOAL__:  The ultimate goal is to create a honest to god complete current techology static site starter repo including development and deployment workflows, html templates, styling, responsive layout, example content, multi-deployment options and more.  The idea is to create a repo where nothing is left out or half baked, not just another "skeleton". Yet the starter should be flexible in terms of being modified to suit (e.g. stylus rather than and/or in addition to sass, Wintersmith instead of Hugo, modify, Jade instead of Hugo templates. CSS styling that easy to customize).  Both backend(dev/deploy workflows) and front end is all covered.  Eventually the goal is to extend this effort to a sibling repo that takes the same approach for a single page webapp.
-
-
-
+__THE GOAL__:  The ultimate goal is to create a honest to god complete current techology static site starter repo including development and deployment workflows, html templates, styling, responsive layout, example content, multi-deployment options and more.  The idea is to create a repo where nothing is left out or half baked, not just another "skeleton". Yet the starter should be flexible in terms of being modified to suit (e.g. stylus rather than and/or in addition to sass, Wintersmith instead of Hugo, Jade instead of Hugo templates. CSS styling that has rational BEM classes and is easy to customize/use).  Both backend(dev/deploy workflows) and front end (layouts/styling/reponsiveness) will all covered and more.  Eventually the goal is to extend this effort to a sibling repo that takes the same approach for a single page webapp.
 
 ## Installation
 
@@ -58,7 +56,7 @@ npm install gulp -g
 now grab the repo and install the project's local node and bower dependencies
 
 ```
-git clone https://github.com/dkebler/Hugo-Sass-Bower-Gulp-S3-Starter.git  <path/to/mysitename>
+git clone https://github.com/dkebler/super-static-site-starter.git <path/to/mysitename>
 cd  <path/to/mysitename>
 npm install
 bower install
@@ -68,63 +66,77 @@ bower install
 
 ### Directories
 
-Before diving in take a moment to open your favorite editor (mine is [sublimetext3](http://www.sublimetext.com/3)and soon [Atom](http://atom.io)) and look at the directory tree structure.  I have tried to organize it so that the pieces  are "modular".
+Before diving in take a moment to open your favorite editor (mine is now [Atom](http://atom.io)) and look at the directory tree structure.  I have tried to organize it so that the pieces  are "modular".
+
+assets refer to in browser assets only.  The /images folder should on contain site images not images used in content.   For example a png of site logo.  /
 ```
 /assets
-   /fonts
-   /images
-   /styles
+   /fonts     * typographic fonts and svg font can live here
+
+* should only contain site-wide images not images used in content.  
+* e.g. a site logo png
+   /images    
+
+* any css flavor can be used to style the site, currently sass is processed
+ * but any or all could be used concurrently and concatenated	 
+   /styles    
+	    /stylus
+			/sass
+			/less
+			/css
 ```
 
-the actual markdown content and other data specific to a particular webite being built. The subdirectory /hugo is for content in the format that Hugo expects.  
+ The subdirectory /hugo is for end user editable content in the format that [Hugo](http://gohugo.io) expects.  The frontmatter and mustache shortcodes in each md file are Hugo specific but the markdown is generic and portable.  In the future this directory will be set up as a submodule.
+
 ```
 /content        
-  /hugo  
+  /hugo
+    /archetypes
+	  /data    * see Hugo documentation
+		/pages   * where the actual markdown files live.  This is where end users edit files
 ```
-This directory holds the html template layouts need for the site generator.  the subdirectly /hugo holds such layout templates for the Hugo generator.
+
+This directory holds the html template layouts need for the site generator.  The subdirectly /hugo holds layout templates specific to the Hugo generator.  Other subdirectories could be utilized for alternative templating systems like Jade.
 ```
 /html
   /hugo
 ```
-A directory of various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  They are for the most part js files instead of json files as these are not only easily commented but can have generated values.   index.js is the main config file.  Take a look at it first.
+A directory of various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  With the exception of sass-bower.json they are js files instead of json files so they can be commented and have generated values.   index.js is the main config file (by default).  Take a look at it first!  If you would rather use an alternative name for this file see the instruction on how in the file itself.
 ```
 /config
 ```
-This holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks.
+This holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks and you will be lead to build module which loads the clean sass and html modules.
 ```/lib
 ```
 
 generated directories are
+```
 /bower_components
-/.builds
+/.builds  * where development and distribution builds are put for local browser syncing or deployment
 /node_modules
-
+```
 ### Files
 
 Repos specific files of note are
-TODO.md
-gulpfile.js
 
-for noobs
-package.json
-bower.json
-.bowerrc
-
+````
+TODOS.md   * holds list of TODOs and FIXMEs in the code
+gulpfile.js  * holds gulp command line tasks.
+package.json  * holds node package manager and project settings.
+bower.json  * bower settings
+.bowerrc   * location of bower components
+config/index.js   * the master configuration file (unless you change it from this default location)
+````
 
 ## Gulp and Workflow
 
-Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern.  So rather than have "everything" be a gulp task which is what I saw in other repos I have discovered it much better to limit gulp tasks to ones a human would actually need to run from the command line which really helps with KISS.  Further the components of the workflow appear as modules in the /lib directory.  This allows flexibility.  You can call them programmatically and/or you can wrap most them in a gulp task. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  If you use sublimetext for your editor there is a nice plugin, [dependents](), that makes it easy to jump to the module code so no real downside to this library approach.  I do find that I like to use Gulp's plugin/pipe/streams pattern when it makes sense like with processing sass code and eventually browser javascript, and nicely Gulp doesn't insist I use them as part of a gulp task.
+Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one I am prepared to maybe drop all together.  So rather than have "everything" be a gulp task which is what I saw in other repos I have discovered it much better to limit gulp tasks to ones a human would actually need to run from the command line.  So instead the components of the workflow appear as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's  file streams pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
 
-By using Gulp in this limited manner if you changed the libraries that use gulp piping and plugins you could remove Gulp all together and use what you like (npm scripts, grunt).
-
-In this repo you'll find a gulpfile.js directory which contains a subirectores /tasks, /libs, /config.  /tasks/index.js loads in all the other cli tasks, /config/index.js is the base config file containing the important project configuration.  Others are pretty self explanatory by filename, /lib is the "guts" of the workflow where all the heavy lifting goes one.  By "modulizing" the code into library files my hope is that it will be easier for others to add or swap out components to the workflow (e.g.  an alternate style processor(e.g. [Stylus](https://learnboost.github.io/stylus/)), an alternate html templating engine/content builder (e.g. [Wintersmith](https://github.com/jnordberg/wintersmith))
-
-From a terminal at your repo root the gulp tasks available are show below.  If you are using Sublimetext3 or Atom (maybe others) there are plugin packages available for those editors which will give you access to your gulp tasks from within the editor itself and display the console output there.  Just search for "gulp" within their package managers.
+From a terminal at your repo root the command line gulp tasks available are show below.  
 
 ```
 gulp help
 ```
-
 will list all the tasks available.
 
 ### Development
@@ -133,36 +145,38 @@ gulp
 or
 gulp dev
 ```
-the default task will build your development site by compiling the Sass, generating the html (via Hugo), fire up a syncing browser on a port you can specify in /config/browserSync.js (default is 8090) and then set a watch for your files.   Edit any watched file and the site is rebuilt and browser refreshed.  Each restart of `gulp` will delete the config.publicDirectory directory set in gulpfile.js/config/index.js. so that you are sure to get a fresh build
+the default task will build your development site by compiling the sass with sourcemaps, generating the html (via Hugo), then will fire up a syncing browser on a port you can specify in master config file (default is 8090) and then set a watch for your files.   Edit any watched file (sass(scss), content (md) or html layout) and the site is rebuilt and browser refreshed.  Each restart of `gulp` or `gulp dev` will delete the config.publicDirectory directory set in config/index.js. so that you are sure to get a fresh build
 
 NOTE: If node-sass does not get built correctly you may get errors about binding of libsass when compling the sass.  If so check out this post [libsass binding errors](http://stackoverflow.com/questions/29461831/libsass-bindings-not-found-when-using-node-sass-in-nodejs)
 
 ### Production/Deploy
 
-Getting the static site out there for public consumption can be a hassle.  I have already implemented two such ways.  You can deploy to an S3 bucket or to github's gh-pages.  I removed the most painful part but you still need to set the corresponding config files set up correctly.  When you deploy the workfow creates a distribution version of the static site (in ```./builds/dist```) with, for example, minimified css.
+Getting the static site out there for public consumption can be a hassle.  I have already implemented two such ways.  You can deploy to an S3 bucket or to github's gh-pages.  I removed the most painful part but you still need to set the corresponding config files correctly (`config/deploy-s3.js or config/deploy-gh.js`).  When you deploy the the creates a distribution version of the static site (in `./builds/dist`) with, for example, minimified css and no source maps.  Then it will file up a browser so you can take a look.
 
 ```
+gulp deploy   * deploys to s3 using the default location found in the config file
 gulp deploy --s3
-gulp deploy --s3 --live
-gulp deploy --gh
+gulp deploy --s3 --live  * deploy to live or other s3 bucket given in config file
+gulp deploy --gh  * to gp-pages branch of same repo (unless changed in config file)
 ```
 
-## Publishing to S3
+#### Publishing to S3
 
 NOTE: The AWS-CLI is no longer needed for deployment, but if you are having trouble connecting to your S3 bucket I suggest you do install it and try to manually sync the the .build/dist directory via the command line to establish the correct configuration.   
 
 You need to configure three parts.
-1. Within ```config/deploy-s3.js```  You need to specify the bucket name, the url of the bucket (not necessarily the same) and the region in which the bucket was created.  You also need to specify your aws profile name.  I set it up for two buckets so you can test your production on a test bucket before deploying it to your live bucket.  The "testing" bucket is default.  The "gulp deploy --s3" task takes an additional --live switch or you can change the default to 'live' in this file.  
+1. Within ```config/deploy-s3.js```  You need to specify the bucket name, the url of the bucket (not necessarily the same) and the region in which the bucket was created.  You also need to specify your aws profile name.  I set it up for two buckets so you can test your production on a test bucket before deploying it to a live bucket.  The "testing" bucket is default.  The "gulp deploy --s3" task takes an additional --live switch or you can change the default to 'live' in this file.  
 2. Your credentials and aws config files need to be in your home directory which contain your AWS keys and region etc and thus are NOT part of your repo for obvious security reasons. [aws configure](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).  Be sure to set profile name in config/deploy-s3.js.
+There are other ways to get the IAM credentials to the module code but what I set up is the best way, see documentation in config file for alternatives.
 
-example ```credentials``` file profile entry
+example `credentials` file profile entry  (in Linux that would be in your home  `~/.aws` directory)
 
 [s3deploy]
 aws_secret_access_key = <access key from IAM user you created with policy below>
 aws_access_key_id =  <access key from IAM user you created with policy below>
 
 
-3. Your policy for the IAM user associated with the AWS keys you are using.  This one worked for me.  This IAM user will be specifed in you AWS config file
+3. Finally you to create an AWS IAM (or use an existing one) using the AWS web console.  Give that user an access policy to the buckets you'll be pushing to.   This one worked below for me. Of course if you use an IAM user with full S3 privileges (like an administrator) you won't need this.  But to be more secure why not set up an IAM user just for this singular purpose. This IAM users credentials are the ones that are used in step 2 above.  Note:  the IAM user name and the profile name above don't have to be the same but might as well make them the same.
 
 ````
           {
@@ -196,19 +210,28 @@ aws_access_key_id =  <access key from IAM user you created with policy below>
           }
 ````
 
-### Adding Bower Packages
+#### Publishing to Github Pages
+
+
+
+## Libraries
+
+### Workflow
+
+### for Browser
 
 ```
 bower install --save-dev <package>
 ```
-
 be sure to use the --save or --save-dev option so a listing of your package ends up in bower.json.
 
-I have implemented a bower install hook that will run the sass-bower library module.  This module generates a sass-bower.json file in the /config directory
+I have implemented a bower install hook that will run the "gulp bowersass" task.  This task generates a sass-bower.json file in the /config directory.  You can of course run it from the command line.    
+```
+gulp bowersass
+```
+There is no bower uninstall hook at this time so you will need to do this after uninstalling a bower library containing sass. The bowersass task will automagically invoke a sass-bower module in /lib which uses wiredep to grab all the paths for bower libraries that have .sass/.scss.  This allows you to use a simple `@import('libname')` in your sass/scss ccode and yet libsass (node-sass) will figure out where those live (yea!).
 
-The sass task will automagically invoke a sass-bower module in /lib which uses wiredep to grab all the paths for bower libraries that have .sass/.scss.  This allows you to use a simple `@import('libname')` in your code and yet libsass (node-sass) will figure out where those live (yea!).
-
-In this repo I @import all bower scss packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
+In this repo I @import ALL bower scss/sass packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
 
 ### Styling
 
@@ -220,11 +243,11 @@ With the css/html I follow BEM naming conventions for ids and classes.
 
 ##### Libraries
 
-   ##### Color
+  If you look
 
 ### HTML Templates and Layout
 
-Many static site builders try and be a full environment.  
+Many static site builders try to be a full environment and fail.    
 
 The page "layout" is done currently within [Hugo](http://gohugo.io) in a way very similar to jade, or handlebars or other templating tools.  There is a [TODO](#todo) to accommodate other generators/templating tools but for now it's Hugo.   
 
