@@ -13,12 +13,12 @@
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</loc>
+    <loc>/dkebler.github.io/super-static-site-starter/blog/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/</loc>
+    <loc>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
@@ -38,11 +38,11 @@
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/404/</loc>
+    <loc>/dkebler.github.io/super-static-site-starter/missing/</loc>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/missing/</loc>
+    <loc>/dkebler.github.io/super-static-site-starter/404/</loc>
   </url>
   
 </urlset>

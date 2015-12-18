@@ -56,21 +56,21 @@ more code block
     </item>
     
     <item>
-      <title>Go Ahead Just Eat Meat</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
-      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
-      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>A Carnivore&#39;s Blog - Just Meat It</title>
       <link>/dkebler.github.io/super-static-site-starter/blog/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>/dkebler.github.io/super-static-site-starter/blog/</guid>
+      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go Ahead Just Eat Meat</title>
+      <link>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
@@ -233,18 +233,6 @@ Zucchini&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>/dkebler.github.io/super-static-site-starter/404/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/dkebler.github.io/super-static-site-starter/404/</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
-
-&lt;p&gt;return to the &lt;a href=&#34;../home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/dkebler.github.io/super-static-site-starter/missing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -252,6 +240,18 @@ Zucchini&lt;/p&gt;
       <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;return to the &lt;a href=&#34;dkebler.github.io/super-static-site-starter/home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/dkebler.github.io/super-static-site-starter/404/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/dkebler.github.io/super-static-site-starter/404/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;return to the &lt;a href=&#34;../home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
