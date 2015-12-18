@@ -66,19 +66,20 @@ bower install
 
 ### Directories
 
-Before diving in take a moment to open your favorite editor (mine is now [Atom](http://atom.io)) and look at the directory tree structure.  I have tried to organize it so that the pieces  are "modular".
+Before diving in take a moment to open your favorite editor (mine is now [Atom](http://atom.io)) and look at the directory tree structure.  I have tried to organize it so that the pieces  are "modular".  Still you have full control of these folder names and locations through the configuration. That said if you change the relative paths you will at this time break module loading.  I have a TODO to get this working with a "relative" module so moving directories around to your choosing won't be an issue.
 
-assets refer to in browser assets only.  The /images folder should on contain site images not images used in content.   For example a png of site logo.  /
+`/assets` should contain only assets that will be processed for loading into the browser.  There will be options for loading an assest via a CDNs in the distribution build.
 ```
 /assets
-   /fonts     * typographic fonts and svg font can live here
+   /fonts     * typographic fonts and svg fonts like awesome fonts can live here
 
 * should only contain site-wide images not images used in content.  
 * e.g. a site logo png
    /images    
 
 * any css flavor can be used to style the site, currently sass is processed
- * but any or all could be used concurrently and concatenated	 
+* but any or all could be used concurrently and concatenated.  
+* Any 3rd party library not available via Bower would go here.	 
    /styles    
 	    /stylus
 			/sass
@@ -86,34 +87,33 @@ assets refer to in browser assets only.  The /images folder should on contain si
 			/css
 ```
 
- The subdirectory /hugo is for end user editable content in the format that [Hugo](http://gohugo.io) expects.  The frontmatter and mustache shortcodes in each md file are Hugo specific but the markdown is generic and portable.  In the future this directory will be set up as a submodule.
-
+ the `/content` directory holds the end-user editable content.  The idea is to make this directory "portable" and not part of this repo but either as a submodule or through configuration.  The subdirectory /hugo within /content is for end user editable content in the format that [Hugo](http://gohugo.io) expects.   Within the /hugo directory the frontmatter and mustache shortcodes in each md file are Hugo specific but the markdown is generic and portable.  A content only editor would only need access to the /pages directory.
 ```
 /content        
   /hugo
-    /archetypes
+    /archetypes  * see Hugo documentation
 	  /data    * see Hugo documentation
-		/pages   * where the actual markdown files live.  This is where end users edit files
+		/pages   * where the actual text markdown files live.  This is where editor of site text need access
 ```
 
-This directory holds the html template layouts need for the site generator.  The subdirectly /hugo holds layout templates specific to the Hugo generator.  Other subdirectories could be utilized for alternative templating systems like Jade.
+This `/html` directory holds the html template layouts need for the site generator.  Currently only [Hugo](http://gohugo.io) is supported as a generator. The subdirectory `/hugo` holds layout templates specific to the Hugo generator.  Other subdirectories could be utilized for alternative templating systems like Jade.
 ```
 /html
   /hugo
 ```
-A directory of various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  With the exception of sass-bower.json they are js files instead of json files so they can be commented and have generated values.   index.js is the main config file (by default).  Take a look at it first!  If you would rather use an alternative name for this file see the instruction on how in the file itself.
+The `/config` directory holds the various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  With the exception of sass-bower.json they are js files instead of json files so they can be commented and have generated values.   `index.js` is the main config file (by default).  Take a look at it first!  If you would rather use an alternative name for this file see the instruction on how in the file itself.   Then check out all the other configuration files so see what kinds of things will need to be set for your particular application.
 ```
 /config
 ```
-This holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks and you will be lead to build module which loads the clean sass and html modules.
+`/lib` holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks and you will be lead to build module (which loads the clean sass and html modules) and then either a watch or deploy module.
 ```/lib
 ```
 
 generated directories are
 ```
-/bower_components
+/bower_components  * where all bower packages are installed, can be changed in .browerrc
 /.builds  * where development and distribution builds are put for local browser syncing or deployment
-/node_modules
+/node_modules  * where npm places js module packages
 ```
 ### Files
 
@@ -124,13 +124,13 @@ TODOS.md   * holds list of TODOs and FIXMEs in the code
 gulpfile.js  * holds gulp command line tasks.
 package.json  * holds node package manager and project settings.
 bower.json  * bower settings
-.bowerrc   * location of bower components
-config/index.js   * the master configuration file (unless you change it from this default location)
+.bowerrc   * location of bower components directory
+config/index.js   * the master configuration file of this repo (unless you change it from this default location)
 ````
 
 ## Gulp and Workflow
 
-Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one I am prepared to maybe drop all together.  So rather than have "everything" be a gulp task which is what I saw in other repos I have discovered it much better to limit gulp tasks to ones a human would actually need to run from the command line.  So instead the components of the workflow appear as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's  file streams pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
+Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one I am prepared to maybe drop all together.  So rather than have "everything" be a gulp task which is what I saw in other repos I have discovered it much better to limit gulp tasks to launching ones a human would actually need to run from the command line.  So instead the "tasks" the workflow appear as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's file stream pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
 
 From a terminal at your repo root the command line gulp tasks available are show below.  
 
@@ -212,78 +212,81 @@ aws_access_key_id =  <access key from IAM user you created with policy below>
 
 #### Publishing to Github Pages
 
-
+To publish to Github is as easy as setting the url (required) in the 'config/deploy-gh.js config file.  By defualt it will publish to the gh-pages branch of your origin repo on Github. The url will be <username>.github.io/<github repo name>.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
 
 ## Libraries
 
+Libraries exist in the repo with different intents and purposes and they were designed to be kept separate.
+
 ### Workflow
 
-### for Browser
+js code that does all the heavy lifting of automating tasks such as development and deployment are all located exclusively in the `/lib` directory (default).  If you want add or customize the workflow this is where you do it.
+
+### Bower for the Browser
+
+For 3rd party libraries destined for browser [Bower](bower.io) is the answer.  The Bower package manager was designed for this purpose and npm packages like [wiredep] were designed to wire them into your <head>.  
+
+#### Sass
+
+In the case of sass/stylus/less libraries Bower makes it easy to access them when compiling to css which then is wired into the html template.  I have created a module lib/sass-bower.js that does just that for sass.  It makes it possible to simply use an @import 'packagename' in your code without needing/knowing the path to the package in the bower_components directory!  To make it even easier I have implemented a bower install hook that will run the "gulp bowersass" task.  This task generates a sass-bower.json file in the /config directory which is read in and used by libsass when compiling to css.  You can of course run it from the command line `gulp bowersass`.  In this repo I @import ALL bower scss/sass packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
 
 ```
 bower install --save-dev <package>
 ```
 be sure to use the --save or --save-dev option so a listing of your package ends up in bower.json.
 
-I have implemented a bower install hook that will run the "gulp bowersass" task.  This task generates a sass-bower.json file in the /config directory.  You can of course run it from the command line.    
-```
-gulp bowersass
-```
-There is no bower uninstall hook at this time so you will need to do this after uninstalling a bower library containing sass. The bowersass task will automagically invoke a sass-bower module in /lib which uses wiredep to grab all the paths for bower libraries that have .sass/.scss.  This allows you to use a simple `@import('libname')` in your sass/scss ccode and yet libsass (node-sass) will figure out where those live (yea!).
+There is no bower uninstall hook at this time so you will need to do this after uninstalling a bower library containing sass.
 
-In this repo I @import ALL bower scss/sass packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
+#### Javascript
 
-### Styling
+Despite the name a "static" site doesn't have to be static in the sense that it can run code but only client side (in browser) javascript code.
+Bower is perfect way to process and wire those 3rd party codes into your site.  Just like styling your custom browser bound javascript code will live in the /assest folder.  Currently this repo's work flow code is not enabled to process that javascript code nor wire in your bower dependencies but will do so in a future release.
 
-##### Organization
+### NPM (node_modules)
 
-When it comes to styling I follow the "one file to rule them all" 7-1 philosophy found at these guidelines http://sass-guidelin.es/. written by the "God" of Sass Hugo Giraudel.  This makes is easier in terms of workflow because the sass/scss files are "assembled" within the sass and that single file (currently `site.scss`) is then compiled, prefixed and sourcemapped, and sent to the `/public`  folder as a .css.  That's one simple line to include it in your html header.  That's way better than having gulp work on dozens of individual sass files.  I more or less follow the 7-1 pattern which breaks out styling into logical pieces.  With the help of a sublime text plugin called "dependents" https://packagecontrol.io/packages/Dependents one can easily traverse the files (works on js files as well!).  This avoids the huge monolithic files.
+Although it's possible to use NPM packages for client side coding in this repo they are used (for now) exclusively for work flow coding (`/lib` directory).  
+Eventually and if need be (not available as bower packages) they could be used on the client side using tools like browserify.
 
-With the css/html I follow BEM naming conventions for ids and classes.
+## Styling
 
-##### Libraries
+When it comes to styling I follow the "one file to rule them all" 7-1 philosophy found at these [guidelines](http://sass-guidelin.es/) written by the "God" of Sass Hugo Giraudel.  This makes is easier in terms of work flow because the sass/scss files are "assembled" within the sass into a single file (currently `site.scss`) which is then compiled, prefixed and sourcemapped, and sent to the a build subfolder as a css file.  That same file is wired into the html template <head>.  That's way better than having gulp work on dozens of individual sass files.  I more or less follow the 7-1 pattern which breaks out styling into logical pieces.  This avoids the huge monolithic sass files, makes it easier to find and manage code.  If you use SublimeText that's even easier with the help of a plugin called ["Dependents"]( https://packagecontrol.io/packages/Dependents) one can easily traverse the file/directories (works on js files as well!).
 
-  If you look
+Within the css/html I follow BEM naming conventions for ids and classes, etc making use across languages (stylus,sass/less/css) easier.
 
-### HTML Templates and Layout
+Bower sass/scss libraries are a critical part of sass code architecture.  The libraries primarily aid in managing color and responsive design.  
 
-Many static site builders try to be a full environment and fail.    
+// TODO add detailed description of what and how libraries are used.
+
+## HTML Templates and Layout
+
+Static site generators in essence take some html templates together with some content usually in markdown files and meld them together to spit out a complete set of html pages that constitute a site.    
 
 The page "layout" is done currently within [Hugo](http://gohugo.io) in a way very similar to jade, or handlebars or other templating tools.  There is a [TODO](#todo) to accommodate other generators/templating tools but for now it's Hugo.   
 
-The idea is to build an entire page out of rationally organized partials.  The default template page is called single.html located in `app/hugo/layouts/_default`  You'll see it imports just two partials (head and body) that then load in other "lower" partials as organized in the `/partials` subdirectory.  Currently these set of partials combine to form a holy grail layout based on flexboxes.  But obviously the `/body` partials could be reorganized/recoded into whatever layout/method you want.  This use of directories and partials integrates nicely with the 7-1 sass philosophy and makes it easier to find and style the various layout pieces.
+Regardless of the template engine the desire is to build a page out of rationally organized partials.  The default template page is called single.html located in `html/hugo/layouts/_default`  You'll see it imports just two partials (head and body) that then loads in other "lower" partials as organized in the `/partials` subdirectory.  Currently these set of partials combine to form a holy grail layout based on flexboxes.  But obviously the `/body` partials could be reorganized/recoded into whatever layout/method you want.  This use of directories and partials integrates nicely with the 7-1 sass philosophy and makes it easier to find and style the various layout pieces.
 
-### Your Content
+## The Actual Content
 
-## Todos
-Besides what is listed below I have implemented [Leasot](https://github.com/pgilad/leasot) within the workflow.  This will not only list all TDOD comments anywhere in the code to the console, but also into the /todo.txt file in the root of the repo.  
+Now for the meat, that actual textual content.  This too has modularized into it's own directory in the root `/content`.  In so doing it's now possible to have this folder live as a submodule to the repo or live outside the repo where end user editors can have access without access to the "guts" of the repo.  At this time the content is generator specific so I have used a subdirectory `/hugo` to make it clear that content is [Hugo](gohugo.io) specific.  In the [Directories](#directories) section above is more detail about how that `content/hugo`  directory is organized.
 
-````
-gulp todo
-````
+## TODOS
+
+List below our future release tasks.  Also listed in [TODO.md](/TODO.md) are todos and fixme's in the code.  Of course anyone wanting to further this project is welcome to join in.  PRs and filling issues are encouraged.
 
 More or less in order of priority
 
-* Set Hugo content location by building hugo config file dynamically.
+* Set Hugo content location by building Hugo config file dynamically from .tom pieces in /config/hugo
 * Incorporate some flavor of Material Design into styling, RWD and layout.
-* Finish one or more (hugo) layouts (e.g. Holy Grail Flexbox) and styling with RWD throughout. Including dummy content, fonts, iconfonts, tag use and tag cloud, navigation, fancy buttons, image managment....a completely functional face.
-* support client side javascript development.  Currently there is no support.  A static site doesn't need to completely "static".  I can incorporate any browser side javascript you want (there is just no serverside).  Intention is to use wiredep to bring in bower js libraries and then also process any custom js in /assets.  All could be "browserified" (webpack or browserify) as a way to write these as modules, etc.  Yikes...with javascript code comes a reason to include testing, so yes testing.  
-* Organize the repo so it can be installed as a submodule (tasks and library) so latest improvements can be updated in an existing repo.
+* Finish one or more layouts (e.g. Holy Grail Flexbox) and styling with RWD throughout. Including dummy content, fonts, iconfonts, tag use and tag cloud, navigation, fancy buttons, image managment....a completely functional face.
+* Organize the repo so it can be installed as a submodule (tasks and library) so latest improvements can be updated in an existing content only repo.
+* support client side javascript development.  Currently there is no support.  A static site doesn't need to completely "static".  Any browser side javascript works.  Intention is to use wiredep to bring in bower js libraries and then also process any custom js in /assets.  All could be "browserified" (webpack or browserify) if need be as a way to write these as modules, etc.  Yikes...with javascript code comes a reason to include testing (mocha?), so yes testing.
 * Add support for other site builders
 * Add support for other css preprocessors.  Combine css code into a single file when distributing.
-* Add generic deployment option scp/sftp/ftp
-* create a `gulp bower` task that will install or uninstall a bower package and then then open the `_packages.scss` file and add/remove an @import line for the installed package. My dream task for adding sass bower packages!  This could be done for javascript or other styling bower packages.
+* Add more deployment options local/scp/sftp/ftp
+* improve sass-bower.js so it also read/write to the  `_packages.scss` file to add/remove an @import line when a bower sass package is in(un)stalled. My dream task for adding sass bower packages!  This could be done for javascript too or for other styling bower packages.
 * create a `gulp sassdocs` task to (re)generate a sassdoc site when any file in the `/utils` directory changes.  Start up a server and serve the site from a fixed port.
-* work toward removing callbacks and replacing with promises
-* work toward es6 syntax
-
-
-
-
-
-
+* Add revisioning for expiring browser/server caches.
+* work toward es6 syntax (e.g. const vs var)
 
 ============================
-This repo started as a fork from https://github.com/greypants/gulp-starter/tree/master.  Much of the workflow in that repo has been removed for like revisioning, testing and webpack.
-
-This starter may be more appropriate for you in that it is set up for starting any webapp, not just a generated one, on the downside it of course is mostly just a workflow skeleton the rest is left up to your imagination and hours of work.
+This repo was inspired by https://github.com/greypants/gulp-starter
