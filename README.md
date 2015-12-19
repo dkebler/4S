@@ -28,6 +28,7 @@
 	- [HTML Templates and Layout](#html-templates-and-layout)
 	- [The Actual Content](#the-actual-content)
 	- [TODOS](#todos)
+	
 <!-- /TOC -->
 
 ## Status
