@@ -297,7 +297,7 @@ Regardless of the template engine the desire is to build a page out of rationall
 
 ## The Actual Content
 
-Now for the meat, that actual textual content.  This too has modularized into it's own directory in the root `/content`.  In so doing it's now possible to have this folder live as a submodule to the repo or live outside the repo where end user editors can have access without access to the "guts" of the repo.  At this time the content is generator specific so I have used a subdirectory `/hugo` to make it clear that content is [Hugo](gohugo.io) specific.  In the [Directories](#directories) section above is more detail about how that `content/hugo`  directory is organized.
+Now for the meat, that actual textual content.  This too is modularized into it's own directory in the root `/content`.  In so doing it's now possible to have this folder live as a submodule to the repo or live outside the repo where end user editors can have access without access to the "guts" of the repo.  At this time the content is generator specific so I have used a subdirectory `/hugo` to make it clear that content is [Hugo](gohugo.io) specific.  In the [Directories](#directories) section above is more detail about how that `content/hugo`  directory is organized.
 
 ## TODOS
 
