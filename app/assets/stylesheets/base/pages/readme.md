@@ -1,1 +1,0 @@
-The files in the directory represent custom styling for specific pages in the website.  You will have to use the format shortcode to insert a class or other selector into the md file in or to use any specific selectors you put here that are not ones you are overriding.

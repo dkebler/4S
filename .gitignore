@@ -1,9 +1,7 @@
 .DS_Store
 .sass-cache
-public
-Desktop.ini
 node_modules
 bower_components
-app/assets/stylesheets/generated
-
 /.sublime-gulp.cache
+/builds/
+/.releases/

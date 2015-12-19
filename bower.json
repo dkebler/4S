@@ -1,28 +1,17 @@
 {
-  "name": "Hugo-Sass-Bower-Gulp",
+  "name": "super-static-site-starter",
   "private": true,
   "dependencies": {},
   "devDependencies": {
-    "chai": "~3.0.0",
-    "mocha": "~2.2.5",
     "modular-scale": "~2.1.1",
     "scss-blend-modes": "~0.0.2",
     "color-schemer": "~0.2.8",
     "sass-flex-mixin": "~1.0.1",
-    "sass-mq": "~3.2.3",
     "sassy-maps": "~0.4.0",
-    "flexiblegs-scss-plus": "~5.3.1",
-    "hover": "~2.0.2",
-    "materialize": "~0.97.0",
-    "kickstart": "file:////mnt/AllData/hacking/frameworks/kickstart/.git/#sass-bower",
-    "lumux": "file:////mnt/AllData/hacking/frameworks/lumX/.git/#bower-scss",
-    "normalize-scss": "~3.0.3"
+    "normalize-scss": "~3.0.3",
+    "breakpoint-slicer": "~2.x.x",
+    "sass-mediaqueries": "~1.6.1",
+    "sass-mq": "~3.2.5"
   },
-  "overrides": {
-    "hover": {
-      "main": [
-        "scss/hover.scss"
-      ]
-    }
-  }
+  "overrides": {}
 }
