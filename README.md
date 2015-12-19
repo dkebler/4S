@@ -185,16 +185,18 @@ gulp deploy --gh  --test * to gp-pages branch of a diffrent repo specified in th
 NOTE: The AWS-CLI is no longer needed for deployment, but if you are having trouble connecting to your S3 bucket I suggest you do install it and try to manually sync the the .build/dist directory via the command line to establish the correct configuration.   
 
 You need to configure three parts.
+
 1. Within ```config/deploy-s3.js```  You need to specify the bucket name, the url of the bucket (not necessarily the same) and the region in which the bucket was created.  You also need to specify your aws profile name.  I set it up for two buckets so you can test your production on a test bucket before deploying it to a live bucket.  The "testing" bucket is default.  The "gulp deploy --s3" task takes an additional --live switch or you can change the default to 'live' in this file.  
+
 2. Your credentials and aws config files need to be in your home directory which contain your AWS keys and region etc and thus are NOT part of your repo for obvious security reasons. [aws configure](http://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html).  Be sure to set profile name in config/deploy-s3.js.
 There are other ways to get the IAM credentials to the module code but what I set up is the best way, see documentation in config file for alternatives.
 
 example `credentials` file profile entry  (in Linux that would be in your home  `~/.aws` directory)
-
+```
 [s3deploy]
 aws_secret_access_key = <access key from IAM user you created with policy below>
 aws_access_key_id =  <access key from IAM user you created with policy below>
-
+```
 
 3. Finally you to create an AWS IAM (or use an existing one) using the AWS web console.  Give that user an access policy to the buckets you'll be pushing to.   This one worked below for me. Of course if you use an IAM user with full S3 privileges (like an administrator) you won't need this.  But to be more secure why not set up an IAM user just for this singular purpose. This IAM users credentials are the ones that are used in step 2 above.  Note:  the IAM user name and the profile name above don't have to be the same but might as well make them the same.
 
