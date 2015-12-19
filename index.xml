@@ -56,21 +56,21 @@ more code block
     </item>
     
     <item>
-      <title>A Carnivore&#39;s Blog - Just Meat It</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/</link>
-      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/dkebler.github.io/super-static-site-starter/blog/</guid>
-      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Go Ahead Just Eat Meat</title>
       <link>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
       <guid>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
+      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A Carnivore&#39;s Blog - Just Meat It</title>
+      <link>/dkebler.github.io/super-static-site-starter/blog/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>/dkebler.github.io/super-static-site-starter/blog/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
@@ -84,6 +84,24 @@ more code block
       <description>&lt;p&gt;Ground round, meatloaf, hamburger&lt;/p&gt;
 
 &lt;p&gt;Some more ground beef&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Favorite Meats</title>
+      <link>/dkebler.github.io/super-static-site-starter/meat/favs/</link>
+      <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
+      
+      <guid>/dkebler.github.io/super-static-site-starter/meat/favs/</guid>
+      <description>&lt;p&gt;Forget the Bacon&lt;/p&gt;
+
+&lt;p&gt;This is a Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.&lt;/p&gt;
+
+&lt;p&gt;Ground round pastrami pork loin tenderloin jerky. Jerky spare ribs biltong, ham hock ham capicola pork. Jerky turducken pork, meatloaf sausage capicola swine corned beef turkey short loin. Tongue prosciutto pork loin, ground round spare ribs venison kielbasa strip steak.&lt;/p&gt;
+
+&lt;p&gt;Hamburger bresaola turkey t-bone, leberkas salami pork chop ham hock beef ribs. Rump biltong meatball venison, short ribs pork loin shank shankle corned beef beef. Cow salami jowl short loin hamburger fatback. Short ribs pork belly shoulder pastrami drumstick salami corned beef ham hock bresaola. Swine filet mignon cow sausage ball tip. Cow ribeye ground round, sausage pork loin pig beef ball tip turkey boudin.&lt;/p&gt;
+
+&lt;p&gt;Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.&lt;/p&gt;
 </description>
     </item>
     
@@ -210,24 +228,6 @@ Watercress
 Winter Melon
 Yams
 Zucchini&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Favorite Meats</title>
-      <link>/dkebler.github.io/super-static-site-starter/meat/favs/</link>
-      <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
-      
-      <guid>/dkebler.github.io/super-static-site-starter/meat/favs/</guid>
-      <description>&lt;p&gt;Forget the Bacon&lt;/p&gt;
-
-&lt;p&gt;This is a Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.&lt;/p&gt;
-
-&lt;p&gt;Ground round pastrami pork loin tenderloin jerky. Jerky spare ribs biltong, ham hock ham capicola pork. Jerky turducken pork, meatloaf sausage capicola swine corned beef turkey short loin. Tongue prosciutto pork loin, ground round spare ribs venison kielbasa strip steak.&lt;/p&gt;
-
-&lt;p&gt;Hamburger bresaola turkey t-bone, leberkas salami pork chop ham hock beef ribs. Rump biltong meatball venison, short ribs pork loin shank shankle corned beef beef. Cow salami jowl short loin hamburger fatback. Short ribs pork belly shoulder pastrami drumstick salami corned beef ham hock bresaola. Swine filet mignon cow sausage ball tip. Cow ribeye ground round, sausage pork loin pig beef ball tip turkey boudin.&lt;/p&gt;
-
-&lt;p&gt;Prosciutto ball tip filet mignon andouille frankfurter chicken rump sausage meatball. Filet mignon meatloaf ground round andouille ham hock pork. Bresaola short loin meatball chuck hamburger pig. Turkey venison chuck, tongue fatback tail swine jerky corned beef shank kielbasa prosciutto ribeye ham tri-tip. Rump bacon pork belly meatloaf shoulder short loin meatball kielbasa pork loin tongue bresaola brisket corned beef jowl prosciutto. Beef ribs shankle short ribs pork belly corned beef fatback pork chop tongue biltong boudin strip steak sirloin meatloaf pancetta.&lt;/p&gt;
 </description>
     </item>
     
