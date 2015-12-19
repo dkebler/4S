@@ -1,0 +1,10 @@
+@function ts-color($color, $offset-factor: 1) {
+  @if $offset-factor > 0 {
+    @return tint($color, $ts-offset * $offset-factor)
+  }  @else {
+   @return shade($color, -1 * $ts-offset * $offset-factor)
+  }
+}
+
+
+

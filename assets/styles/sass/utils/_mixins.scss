@@ -1,0 +1,77 @@
+////
+/// @author   David Kebler
+// COLOR
+/// set a background and text color  $type
+
+@mixin selector-colors($selector-name, $color, $offset-factor: 1, $grad: false) {
+  @if $offset-factor > 0 {
+    $color: tint($color, $ts-offset * $offset-factor);
+  }
+  @else {
+    $color: shade($color, -1 * $ts-offset * $offset-factor);
+  }
+  #{$selector-name} {
+    background: $color;
+    @if cs-is-dark($color) == true {
+      color: $text-color-light;
+    }
+    @else {
+      color: $text-color-dark;
+    }
+  }
+}
+
+@mixin color-set($color, $offset-factor: 1, $grad: false) {
+  @if $offset-factor > 0 {
+    $color: tint($color, $ts-offset * $offset-factor);
+  } @else {
+    $color: shade($color, -1 * $ts-offset * $offset-factor);
+  }
+  background: $color;
+  @if cs-is-dark($color) == true {
+    color: $text-color-light;
+  } @else {
+    color: $text-color-dark;
+  }
+}
+
+/// BUTTONS
+// http://thecodingdesigner.com/journal/balancing-ideal-sass-and-ideal-css
+@mixin button-base {
+  border-radius: 0.2em;
+  border: {
+    width: 1px;
+    style: solid;
+  };
+  font: {
+    family: sans-serif;
+    weight: normal;
+    size: 0.9rem;
+  };
+  line-height: 1.25;
+  text-transform: uppercase;
+  padding: 0.2em 0.5em;
+}
+
+@mixin button-colors($button-color: #000000, $button-text-color: #2d2d2d) {
+  color: $button-text-color;
+  background: {
+    color: $button-color;
+  };
+  border: {
+    color: adjust-color($button-color, $lightness: -10%);
+  };
+  text-shadow: adjust-color($button-color, $lightness: 15%) 1px 1px 0;
+  
+  &:hover {
+    background: {
+      color: adjust-color($button-color, $lightness: 5%);
+    };
+  }
+  
+  &:active {
+    background: {
+      color: adjust-color($button-color, $lightness: 10%);
+    };
+  }
+}

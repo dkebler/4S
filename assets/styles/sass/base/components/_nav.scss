@@ -1,0 +1,46 @@
+// Base Navigation Styles
+
+nav > ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav > ul > li {
+  flex: 0 1 auto;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition: all linear 0.1s;
+}
+
+nav > ul > li:hover {
+  background: rgba(58, 162, 173, 1);
+}
+
+nav > ul > li > a {
+  align-items: flex-start;
+  color: #fff;
+  display: flex;
+  font-size: 1.55rem;
+  font-weight: 200;
+  letter-spacing: 1px;
+  max-width: 130px;
+  padding: 1rem 1.5rem;
+  text-decoration: none;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  transition: all linear 0.1s;
+}
+
+nav > ul > li > a > div > span {
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 0.7rem;
+  font-style: italic;
+  line-height: 1rem;
+  max-width: 260px;
+}

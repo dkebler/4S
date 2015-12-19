@@ -1,0 +1,44 @@
+/*************************/
+/*   This is the single, main scss assest file that pulls in all other style sheets into a single
+/*   site style sheet /scss/site.scss that can later be minified.
+/*
+/*   This file architecture below was inspired by the http://sass-guidelin.es/#the-7-1-pattern
+/    found at the sass guidelines but Hugo Giraudel.
+/*************************/
+
+/*  VENDOR CUSTOM SETTINGS */
+// Load in any sass libraries and packages (mainly through bower)
+@import 'vendors/packages';
+
+/*  END - VENDOR CUSTOM SETTINGS */
+
+/* CUSTOM SASS CODES USED FOR THIS SITE.  */
+//  Commonly useful ones could later be put into a library for use in other sites
+@import 'utils/debug';  // comment out to turn off debugging.
+@import 'utils/functions';
+@import 'utils/mixins';
+@import 'utils/placeholders';
+
+/* END - CUSTOM SASS CODES USED FOR THIS SITE.  */
+
+/* BASE STYLING INCLUDING THE BASE(DEFAULT) THEME  */
+//  The base theme (like all themes) is a package made of a color, component, layout and typography theme
+//  Base styling structure can be overridden by loading  a theme 'package'
+@import 'base/reset';
+
+// anything outside the base theme that needs to be reset or set before loading the base theme
+@import 'base/base-theme';
+
+// THE base(default) theme package.  Look inside to see the various pieces
+/* END - BASE STYLING INCLUDING THE BASE(DEFAULT) THEME  */
+
+/* CUSTOM THEME OVERRIDE  */
+// Override part or all of a base theme by importing only ONE custom theme file found in /themes folder
+// @import 'themes/20-something';
+// @import 'themes/old-fart';
+// @import 'themes/geek-blog';
+/* END - CUSTOM THEME OVERRIDE  */
+
+// DEBUGGING
+// see utils/_debug.scss  -  comment to turn off debugging
+// @include debug($debug-list);

@@ -1,0 +1,9 @@
+{  "globals": {
+    "Config": true,
+    "Configfilepath": true,
+    "Debug": true,
+    "Info" : true,
+    "Debug2" : true,
+    "Promise" : true
+    }
+}
