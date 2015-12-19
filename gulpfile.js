@@ -56,7 +56,8 @@ var view = require('open');
 gulp.task('deploy', function() {
 
 // TODO all below to deploy.js in /lib and require
-  var deployto = 's3'; // default
+// TODO Make deployment type default in the master file
+  var deployto = 'gh'; // default change to 's3' if you want s3 to be the default
   if (Object.keys(argv)[1] !== '$0') {
     deployto = Object.keys(argv)[1]
   }
@@ -107,6 +108,18 @@ var loc = Object.keys(argv)[2];
 gulp.task('bowersass', function() {
 
 require('./lib/sass-bower');
+
+});
+
+
+// ************************
+// Task - bowersass
+// Generate the bower sass paths file sass-bower.json in the config directory
+// This task is only needed after a bower uninstall
+// *************************
+gulp.task('clean-gh', function() {
+
+require('./lib/clean-gh')();
 
 });
 

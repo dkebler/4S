@@ -43,7 +43,7 @@ __Where it Stands:__ This project is currently under development with only a min
 
 ## Movtivation
 
-__THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart even a noob into creating excellent and professional "static" generated websites using a coherent and complete workflow including deployment. There are lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together in a flexible, customizable way and with excellent documentation. Who can blame them that's how they make money. So if I am wrong on this please point me to such repos.  I probably won't give up my efforts but will inform visitors to these other great alternatives.  
+__THE PROBLEM__: In all of github space there is no **really** complete, current repo that will jumpstart someone into creating excellent and professional "static" generated websites using a coherent and complete workflow including deployment. There are lots of great pieces out there but no one willing to share their hard work of those all pieces pulled together in a flexible, customizable way and with excellent documentation. Who can blame them that's how they make money. So if I am wrong on this please point me to such repos.  I probably won't give up my efforts but will inform visitors to these other great alternatives.  
 
 __THE GOAL__:  The ultimate goal is to create a honest to god complete, current techology static site starter repo including development and deployment workflows, html templates, styling, responsive layout, example content, multi-deployment options and more.  The idea is to create a repo where nothing is left out or half baked, not just another "skeleton". Yet the starter should be flexible in terms of being modified to suit (e.g. stylus rather than and/or in addition to sass, Wintersmith instead of Hugo, Jade instead of Hugo templates. CSS styling that has rational BEM classes and is easy to customize/use).  Both backend(dev/deploy workflows) and front end (layouts/styling/reponsiveness) will all addressed and more before a 1.0 release.  An extended goal is to fork this effort to a sibling repo that takes the same approach for a single page webapp.
 
@@ -53,7 +53,7 @@ __THE GOAL__:  The ultimate goal is to create a honest to god complete, current 
 
 #### Node-NPM
 
-1. You'll need node.js and npm installed first and of course git.  In keeping with this repo always being current and because the workflow code is not browser dependent our development environment will be the latest version of [node](https://nodejs.org) (currently 5.3) and the latest pre-release version of npm 3.x.  For Linux Ubuntu/Debian check out [nodesource](https://github.com/nodesource/distributions) for best way to get the latest(5.x) installed.  pm  Npm installs with node and the installed version will be 2.x.  Unless you can't because of your dev environment upgrade to 3.x (techically a pre-release).  You can do that now and often with a simple `sudo npm install -g npm`.  To keep node itself up to date I suggest using the [n version manager](https://www.npmjs.com/package/n) which makes it ease to revert if need be.  
+1. You'll need node.js and npm installed first and of course git.  In keeping with this repo always being current and because the workflow code is not browser dependent our development environment will be the latest version of [node](https://nodejs.org) (currently 5.3) and the latest pre-release version of npm 3.x.  For Linux Ubuntu/Debian check out [nodesource](https://github.com/nodesource/distributions) for best way to get the latest(5.x) installed. Npm installs with node and the installed version will be 2.x.  Unless you can't because of your dev environment upgrade to 3.x (techically a pre-release).  You can do that now and often with a simple `sudo npm install -g npm`.  To keep node itself up to date I suggest using the [n version manager](https://www.npmjs.com/package/n) which makes it easy to revert if need be.  
 
 #### Hugo
 
@@ -105,7 +105,7 @@ Before diving in take a moment to open your favorite editor (mine is now [Atom](
 			/css
 ```
 
- the `/content` directory holds the end-user editable content.  The idea utlimately is to make this directory "portable" and not part of this repo but linked either as a submodule or through configuration.  The subdirectory /hugo within /content is for end user editable content in the format that [Hugo](http://gohugo.io) expects.   Within the /hugo directory the frontmatter and mustache shortcodes in each md file (`/pages`) are Hugo specific but the markdown is generic and portable.  A noob content only editor would only need access to the /pages directory.
+ the `/content` directory holds the end-user editable content.  The idea utlimately is to make this directory "portable" and not part of this repo but linked either as a submodule or through configuration.  The subdirectory /hugo within /content is for end user editable content in the format that [Hugo](http://gohugo.io) expects.   Within the /hugo directory the frontmatter and mustache shortcodes in each md file (`/pages`) are Hugo specific but the markdown is generic and portable.   An end-user content only editor would just need access to the /pages directory.
 ```
 /content        
   /hugo
@@ -119,11 +119,11 @@ This `/html` directory holds the html template layouts processed by the static s
 /html
   /hugo
 ```
-The `/config` directory holds the various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  With the exception of sass-bower.json they are js files instead of json files so they can be commented and have generated values.   `index.js` is the main (master) configuration file (by default).  Take a look at it first!  If you would rather use an alternative name for this file see the instruction on how in the file itself.   Then check out all the other configuration files to see what kinds of things will need to be set for your particular application.
+The `/config` directory holds the various workflow config files.  Here you will do customizing to suit, particularly to the deployment files or if you change/add workflow pieces.  With the exception of sass-bower.json they are js files instead of json files so they can be commented and have generated values.   `index.js` is the main (master) configuration file (by default).  Take a look at it first!  If you would rather use an alternative name for this file see the instructions on how in the file itself.   Then check out all the other configuration files to see what kinds of things will need to be set for your particular application.
 ```
 /config
 ```
-`/lib` holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks and you will be lead to build module (which loads the clean sass and html modules) and then either a watch or deploy module.
+`/lib` holds all the workflow library code/modules. The filenames are fairly self explanatory.  To understand their use pick a gulp task and follow to the various libraries.  For example take a look at the 'dev' or 'deploy' tasks in `gulpfile.js` and you will be lead to the build module (`lib/build.js`) (which loads the clean, sass and html(hugo) modules) and then either a watch or deploy module.
 ```/lib
 ```
 
@@ -148,7 +148,7 @@ config/index.js   * the master configuration file of this repo (unless you chang
 
 ## Workflow
 
-Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one that may eventually be droppped all together.  So rather than have "everything" be a gulp task which is typical it was thought much better to limit gulp tasks to launching ones a human would actually need to run from the command line.  So instead the "tasks" the workflow appear rather as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's file stream pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
+Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one that may eventually be droppped all together.  So rather than have "everything" be a gulp task which is typical it was thought much better to limit gulp tasks to launching ones a human would actually need to run from the command line.  So instead the "tasks" of the workflow appear rather as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's file stream pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
 
 From a terminal at your repo root the command line gulp tasks available are show below.  
 
@@ -172,10 +172,12 @@ NOTE: If node-sass does not get built correctly you may get errors about binding
 Getting the static site out there for public consumption can be a hassle.  I have already implemented two such ways.  You can deploy to an S3 bucket or to github's gh-pages.  I removed the most painful part but you still need to set the corresponding config files correctly (`config/deploy-s3.js or config/deploy-gh.js`) and set up your credentials and permissions.  When you deploy code creates a distribution version of the static site (in `./builds/dist`) with, for example, minimified css and no source maps.  After uploading to your desired destination it then fires up a browser so you can take a look.
 
 ```
-gulp deploy   * deploys to s3 using the default location found in the config file
-gulp deploy --s3
-gulp deploy --s3 --live  * deploy to live or other s3 bucket given in config file
-gulp deploy --gh  * to gp-pages branch of same repo (unless changed in config file)
+* change the default deploy in the deploy task in gulpfile.js
+gulp deploy              * by default deploys to Github using the default location found in the deploy-gh file
+gulp deploy --s3         *deploys to S3 using the default bucket location found in the deploy-s3 file
+gulp deploy --s3 --live  * deploy to live or other s3 bucket given in deploy-s3 config file
+gulp deploy --gh         * to gp-pages branch of same repo (unless changed in deploy-gh config file)
+gulp deploy --gh  --test * to gp-pages branch of a diffrent repo specified in the deploy-gh config file
 ```
 
 #### Publishing to S3
@@ -237,7 +239,9 @@ To publish to Github is as easy as
 
 By default it will publish to the gh-pages branch of your origin repo on Github. The url will be `<username>.github.io/<github repo name>`.  The [gh-pages](https://www.npmjs.com/package/gh-pages) package provides a number of customizing options which can be set in the same `deploy-gh` config file.  For example you can set to deploy to your "root" gh-pages using the "repo" setting.
 
-Please note that is can take up to a few minutes for github servers to serve up changes so be patient and hit refresh (these is no automatic browser sync with deployment).
+If you get **Error: Remote url mismatch** when you deploy to Github the gh-pages cache repo of the distribution build needs to be cleaned.  This typically happens if you change the "repo" option.  In which case simply run `gulp clean-gh` and try again.
+
+Note that is can take up to a few minutes for Github servers to serve up changes so be patient and hit refresh (these is no automatic browser sync with deployment).
 
 ## Libraries
 
