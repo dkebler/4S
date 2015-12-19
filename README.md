@@ -198,7 +198,7 @@ aws_secret_access_key = <access key from IAM user you created with policy below>
 aws_access_key_id =  <access key from IAM user you created with policy below>
 ```
 
-3. Finally you to create an AWS IAM (or use an existing one) using the AWS web console.  Give that user an access policy to the buckets you'll be pushing to.   This one worked below for me. Of course if you use an IAM user with full S3 privileges (like an administrator) you won't need this.  But to be more secure why not set up an IAM user just for this singular purpose. This IAM users credentials are the ones that are used in step 2 above.  Note:  the IAM user name and the profile name above don't have to be the same but might as well make them the same.
+Finally you to create an AWS IAM (or use an existing one) using the AWS web console.  Give that user an access policy to the buckets you'll be pushing to.   This one worked below for me. Of course if you use an IAM user with full S3 privileges (like an administrator) you won't need this.  But to be more secure why not set up an IAM user just for this singular purpose. This IAM user's credentials are the ones that are used in step 2 above.  Note:  the IAM user name and the profile name above don't have to be the same but might as well make them the same.
 
 ````
           {
@@ -243,7 +243,7 @@ By default it will publish to the gh-pages branch of your origin repo on Github.
 
 If you get **Error: Remote url mismatch** when you deploy to Github the gh-pages cache repo of the distribution build needs to be cleaned.  This typically happens if you change the "repo" option.  In which case simply run `gulp clean-gh` and try again.
 
-Note that is can take up to a few minutes for Github servers to serve up changes so be patient and hit refresh (these is no automatic browser sync with deployment).
+Note that once the content is uploaded it can take up to a few minutes for Github servers to serve up the changes so be patient and hit refresh (these is no automatic browser sync with deployment).
 
 ## Libraries
 
@@ -255,36 +255,35 @@ js code that does all the heavy lifting of automating tasks such as development 
 
 ### Bower for the Browser
 
-For 3rd party libraries destined for browser [Bower](bower.io) is the answer.  The Bower package manager was designed for this purpose and npm packages like [wiredep] were designed to wire them into your <head>.  
+For 3rd party libraries destined for browser [Bower](bower.io) is the answer.  The Bower package manager was designed for this purpose and npm packages like [wiredep] were designed to wire them into your `<head>` section of your html template.  
 
 #### Sass
 
-In the case of sass/stylus/less libraries Bower makes it easy to access them when compiling to css which then is wired into the html template.  I have created a module lib/sass-bower.js that does just that for sass.  It makes it possible to simply use an @import 'packagename' in your code without needing/knowing the path to the package in the bower_components directory!  To make it even easier I have implemented a bower install hook that will run the "gulp bowersass" task.  This task generates a sass-bower.json file in the /config directory which is read in and used by libsass when compiling to css.  You can of course run it from the command line `gulp bowersass`.  In this repo I @import ALL bower scss/sass packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
+In the case of sass/stylus/less libraries Bower makes it easy to access them when compiling to css which then is wired into the html template.  I have created a module lib/sass-bower.js that does just that for sass.  It makes it possible to simply use an @import 'packagename' in your sass code without needing/knowing the path to the package in the bower_components directory!  To make it even easier I have implemented a bower install hook that will run the "gulp bowersass" task.  This task generates a sass-bower.json file in the /config directory which is read in and used by libsass when compiling to css.  You can of course run it from the command line `gulp bowersass`.  In this repo I @import ALL bower scss/sass packages in one file the `_packages.scss_` in the `app/assets/styles/sass/vendors` folder.
 
 ```
 bower install --save-dev <package>
 ```
 be sure to use the --save or --save-dev option so a listing of your package ends up in bower.json.
 
-There is no bower uninstall hook at this time so you will need to do this after uninstalling a bower library containing sass.
+There is no bower uninstall hook at this time so you will need to run `gulp bowersass` after uninstalling a bower library containing sass.
 
 #### Javascript
 
 Despite the name a "static" site doesn't have to be static in the sense that it can run code but only client side (in browser) javascript code.
-Bower is perfect way to process and wire those 3rd party codes into your site.  Just like styling your custom browser bound javascript code will live in the /assest folder.  Currently this repo's work flow code is not enabled to process that javascript code nor wire in your bower dependencies but will do so in a future release.
+Bower is a perfect way to process and wire those 3rd party js codes into your site.  Just like styling your custom browser bound javascript code will live in the `/assets` folder.  Currently this repo's work flow code is not enabled to process that javascript code nor wire in your bower dependencies but will do so in a future release.
 
 ### NPM (node_modules)
 
-Although it's possible to use NPM packages for client side coding in this repo they are used (for now) exclusively for work flow coding (`/lib` directory).  
-Eventually and if need be (not available as bower packages) they could be used on the client side using tools like browserify.
+Although it's possible to use NPM packages for client side coding in this repo they are used (for now) exclusively for work flow coding (`/lib` directory). Eventually and if need be they could be used on the client side using tools like browserify which brings together commonjs modules for use in the browser.
 
 ## Styling
 
-When it comes to styling I follow the "one file to rule them all" 7-1 philosophy found at these [guidelines](http://sass-guidelin.es/) written by the "God" of Sass Hugo Giraudel.  This makes is easier in terms of work flow because the sass/scss files are "assembled" within the sass into a single file (currently `site.scss`) which is then compiled, prefixed and sourcemapped, and sent to the a build subfolder as a css file.  That same file is wired into the html template <head>.  That's way better than having gulp work on dozens of individual sass files.  I more or less follow the 7-1 pattern which breaks out styling into logical pieces.  This avoids the huge monolithic sass files, makes it easier to find and manage code.  If you use SublimeText that's even easier with the help of a plugin called ["Dependents"]( https://packagecontrol.io/packages/Dependents) one can easily traverse the file/directories (works on js files as well!).
+When it comes to styling this repo follows the "one file to rule them all" 7-1 philosophy found at these [guidelines](http://sass-guidelin.es/) written by the "God" of Sass, [Hugo Giraudel](http://hugogiraudel.com/).  This makes is easier in terms of work flow because the sass/scss files are "assembled" within the sass into a single file (currently `site.scss`) which is then compiled, prefixed and sourcemapped, and sent to the a build subfolder as a css file.  That same file is wired into the html template `<head>` section.  That's way better than having gulp work on dozens of individual sass files. Following the 7-1 pattern breaks out styling into logical pieces.  This avoids the huge monolithic sass files, makes it easier to find and to manage the code.  If you use SublimeText that's even easier with the help of a plugin called ["Dependents"]( https://packagecontrol.io/packages/Dependents) with which one can easily traverse the file/directories (works on js files as well!).
 
-Within the css/html I follow BEM naming conventions for ids and classes, etc making use across languages (stylus,sass/less/css) easier.
+Within the css/html BEM naming conventions are followed for ids and classes, etc making use across languages (stylus,sass/less/css) and html templates easier and logical.
 
-Bower sass/scss libraries are a critical part of sass code architecture.  The libraries primarily aid in managing color and responsive design.  
+The current Bower sass/scss libraries in this repo are a critical part of sass code architecture.  The libraries primarily aid in managing color and responsive design.  Take a look at the `_packages` sass file, or the `bower.json` file to see what the are.
 
 // TODO add detailed description of what and how libraries are used.
 
