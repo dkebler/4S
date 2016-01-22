@@ -11,7 +11,13 @@
     "normalize-scss": "~3.0.3",
     "breakpoint-slicer": "~2.x.x",
     "sass-mediaqueries": "~1.6.1",
-    "sass-mq": "~3.2.5"
+    "sass-mq": "~3.2.5",
+    "material-design-lite": "~1.0.6",
+    "bemify": "~0.1.0"
   },
-  "overrides": {}
+  "overrides": {
+    "material-design-lite": {
+      "main": "src/material-design-lite.scss"
+    }
+  }
 }
