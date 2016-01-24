@@ -78,7 +78,7 @@ npm install
 bower install
 ```
 if you want the current working branch since the latest release clone
-`https://github.com/dkebler/super-static-site-starter/tree/working-0x0`
+`https://github.com/dkebler/super-static-site-starter.git --branch working-0x0`
 where x is the next minor release from the current.  (e.g. if current release is 0.1.0 use x=2)
 
 ## Repo Organization
