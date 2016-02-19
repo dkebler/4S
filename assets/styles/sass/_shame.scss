@@ -1,0 +1,13 @@
+// /* styles for desktop */
+// .tinynav { display: none }
+// #nav .selected a, #nav2 .selected a { color: red }
+// /* styles for mobile */
+// @media screen and (max-width: 600px) {
+//   .tinynav { display: block }
+//   #nav, #nav2 { display: none }
+// }
+
+
+// /* mobile first */
+.tinynav { display: block }
+#nav, #nav2 { display: none }

@@ -1,0 +1,28 @@
+@@include('regions/head.njs')
+
+<body class='page'>
+    @@include('regions/header.njs')
+
+    <div class="rollover-wrapper">
+
+        @@include('regions/topbar.njs')
+        <main>
+
+        @@include('regions/sidebar.njs')
+
+        <section id="content">
+
+          {% block article %}
+            {# This is where one melds in article content #}
+          {% endblock %}
+
+        </section>
+
+          </main>
+          @@include('regions/footer.njs')
+
+       </div>
+
+      @@include('components/javascripts.njs')
+
+  </body>

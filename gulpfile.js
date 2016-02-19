@@ -151,6 +151,28 @@ gulp.task('test', function() {
 
 });
 
+var merge = require('gulp-file-include')
+var nunjucks = require('gulp-nunjucks-render');
+var rename = require("gulp-rename");
+
+gulp.task('template', function() {
+
+  gulp.src(['assets/html/nunjucks/layouts/*.pnjs'])
+    .pipe(merge({
+      prefix: '@@',
+      basepath: 'assets/html/nunjucks'
+    }))
+    .pipe(rename({extname: ".njs"}))
+    .pipe(gulp.dest('assets/html/nunjucks/layouts/'));
+
+	// gulp.src('assets/html/nunjucks/*.njs')
+	// 	.pipe(nunjucks({ path: ['assets/html/nunjucks'] // String or Array
+  //   }))
+	// 		.on('error', console.log)
+	// 	.pipe(gulp.dest('./builds/dev/'));
+});
+
+
 // ************************
 // Task - HELP
 // Lists all the tasks in this gulpfile.js to the console.
