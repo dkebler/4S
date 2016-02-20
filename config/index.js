@@ -9,10 +9,10 @@ config.configDirectory = './config/';  //  directory where collection of config 
 config.buildDirectory = './builds/';  // where the various builds are put
 config.buildSubdirectory  = {dev:'dev/', dist:'dist/'};  // different builds within .builds
 config.libDirectory = './lib/';  // workflow library directory
-config.assetsDirectory = "./assets/";  // location of font, css, etc - could put images here as well.
+config.assetsDirectory = "./assets/";  // location of font, css, site images, html templates
 config.contentDirectory = "./content/"
 // content files are usually generator specific so put in subdirectory so it's clear (e.g. content/hugo)
-config.htmlDirectory ="./html/"; // html templates and other layout and configs specific to a generator
+config.htmlDirectory ="./assets/html/"; // html templates and other layout and compnents
 // put generator templates/files in subdirectory of config.htmlDirectory of the htmlGenerator (e.g. html/hugo)
 config.htmlGenerator = "hugo"; // specify which static site generator is being used.
 config.buildType  = 'dev';  // set this to either 'dev' (default) or 'dist'

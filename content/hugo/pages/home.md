@@ -6,6 +6,8 @@ date = "2015-11-20"
 Tags = ["Meat", "Vegetables", "Fruits", "Cerals", "Confections"]
 Categories = ["default"]
 +++
+
+
 * [favorite meats](/meat/favs)
 * [meat blog](/blog)
 * [meats.com](http://meats.com/)

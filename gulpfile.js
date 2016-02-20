@@ -152,24 +152,31 @@ gulp.task('test', function() {
 });
 
 var merge = require('gulp-file-include')
-var nunjucks = require('gulp-nunjucks-render');
 var rename = require("gulp-rename");
 
-gulp.task('template', function() {
+gulp.task('html:merge', function() {
 
-  gulp.src(['assets/html/nunjucks/layouts/*.pnjs'])
+  gulp.src(['assets/html/base/layouts/*.pnjs'])
     .pipe(merge({
       prefix: '@@',
-      basepath: 'assets/html/nunjucks'
+      basepath: 'assets/html/base/'
     }))
     .pipe(rename({extname: ".njs"}))
-    .pipe(gulp.dest('assets/html/nunjucks/layouts/'));
+    .pipe(gulp.dest('assets/html/base/layouts/'));
+});
 
-	// gulp.src('assets/html/nunjucks/*.njs')
-	// 	.pipe(nunjucks({ path: ['assets/html/nunjucks'] // String or Array
-  //   }))
-	// 		.on('error', console.log)
-	// 	.pipe(gulp.dest('./builds/dev/'));
+
+var watch = require(Config.libDirectory + 'watch');
+
+var nunjucks = require('gulp-nunjucks-render');
+
+gulp.task('html:extend',['html:merge'], function() {
+
+	gulp.src('assets/html/base/*.njs')
+		.pipe(nunjucks({ path: ['assets/html/base'] // String or Array
+    }))
+			.on('error', console.log)
+		.pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
 });
 
 

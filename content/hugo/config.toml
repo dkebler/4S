@@ -2,7 +2,7 @@
 languageCode = "en-us"
 title = "Code Coots"
 # TODO set hugo's contentdir dynamically from code
-contentdir = "../../content/hugo/pages"
+contentdir = "../../../content/hugo/pages"
 [blackfriday]
   hrefTargetBlank = true
   plainIDAnchors = true
