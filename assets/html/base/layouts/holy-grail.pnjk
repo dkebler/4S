@@ -1,14 +1,14 @@
-@@include('regions/head.njs')
+@@include('regions/head.njk')
 
 <body class='page'>
-    @@include('regions/header.njs')
+    @@include('regions/header.njk')
 
     <div class="rollover-wrapper">
 
-        @@include('regions/topbar.njs')
+        @@include('regions/navbar.njk')
         <main>
 
-        @@include('regions/sidebar.njs')
+        @@include('regions/sidebar.njk')
 
         <section id="content">
 
@@ -19,10 +19,10 @@
         </section>
 
           </main>
-          @@include('regions/footer.njs')
+          @@include('regions/footer.njk')
 
        </div>
 
-      @@include('components/javascripts.njs')
+      @@include('components/javascripts.njk')
 
   </body>
