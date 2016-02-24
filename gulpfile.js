@@ -151,10 +151,10 @@ gulp.task('test', function() {
 
 });
 
-var merge = require('gulp-file-include')
+// var merge = require('gulp-file-include')
+
 var rename = require("gulp-rename");
 var htmlbeautify = require('gulp-html-beautify');
-
 
 var hbOptions = {
     "indent_size": 4,
@@ -162,7 +162,7 @@ var hbOptions = {
     "eol": "\n",
     "indent_level": 0,
     "indent_with_tabs": false,
-    "preserve_newlines": false,  // changed
+    "preserve_newlines": true,
     "max_preserve_newlines": 10,
     "jslint_happy": false,
     "space_after_anon_function": false,
@@ -181,26 +181,51 @@ var hbOptions = {
 
 // Info(hbOptions)
 
+// gulp.task('html:merge', function() {
+
+//   gulp.src(['assets/html/base/layouts/*.phtml'])
+//     .pipe(merge({prefix: '@@',basepath: 'assets/html/base/'}))
+//     .pipe(rename({extname: ".pmhtml"}))
+//    .pipe(htmlbeautify(hbOptions))
+//    .pipe(gulp.dest('assets/html/base/layouts/'));
+// });
+
+var posthtml = require('gulp-posthtml');
+// var posthtml = require('posthtml');
+
 gulp.task('html:merge', function() {
 
-  gulp.src(['assets/html/base/layouts/*.pnjk'])
-    .pipe(merge({prefix: '@@',basepath: 'assets/html/base/'}))
-    .pipe(rename({extname: ".njk"}))
-   .pipe(htmlbeautify(hbOptions))
-   .pipe(gulp.dest('assets/html/base/layouts/'));
+     return gulp.src('assets/html/base/layouts/*.phtml')
+         .pipe( posthtml([require('posthtml-include')({'root':'assets/html/base'})]) )
+         .pipe( rename({extname: ".mhtml"}) )
+         .pipe(htmlbeautify(hbOptions))
+         .pipe(gulp.dest('assets/html/base/layouts/'));
+
+// var html = require('fs').readFileSync('./assets/html/base/layouts/holy-grail.phtml').toString();
+//
+// Info(html);
+//
+// posthtml()
+// .use(require('posthtml-include')({'root':'assets/html/base'}))
+// .process(html)
+// .then( function(result) { Info(result.html)},
+//       function(err) { Info('error', err)}
+//      )
+
 });
 
 
 var watch = require(Config.libDirectory + 'watch');
 
-var nunjucks = require('gulp-nunjucks-render');
+// var nunjucks = require('gulp-nunjucks-render');
 
 gulp.task('html:extend',['html:merge'], function() {
 
-	gulp.src('assets/html/base/*.njk')
-		.pipe(nunjucks({ path: ['assets/html/base'] // String or Array
-    }))
-			.on('error', console.log)
+	gulp.src('assets/html/base/*.ehtml')
+    .pipe( posthtml([require('posthtml-extend')({'root':'assets/html/base'})]) )
+//	.pipe(nunjucks({ path: ['assets/html/base'] // String or Array }))
+  	.on('error', Info)
+    .pipe( rename({extname: ".html"}) )
 		.pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
 });
 
