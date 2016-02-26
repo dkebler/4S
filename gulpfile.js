@@ -193,13 +193,33 @@ var hbOptions = {
 var posthtml = require('gulp-posthtml');
 // var posthtml = require('posthtml');
 
+var hb = require('gulp-hb');
+
 gulp.task('html:merge', function() {
+
+ // var hbStream = hb().data('./assets/html/base/hugo.json');
+ // Info(hbStream.data);
+
+var file = './assets/html/base/hugo.json';
+var hbdata = require(file);
+
+// var jsonfile = require('jsonfile');
+//  var hbdata = jsonfile.readFileSync(file); // , function(err, obj) {
+//  Info(obj);
+// return obj;
+//  })
+
+Info(hbdata);
 
      return gulp.src('assets/html/base/layouts/*.phtml')
          .pipe( posthtml([require('posthtml-include')({'root':'assets/html/base'})]) )
+           .pipe( hb().data(hbdata) )
+//         .pipe( hb().data({ BaseURL: 'direct' }) )
+             .on('error', function (err) { Info(err) })
          .pipe( rename({extname: ".mhtml"}) )
          .pipe(htmlbeautify(hbOptions))
-         .pipe(gulp.dest('assets/html/base/layouts/'));
+         .pipe(gulp.dest('assets/html/base/layouts/'))
+            ;
 
 // var html = require('fs').readFileSync('./assets/html/base/layouts/holy-grail.phtml').toString();
 //
@@ -215,18 +235,20 @@ gulp.task('html:merge', function() {
 });
 
 
-var watch = require(Config.libDirectory + 'watch');
+// var watch = require(Config.libDirectory + 'watch');
 
 // var nunjucks = require('gulp-nunjucks-render');
+
 
 gulp.task('html:extend',['html:merge'], function() {
 
 	gulp.src('assets/html/base/*.ehtml')
     .pipe( posthtml([require('posthtml-extend')({'root':'assets/html/base'})]) )
 //	.pipe(nunjucks({ path: ['assets/html/base'] // String or Array }))
-  	.on('error', Info)
+    .on('error', Info)
     .pipe( rename({extname: ".html"}) )
-		.pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
+		// .pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
+    .pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
 });
 
 
