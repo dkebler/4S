@@ -203,16 +203,11 @@ gulp.task('html:merge', function() {
 var file = './assets/html/base/hugo.json';
 var hbdata = require(file);
 
-// var jsonfile = require('jsonfile');
-//  var hbdata = jsonfile.readFileSync(file); // , function(err, obj) {
-//  Info(obj);
-// return obj;
-//  })
-
 Info(hbdata);
 
      return gulp.src('assets/html/base/layouts/*.phtml')
          .pipe( posthtml([require('posthtml-include')({'root':'assets/html/base'})]) )
+         .on('error', function (err) { Info(err) })
            .pipe( hb().data(hbdata) )
 //         .pipe( hb().data({ BaseURL: 'direct' }) )
              .on('error', function (err) { Info(err) })

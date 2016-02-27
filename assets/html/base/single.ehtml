@@ -1,17 +1,22 @@
 <extends src="layouts/holy-grail.mhtml">
 
-<block name="sidebar"  type="prepend">
-<p>Here is some additional content for the sidebar extended in</p>
+<!-- <block name="sidebar-nav"  type="prepend">
+<p>Here is some additional content for the nav sidebar prepended</p>
 </block>
 
-<block name="article"  type="append">
-<!-- Layout for Content Area of Markdown Page Goes Here -->
-    <div id="default__title">{{ .Title }}</div>
-    <div id="default__subtitle">{{ .Params.subtitle }}</div>
-    <div>{{ .Date.Format "Jan 02, 2006" }}</div>
+<block name="sidebar-ads"  type="prepend">
+<p>Here is some additional content for the ads sidebar prepended</p>
+</block> -->
 
-   <div id="default_text"> {{ .Content }} </div>
-<!-- ************************************************** -->
+<block name="article">
+
+    <!-- Layout for Content Area of Markdown Page Goes Here -->
+        <div id="default__title">{{ .Title }}</div>
+        <div id="default__subtitle">{{ .Params.subtitle }}</div>
+        <div>{{ .Date.Format "Jan 02, 2006" }}</div>
+
+       <div id="default_text"> {{ .Content }} </div>
+    <!--************************************************** -->
 </block>
 
 

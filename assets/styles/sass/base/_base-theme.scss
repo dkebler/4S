@@ -3,9 +3,9 @@
 @import 'colors';
 @import 'typography';
 @import 'components';
-@import 'layout';
+@import 'regions';
+@import 'layouts';
 @import 'pages'; //needs to be last so specific page formats will override
 
 
 /* End - Base Theme */
-

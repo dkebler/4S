@@ -1,1 +1,13 @@
 <!-- Any Javascripts required.  to be loaded in the head -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+<script src="http://basicwebcomponents.org/basic-web-components/packages/basic-collapsible-panel/dist/basic-collapsible-panel.js"></script>
+
+<script>
+window.addEventListener('load', function() {
+  var toggleButton = document.querySelector('#toggleButton');
+  var collapsiblePanel = document.querySelector('#collapsiblePanel');
+  toggleButton.addEventListener('click', function() {
+    collapsiblePanel.toggle();
+  });
+});
+</script>

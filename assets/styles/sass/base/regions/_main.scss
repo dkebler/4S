@@ -1,0 +1,8 @@
+.main {
+  @include color-set($main-bg-color);
+//  width: 100%;
+  padding: 0 $page-gutter*1.5;
+}
+
+@import 'main/content';
+@import 'main/sidebar';

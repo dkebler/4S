@@ -24,60 +24,94 @@
 
 
     <!-- Any Javascripts required.  to be loaded in the head -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
+    <script src="http://basicwebcomponents.org/basic-web-components/packages/basic-collapsible-panel/dist/basic-collapsible-panel.js"></script>
+
+    <script>
+        window.addEventListener('load', function() {
+            var toggleButton = document.querySelector('#toggleButton');
+            var collapsiblePanel = document.querySelector('#collapsiblePanel');
+            toggleButton.addEventListener('click', function() {
+                collapsiblePanel.toggle();
+            });
+        });
+    </script>
 
 
 
 </head>
 
 
-<body class="page">
-    <header>
-        <figure class="figure--center">
-            <img src="http://placehold.it/1000x200">
-        </figure>
-    </header>
+<body class="holy-grail">
+
+    <div class="holy-grail__header">
+        <header>
+            <figure class="figure--center">
+                <img src="http://placehold.it/1000x200">
+            </figure>
+        </header>
 
 
 
+    </div>
 
     <div class="rollover-wrapper">
 
-        <nav id="topbar">
-            <div id="topbar__sitename"></div>
-            <div id="topbar__nav"> Navigation Here</div>
-            <div id="topbar__search">Search Bar</div>
-            <div id="topbar__language">Language</div>
-        </nav>
-        <main>
+        <div class="holy-grail__navbar">
+            <nav id="topbar">
+                <div class="topbar__sitename">SITE NAME</div>
+                <div class="topbar__nav"> Navigation Here</div>
+                <div class="topbar__search">Search Bar</div>
+                <div class="topbar__language">Language</div>
+            </nav>
 
-            <aside id="sidebar" class="sidebar">
+        </div>
 
-                <p> some sidebar content set in the sidebar file </p>
+        <div class="main holy-grail__main">
 
+            <div class="content holy-grail__content">
                 
-<p>Here is some additional content for the sidebar extended in</p>
-sidebar content to be appended/prepended
 
-            </aside>
+    <!-- Layout for Content Area of Markdown Page Goes Here -->
+        <div id="default__title">{{ .Title }}</div>
+        <div id="default__subtitle">{{ .Params.subtitle }}</div>
+        <div>{{ .Date.Format "Jan 02, 2006" }}</div>
 
+       <div id="default_text"> {{ .Content }} </div>
+    <!--************************************************** -->
 
-            <section id="content">
+            </div>
 
-                This is where one melds in article content
-<!-- Layout for Content Area of Markdown Page Goes Here -->
-    <div id="default__title">{{ .Title }}</div>
-    <div id="default__subtitle">{{ .Params.subtitle }}</div>
-    <div>{{ .Date.Format "Jan 02, 2006" }}</div>
+            <div class="sidebar holy-grail__sidebar holy-grail__sidebar--first">
+                <aside id="sidebar-nav" class="sidebar">
 
-   <div id="default_text"> {{ .Content }} </div>
-<!-- ************************************************** -->
+                    <div class="sidebar__title"></div>
 
+                    Base nav sidebar for nav content that can be appended, prepended or replaced
 
-            </section>
+                </aside>
 
-        </main>
-        <footer data-lorem="1p"></footer>
+            </div>
 
+            <div class="sidebar holy-grail__sidebar holy-grail__sidebar--second">
+                <aside id="sidebar-ads" class="sidebar">
+
+                    <div class="sidebar__title"></div>
+
+                    <p> some content </p>
+
+                    Base ads sidebar content that can be appended, prepended or replaced
+
+                </aside>
+
+            </div>
+
+        </div>
+
+        <footer class="holy-grail__footer">
+            <footer data-lorem="1p">FOOTER</footer>
+
+        </footer>
 
     </div>
 
