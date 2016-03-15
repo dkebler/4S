@@ -163,7 +163,7 @@ var hbOptions = {
     "indent_level": 0,
     "indent_with_tabs": false,
     "preserve_newlines": true,
-    "max_preserve_newlines": 10,
+    "max_preserve_newlines": 1,
     "jslint_happy": false,
     "space_after_anon_function": false,
     "brace_style": "collapse",
