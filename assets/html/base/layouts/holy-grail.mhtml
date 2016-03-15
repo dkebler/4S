@@ -42,67 +42,55 @@
 </head>
 
 
-<body class="holy-grail">
+<body>
 
-    <div class="holy-grail__header">
-        <header>
-            <figure class="figure--center">
-                <img src="http://placehold.it/1000x200">
-            </figure>
-        </header>
+    <header>
+        <figure class="figure--center">
+            <img src="http://placehold.it/1000x200">
+        </figure>
+    </header>
 
-
-
-    </div>
 
     <div class="rollover-wrapper">
 
-        <div class="holy-grail__navbar">
-            <nav id="topbar">
-                <div class="topbar__sitename">SITE NAME</div>
-                <div class="topbar__nav"> Navigation Here</div>
-                <div class="topbar__search">Search Bar</div>
-                <div class="topbar__language">Language</div>
-            </nav>
+        <nav class="navbar">
+            <div class="topbar__sitename">SITE NAME</div>
+            <div class="topbar__nav"> Navigation Here</div>
+            <div class="topbar__search">Search Bar</div>
+            <div class="topbar__language">Language</div>
+        </nav>
 
-        </div>
 
-        <div class="main holy-grail__main">
+        <main>
+
+            <aside id="sidebar-nav" class="sidebar">
+
+                <div class="sidebar__title"></div>
+
+                <block name="sidebar-nav">Base nav sidebar for nav content that can be appended, prepended or replaced</block>
+
+            </aside>
+
 
             <div class="content holy-grail__content">
                 <block name="article">Base content for article here to be appended, prepended, replaced</block>
             </div>
 
-            <div class="sidebar holy-grail__sidebar holy-grail__sidebar--first">
-                <aside id="sidebar-nav" class="sidebar">
+            <aside class="sidebar">
 
-                    <div class="sidebar__title"></div>
+                <div class="sidebar__title"></div>
 
-                    <block name="sidebar-nav">Base nav sidebar for nav content that can be appended, prepended or replaced</block>
+                <p> some content </p>
 
-                </aside>
+                <block name="sidebar-ads">Base ads sidebar content that can be appended, prepended or replaced</block>
+            </aside>
 
-            </div>
 
-            <div class="sidebar holy-grail__sidebar holy-grail__sidebar--second">
-                <aside id="sidebar-ads" class="sidebar">
+        </main>
 
-                    <div class="sidebar__title"></div>
-
-                    <p> some content </p>
-
-                    <block name="sidebar-ads">Base ads sidebar content that can be appended, prepended or replaced</block>
-
-                </aside>
-
-            </div>
-
-        </div>
-
-        <footer class="holy-grail__footer">
-            <footer data-lorem="1p">FOOTER</footer>
-
-        </footer>
+        <!-- <footer class="holy-grail__footer">
+        <include src="regions/footer.phtml"></include>
+    </footer> -->
 
     </div>
 

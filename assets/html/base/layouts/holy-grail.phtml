@@ -1,38 +1,30 @@
 <include src="regions/head.phtml"></include>
 
-<body class="holy-grail">
+<body>
 
-  <div class="holy-grail__header">
-    <include src="regions/header.phtml"></include>
-  </div>
+<include src="regions/header.phtml"></include>
 
-  <div class="rollover-wrapper">
+<div class="rollover-wrapper">
 
-    <div class="holy-grail__navbar">
-      <include src="regions/navbar.phtml"></include>
-    </div>
+<include src="regions/navbar.phtml"></include>
 
-    <div class="main holy-grail__main">
+<main>
 
-      <div class="content holy-grail__content">
-        <block name="article">Base content for article here to be appended, prepended, replaced</block>
-      </div>
+<include src="regions/sidebar-nav.phtml"></include>
 
-      <div class="sidebar holy-grail__sidebar holy-grail__sidebar--first">
-        <include src="regions/sidebar-nav.phtml"></include>
-      </div>
+<div class="content holy-grail__content">
+      <block name="article">Base content for article here to be appended, prepended, replaced</block>
+</div>
 
-      <div class="sidebar holy-grail__sidebar holy-grail__sidebar--second">
-        <include src="regions/sidebar-ads.phtml"></include>
-      </div>
+<include src="regions/sidebar-ads.phtml"></include>
 
-    </div>
+</main>
 
-    <footer class="holy-grail__footer">
-      <include src="regions/footer.phtml"></include>
-    </footer>
+    <!-- <footer class="holy-grail__footer">
+        <include src="regions/footer.phtml"></include>
+    </footer> -->
 
-  </div>
+</div>
 
   <include src="components/javascripts.phtml"></include>
 

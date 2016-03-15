@@ -1,6 +1,6 @@
 $topbar-height: 5em;
 
-#topbar  {
+.navbar  {
   @include color-set($topbar-bg-color);
   display: flex;
   align-items: center;
