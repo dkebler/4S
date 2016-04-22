@@ -2,7 +2,7 @@
 languageCode = "en-us"
 title = "Code Coots"
 # TODO set hugo's contentdir dynamically from code
-contentdir = "../../content/hugo/pages"
+contentdir = "../../../content/hugo/pages"
 [blackfriday]
   hrefTargetBlank = true
   plainIDAnchors = true
@@ -15,17 +15,3 @@ contentdir = "../../content/hugo/pages"
   category = "categories"
   series = "series"
   food-group = "food-groups"
-[[menu.footer]]
-    name = "about this site"
-    weight = -110
-    identifier = "about"
-[[menu.social]]
-    name = "Facebook"
-    url = "www.facebook.com"
-    weight = 200
-    identifier = "facebook"
-[[menu.social]]
-    name = "Twitter"
-    url = "www.twitter.com"
-    weight = 200
-    identifier = "twitter"

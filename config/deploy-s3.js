@@ -15,5 +15,5 @@ module.exports = {
 		url: 'david.kebler.net',
 		bucket:'david.kebler.net'
 	}
-	// can add as many other locations as you want.  use gulp deploy --s3 --<key>
+	// can add as many other locations as you want.  deploy --s3 --<key>
 }

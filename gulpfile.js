@@ -151,6 +151,102 @@ gulp.task('test', function() {
 
 });
 
+// var merge = require('gulp-file-include')
+
+var rename = require("gulp-rename");
+var htmlbeautify = require('gulp-html-beautify');
+
+var hbOptions = {
+    "indent_size": 4,
+    "indent_char": " ",
+    "eol": "\n",
+    "indent_level": 0,
+    "indent_with_tabs": false,
+    "preserve_newlines": true,
+    "max_preserve_newlines": 1,
+    "jslint_happy": false,
+    "space_after_anon_function": false,
+    "brace_style": "collapse",
+    "keep_array_indentation": false,
+    "keep_function_indentation": false,
+    "space_before_conditional": true,
+    "break_chained_methods": false,
+    "eval_code": false,
+    "unescape_strings": false,
+    "wrap_line_length": 0,
+    "wrap_attributes": "auto",
+    "wrap_attributes_indent_size": 4,
+    "end_with_newline": false
+}
+
+// Info(hbOptions)
+
+// gulp.task('html:merge', function() {
+
+//   gulp.src(['assets/html/base/layouts/*.phtml'])
+//     .pipe(merge({prefix: '@@',basepath: 'assets/html/base/'}))
+//     .pipe(rename({extname: ".pmhtml"}))
+//    .pipe(htmlbeautify(hbOptions))
+//    .pipe(gulp.dest('assets/html/base/layouts/'));
+// });
+
+var posthtml = require('gulp-posthtml');
+// var posthtml = require('posthtml');
+
+var hb = require('gulp-hb');
+
+gulp.task('html:merge', function() {
+
+ // var hbStream = hb().data('./assets/html/base/hugo.json');
+ // Info(hbStream.data);
+
+var file = './assets/html/base/hugo.json';
+var hbdata = require(file);
+
+Info(hbdata);
+
+     return gulp.src('assets/html/base/layouts/*.phtml')
+         .pipe( posthtml([require('posthtml-include')({'root':'assets/html/base'})]) )
+         .on('error', function (err) { Info(err) })
+           .pipe( hb().data(hbdata) )
+//         .pipe( hb().data({ BaseURL: 'direct' }) )
+             .on('error', function (err) { Info(err) })
+         .pipe( rename({extname: ".mhtml"}) )
+         .pipe(htmlbeautify(hbOptions))
+         .pipe(gulp.dest('assets/html/base/layouts/'))
+            ;
+
+// var html = require('fs').readFileSync('./assets/html/base/layouts/holy-grail.phtml').toString();
+//
+// Info(html);
+//
+// posthtml()
+// .use(require('posthtml-include')({'root':'assets/html/base'}))
+// .process(html)
+// .then( function(result) { Info(result.html)},
+//       function(err) { Info('error', err)}
+//      )
+
+});
+
+
+// var watch = require(Config.libDirectory + 'watch');
+
+// var nunjucks = require('gulp-nunjucks-render');
+
+
+gulp.task('html:extend',['html:merge'], function() {
+
+	gulp.src('assets/html/base/*.ehtml')
+    .pipe( posthtml([require('posthtml-extend')({'root':'assets/html/base'})]) )
+//	.pipe(nunjucks({ path: ['assets/html/base'] // String or Array }))
+    .on('error', Info)
+    .pipe( rename({extname: ".html"}) )
+		// .pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
+    .pipe(gulp.dest('assets/html/hugo/layouts/_default/'));
+});
+
+
 // ************************
 // Task - HELP
 // Lists all the tasks in this gulpfile.js to the console.
