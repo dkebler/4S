@@ -28,7 +28,7 @@
 	- [HTML Templates and Layout](#html-templates-and-layout)
 	- [The Actual Content](#the-actual-content)
 	- [TODOS](#todos)
-	
+
 <!-- /TOC -->
 
 ## Status
@@ -37,10 +37,9 @@ Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site ge
 
 In a self-referential way of course this repo is used to deploy the current template/content found in this repo :-).  You can check out how the "front end" is evolving at  http://dkebler.github.io/super-static-site-starter, which will not be generated from the master branch but the [current working branch](https://github.com/dkebler/super-static-site-starter/tree/working-020)  
 
-
 __Best Feature:__ By using Wiredep and node-sass I have replaced the need for compass (and thus ruby) so that you can continue to use just the filename of bower packages in your sass @imports (no need for a path)!!!
 
-__Where it Stands:__ This project is currently under development with only a minor 0.1.0 release so far.  Anticipated is about one minor release every month until 1.0 is reached.  If want to see the latest look at the working-020 branch.  Even though it is still a ways from prime-time in terms of the front end the development and deployment tasks are totally functional.   It's a great head start and will be even more so once I get to cross more of these [TODOS](#todos). I'd welcome a collaborator with the same vision.  Completed TODOs are noted in the [releases](https://github.com/dkebler/Super-Static-Site-Starter/releases).  
+__Where it Stands:__ This project is currently under development with only a minor 0.1.0 release so far.  Despite no merges into the master since December 2015 I am still plugging along (slowly now) on the working-020 branch. If want to see the latest look at the working-020 branch albiet it may be broken at times.  Mostly I am working on the html-templates-styling-front-end stuff at this time.  Even though it is still a ways from prime-time in terms of the front end the development and deployment tasks are totally functional.   It's a great head start and will be even more so once I get to cross more of these [TODOS](#todos). I'd welcome a collaborator with the same vision.  Completed TODOs are noted in the [releases](https://github.com/dkebler/Super-Static-Site-Starter/releases).  
 
 ## Movtivation
 
