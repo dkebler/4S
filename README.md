@@ -28,7 +28,7 @@
 	- [HTML Templates and Layout](#html-templates-and-layout)
 	- [The Actual Content](#the-actual-content)
 	- [TODOS](#todos)
-	
+
 <!-- /TOC -->
 
 ## Status
@@ -149,20 +149,16 @@ config/index.js   * the master configuration file of this repo (unless you chang
 
 ## Workflow
 
-Initially I saw [Gulp](http://gulpjs.com/) as an end all workflow library.  Now I see it more as just one element/tool of a rational workflow pattern and one that may eventually be droppped all together.  So rather than have "everything" be a gulp task which is typical it was thought much better to limit gulp tasks to launching ones a human would actually need to run from the command line.  So instead the "tasks" of the workflow appear rather as commonjs modules in the /lib directory.  This allows flexibility.  You can call them programmatically.  Of course you can wrap most in a gulp task if you want. A super side benefit is that the monolithic gulpfile.js file is not an unmanageable monster.  I do find that I like to use Gulp's file stream pattern when it makes sense like with processing sass code and eventually browser javascript.  It turns out the gulpjs folks maintain a separate package for that, vinyl-fs, which leads to the possibility of not needing the gulp package itself.
+Also I started with Gulp tasks I quickly decided that there had to be a better way and npm scripts was not it....enter Vorpal!
+Just simply type  'npm start' and you'll be taken into a custom cli environment for using this repo.  It even comes with it's only prompt `4S`.
 
-From a terminal at your repo root the command line gulp tasks available are show below.  
+Two easy commands are `help` and `exit`  that should be all you need to get started without more explanation here.
 
-```
-gulp help
-```
-will list all the tasks available.
+NOTES:  below needs to be edited to remove references to gulp
 
 ### Development
 ```
-gulp
-or
-gulp dev
+dev
 ```
 the default task will build your development site by compiling the sass with sourcemaps, generating the html (via Hugo), then will fire up a syncing browser on a port you can specify in master config file (default is 8090) and then set a watch for your files.   Edit any watched file (sass(scss), content (md) or html layout) and the site is rebuilt and browser refreshed.  Each restart of `gulp` or `gulp dev` will delete the config.buildDirectory directory set in config/index.js. so that you are sure to get a fresh build
 
