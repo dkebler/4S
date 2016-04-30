@@ -1,0 +1,46 @@
+# Master Config File for Repository
+site:
+	name: "About the Super Static Site Starter"
+	description: "website about using the super static site starter repo"
+	alias: "A4S"
+	# cliprompt: ""  # uncomment and edit to override default prompt
+build:  #an inline comment
+	type: "dev"
+	devport: "8090"
+deploy:
+	ghpages:
+		location: "default"   # if more than one location this is the default.
+		default:
+			url: "dkebler.github.io/super-static-site-starter"
+		test:
+			url: "dkebler.github.io/test"
+			repo: "https://github.com/dkebler/test.git"
+	local:
+		path: "/var/www/"
+		serverPort: "8080"
+	remote:      # for remote server, connect via ssh or git with post push hook.
+		user: ""
+		url :	""
+	s3:
+		location: "testing"  # if more than one location this is the default.  et this
+		testing:
+			profile: "DGK-deploy"
+			region: "us-west-2"
+			url: "test.david.kebler.net"
+			bucket: "test.david.kebler.net"
+		live:
+			profile: "DGK-deploy"
+			region: "us-west-2"
+			url: "david.kebler.net"
+			bucket: "david.kebler.net"
+dir:  # repo directories you can change to your liking.  All must end with /
+	build: "builds/"
+	buildSub:
+		dev: "dev/"
+		dist: "dist/"
+	lib: "lib/"
+	assets: "assets/"
+	content: "content/"
+html:
+	template: "hugo"
+	generator: "hugo"

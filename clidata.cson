@@ -1,0 +1,11 @@
+# data file used to build the Vorpal based command line interface for the 4S environment.
+#
+#
+#
+cprompt: "4s$"  # this is default can be overwritten in 4S configuration files
+commands:
+    cmd: ""
+    description: ""
+    options: ""
+    args: ""
+    valids: ""
