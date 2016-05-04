@@ -1,9 +1,0 @@
-
-// TODO need to open up for readwrite the config.toml file and write out the contentdir setting with "content" variable.
-
-module.exports = {
-  layouts: 'html',
-  config : 'config.toml',
-  pages: 'pages',
-  data:  'data'
-  }
