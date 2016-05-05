@@ -15,8 +15,6 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "any-promise": "^1.1.0",
-    "bluebird": "^3.3.1",
     "browser-sync": "^2.0.0",
     "child-process-promise": "^1.1.0",
     "config": "^1.20.1",
@@ -51,7 +49,6 @@
     "posthtml-include": "^1.0.2",
     "promise": "^7.1.1",
     "promise-sequence": "^0.2.1",
-    "q": "^1.4.1",
     "require-all": "^2.0.0",
     "s3": "^4.4.0",
     "vinyl-fs": "^2.2.1",
