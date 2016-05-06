@@ -2,6 +2,7 @@
 'use strict';
 
 let Promise = require('promise');
+let getlibs = require('require-all') ;
 
 const repoPath = __dirname + '/';
 const configJSPath = require(repoPath + 'package').configjspath || repoPath + 'config/config.js'; // 'configjspath' is key in package.json.  If not set default is used
@@ -31,7 +32,7 @@ function init() {
   return Promise.all([loadConfig, loadCliConfig])
     .then(configs => {
       configs[0].cliData = configs[1]; // Add cli configuration data as a key in main config object
-        let libs = require('require-all')({  // load all the repo js modules
+        let libs = getlibs({  // load all the repo js modules at once
         dirname: repoPath + configs[0].dir.lib,
         filter :/(.*)\.js$/,
         recursive: false
