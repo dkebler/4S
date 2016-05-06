@@ -9,10 +9,11 @@ const configPath = require(repoPath + 'package').configpath || repoPath + 'confi
 
 let load = require(configJSPath).load;
 
-init().then( config => {
-  // configs loaded ok load the debugger here
- console.log('the configs from init', config)})
- .catch(e => console.log('error', e));
+init().then(config => {
+    // configs loaded ok load the debugger here
+    console.log('the configs from init', config)
+  })
+  .catch(e => console.log('error', e));
 
 //*************************************
 // Intialize 4S Environment
@@ -29,7 +30,14 @@ function init() {
 
   return Promise.all([loadConfig, loadCliConfig])
     .then(configs => {
-      configs[0].cliData = configs[1];  // Merge cli configuration data as a key in main config object
+      configs[0].cliData = configs[1]; // Add cli configuration data as a key in main config object
+        let libs = require('require-all')({  // load all the repo js modules
+        dirname: repoPath + configs[0].dir.lib,
+        filter :/(.*)\.js$/,
+        recursive: false
+      });
+      console.log('libs', libs);
+      configs[0].lib = libs; //Add js libraries to config for easy access
       return configs[0]; // now return merged config file
     });
 }

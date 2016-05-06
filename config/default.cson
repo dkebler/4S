@@ -2,11 +2,10 @@
 # Make sure you have a backup of some sort before editing this file.
 site:
   name: "About the Super Static Site Starter" # Change to your specific site"
-  description: "website about using the super static site starter repo"  # Change this
-  alias: "AS4"  # change this, will be used as shorthand in some urls
-
+  description: "website about using the super static site starter repo" # Change this
+  alias: "AS4" # change this, will be used as shorthand in some urls
   # cliprompt: ""  # uncomment and edit to override default prompt
-build: #an inline comment
+build: 
   type: "dev"
   devport: "8090"
 deploy:
@@ -35,16 +34,16 @@ deploy:
       region: "us-west-2"
       url: "david.kebler.net"
       bucket: "david.kebler.net"
-  html:
-    template: "hugo"
-    generator: "hugo"
-  dir: # repo directories you can change to your liking.  All must end with /
-    devBuild: "builds/dev/"
-    distBuild: "builds/dist/"
-    lib: "lib/"
-    html: "assets/html" #html templates
-    styles: "assests/styles/" #different sytle languages as subdirectories  css/ postcss/ sass/  stylus/  less/
-    content: "content/" # where the generator specific content lives.  Will use html.template for the subdirectory
+html:
+  template: "hugo"
+  generator: "hugo"
+dir: # repo directories you can change to your liking.  All must end with /
+  devBuild: "builds/dev/"
+  distBuild: "builds/dist/"
+  lib: "lib/"
+  html: "assets/html" #html templates
+  styles: "assests/styles/" #different sytle languages as subdirectories  css/ postcss/ sass/  stylus/  less/
+  content: "content/" # where the generator specific content lives.  Will use html.template for the subdirectory
 # Path where the data to build the command line interface resides.  N.B. recommend the directory where this file resides.
-# when this file is loaded the cliData will be added to this object hash as cliData:    
-cliConfigPath:  "config/cliConfig.cson"
+# when this file is loaded the cliData will be added to this object hash as cliData:
+cliConfigPath: "config/cliConfig.cson"
