@@ -8,7 +8,8 @@ const repoPath = __dirname + '/';
 const configJSPath = require(repoPath + 'package').configjspath || repoPath + 'config/config.js'; // 'configjspath' is key in package.json.  If not set default is used
 const configPath = require(repoPath + 'package').configpath || repoPath + 'config/default.cson'; // 'configdir' is key in package.json.  If not set /config is the default
 
-let load = require(configJSPath).load;
+let config = require(configJSPath);
+console.log(config.load);
 
 init().then(config => {
     // configs loaded ok load the debugger here
@@ -23,13 +24,13 @@ init().then(config => {
 
 function init() {
 
-  let loadConfig = load(configPath);
-  let loadCliConfig = loadConfig.then(config => {
-    load(repoPath + config.cliConfigPath);
-    return load(config.cliConfigPath);
+  let getMainConfig = config.load(configPath);
+  let getCliConfig = getMainConfig.then(mainConfig => {
+    config.load(repoPath + mainConfig.cliConfigPath);
+    return config.load(mainConfig.cliConfigPath);
   });
 
-  return Promise.all([loadConfig, loadCliConfig])
+  return Promise.all([getMainConfig, getCliConfig])
     .then(configs => {
       configs[0].cliData = configs[1]; // Add cli configuration data as a key in main config object
         let libs = getlibs({  // load all the repo js modules at once
