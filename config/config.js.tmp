@@ -1,0 +1,57 @@
+// CONFIG module
+let Promise = require('promise');
+
+// allows single place to change module used for reading multiple config file types
+let readConfig = require('config').util.parseFile; // TODO switch to  https://github.com/snowyu/load-config-file.js, as it supports async/promises
+let readLibs = require('require-all'); // TODO this is all fs sync so might want to do more than wrap it.
+
+
+module.exports = {
+  // loads any config type to object hash
+  // load: {
+  //   function(filePath, callback) {
+  //     return loadObject(readConfig, filepath, callback);
+  //   }
+  // },
+  load: function(filePath, callback) {
+    return new Promise(function(resolve, reject) {
+      let object = readConfig(filePath);
+      if (object instanceof Error) {
+        reject(object.stack);
+      } else {
+        resolve(object);
+      }
+    });
+    done.nodeify(callback);
+  },
+  // // loads any config type to object hash
+  // loadLibs: function(filePath, callback) {
+  //   return new Promise(function(resolve, reject) {
+  //     let object = readLibs(filePath);
+  //     if (object instanceof Error) {
+  //       reject(object.stack);
+  //     } else {
+  //       resolve(object);
+  //     }
+  //   });
+  //   done.nodeify(callback);
+  // },
+  edit: {},
+  write: {},
+  view: {}
+}
+
+
+// This will promisify a loader, probably releasing zalgo, need to async/promise actual loader
+function loadObject(loader, filePath, callback) {
+  return new Promise(function(resolve, reject) {
+    let object = loader(filePath);
+    if (object instanceof Error) {
+      console.log("Error Reading File(s)\n")
+      reject(object.stack);
+    } else {
+      resolve(object);
+    }
+  });
+  done.nodeify(callback);
+}
