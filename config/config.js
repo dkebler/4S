@@ -20,6 +20,7 @@ module.exports = {
         reject(object.stack);
       } else {
         resolve(object);
+        return object;
       }
     });
     done.nodeify(callback);
