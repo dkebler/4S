@@ -5,7 +5,7 @@ site:
   description: "website about using the super static site starter repo" # Change this
   alias: "AS4" # change this, will be used as shorthand in some urls
   # cliprompt: ""  # uncomment and edit to override default prompt
-build: 
+build:
   type: "dev"
   devport: "8090"
 deploy:
