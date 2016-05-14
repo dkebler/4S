@@ -12,9 +12,9 @@
   },
   "scripts": {
     "start": "node 4s.js",
-    "db1": "DEBUG=debug1 node 4s.js",
-    "db2": "DEBUG=debug1,debug2 node 4s.js",
-    "db3": "DEBUG=debug1,debug2,debug3 node 4s.js"
+    "db1": "DEBUG=debug:1 node 4s.js",
+    "db2": "DEBUG=debug:1,debug:2 node 4s.js",
+    "db3": "DEBUG=debug:1,debug:2,debug:3 node 4s.js"
   },
   "dependencies": {},
   "devDependencies": {
