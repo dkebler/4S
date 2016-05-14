@@ -4,7 +4,7 @@
 #
 cprompt: "4s$"  # this is default can be overwritten in 4S configuration files
 commands:
-    cmd: "config"
+    cmd: "view"
     description: "Configuration File Management"
     options: ""
     arg: ["subcmd"]

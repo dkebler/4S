@@ -3,7 +3,7 @@
 
     // Globals  - import repo spectific globals
 
-//    "extends": "./.jshglobals",
+    "extends": "./.jshglobals",
 
     // Settings
     "passfail"      : false,  // Stop on first error.

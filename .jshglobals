@@ -1,5 +1,6 @@
 {
 "globals": {
-    "Promise"   : true
+    "RepoPath"   : true,
+    "Debug"   : true
    }
 }
