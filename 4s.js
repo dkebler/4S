@@ -13,16 +13,13 @@ let config = require(configJSPath);
 
 init()
   .then(config => {
-    // configs loaded ok load the debugger here
-    Debug.L1('this is a test in main code');
-    //    console.log('the configs from init\n', config)
     // Build the cli
-    //  console.log(config.lib.cli.build);
+    Debug.L2(config.lib.cli.build);
     let cli = config.lib.cli.build(config);
-    // console.log(cli);
+    Debug.L2(cli);
+    // Launch Cli here
     config.lib.cli.start(cli, config.cliData.cprompt);
   })
-  // Launch Cli here
   .catch(e => console.log('error', e));
 
 //*************************************
@@ -58,7 +55,7 @@ function init() {
       configs[0].cliData = configs[1]; // Add cli configuration data as a key in main config object
       configs[0].lib = configs[2]; //Add js libraries as a key to main config for easier access
       configs[0].lib.config = config; // Add in config js module for later use.
-      configs[0].repoPath = RepoPath;  // add repo root path in case it is needed for absolute references
+      configs[0].repoPath = RepoPath; // add repo root path in case it is needed for absolute references
       return configs[0]; // now return merged main config file
     });
 }
