@@ -13,11 +13,11 @@ let config = require(configJSPath);
 
 init()
   .then(config => {
-    Debug.L2(config.lib.cli.build);
-    let cli = config.lib.cli.build(config);
-    Debug.L3(cli);
-    // Launch Cli here
-    config.lib.cli.start(cli, config.cliData.cprompt);
+  //   Debug.L2(config.lib.cli.build);
+  let cli = config.cli.lib.build(config);
+  //   Debug.L3(cli);
+  //   // Launch Cli here
+  config.cli.lib.start(cli, config.cli.cprompt);
   })
   .catch(e => console.log('error', e));
 
@@ -33,16 +33,19 @@ init()
 function init() {
 
   let getMainConfig = config.load(mainConfigPath);
-  let getCliConfig = getMainConfig.then(mainConfig => {
-    return config.load(RepoPath + mainConfig.cliConfigPath);
+  let getCliData = getMainConfig.then(mainConfig => {
+    return config.load(RepoPath + mainConfig.cliDataPath);
   });
   let getLibs = getMainConfig.then(mainConfig => {
     return config.loadLibs(RepoPath + mainConfig.dir.lib);
   });
 
-  return Promise.all([getMainConfig, getCliConfig, getLibs])
+  return Promise.all([getMainConfig, getCliData, getLibs])
     .then(configs => {
-      configs[0].cliData = configs[1]; // Add cli configuration data as a key in main config object
+      configs[0].cli = configs[1]; // Add cli configuration data as a key in main config object
+      configs[0].cli.lib = require(RepoPath + configs[0].cli.libPath);  // add cli functions library
+      configs[0].cli.actions = require(RepoPath + configs[0].cli.actionsPath);  // add in cli action functions
+      Debug.L2('cli', configs[0].cli);
       configs[0].lib = configs[2]; //Add js libraries as a key to main config for easier access
       configs[0].lib.config = config; // Add in config js module for later use.
       configs[0].repoPath = RepoPath; // add repo root path in case it is needed for absolute references

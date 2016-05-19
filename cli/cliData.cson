@@ -1,0 +1,26 @@
+# data file used to build the Vorpal based command line interface for the 4S environment.
+cprompt: "4s$" # this is default can be overwritten in 4S configuration files
+
+actionsPath: "cli/cliActions.js"
+libPath : "cli/cli.js"
+commands:
+  debug:
+    args: ["cmd","level"]
+    alias: "db"
+    description: "Control the Debug Level"
+    default:"enable 3"
+    # options: " "
+    cmd:
+      view:
+        alias: "v"
+        description: "View Debug Object and Current Debug Environment Setting"
+      enable:
+        alias: "e"
+        description: "Enable/Reset Debugging Level, Default is all levels or specify 1 to 3"
+        args: ["level"]
+        default: "3"
+      disable:
+          description: "Disable all Debugging (use enable to change level)"
+          alias: "d"
+      status:
+          description: "Displays Which Debugging Levels are current on"

@@ -46,4 +46,4 @@ dir: # repo directories you can change to your liking.  All must end with /
   content: "content/" # where the generator specific content lives.  Will use html.template for the subdirectory
 # Path where the data to build the command line interface resides.  N.B. recommend the directory where this file resides.
 # when this file is loaded the cliData will be added to this object hash as cliData:
-cliConfigPath: "config/cliConfig.cson"
+cliDataPath: "cli/cliData.cson"
