@@ -13,10 +13,9 @@ let config = require(configJSPath);
 
 init()
   .then(config => {
-    // Build the cli
     Debug.L2(config.lib.cli.build);
     let cli = config.lib.cli.build(config);
-    Debug.L2(cli);
+    Debug.L3(cli);
     // Launch Cli here
     config.lib.cli.start(cli, config.cliData.cprompt);
   })
@@ -32,15 +31,6 @@ init()
 //  see http://stackoverflow.com/questions/28250680/how-do-i-access-previous-promise-results-in-a-then-chain
 
 function init() {
-
-  // let initjobs = [];
-  // initjobs[0] = config.load(mainConfigPath);
-  // initjobs[1] = initjobs[0].then(mainConfig => {
-  //   return config.load(repoPath + mainConfig.cliConfigPath);
-  // });
-  // initjobs[2] = initjobs[0].then(mainConfig => {
-  //   return config.loadLibs(repoPath + mainConfig.dir.lib);
-  // });
 
   let getMainConfig = config.load(mainConfigPath);
   let getCliConfig = getMainConfig.then(mainConfig => {
