@@ -13,9 +13,9 @@ let config = require(configJSPath);
 
 init()
   .then(config => {
-  //   Debug.L2(config.lib.cli.build);
   let cli = config.cli.lib.build(config);
-  //   Debug.L3(cli);
+  // console.log(cli.commands);
+  // Debug.L3(Debug.pretty(cli));
   //   // Launch Cli here
   config.cli.lib.start(cli, config.cli.cprompt);
   })
@@ -45,7 +45,7 @@ function init() {
       configs[0].cli = configs[1]; // Add cli configuration data as a key in main config object
       configs[0].cli.lib = require(RepoPath + configs[0].cli.libPath);  // add cli functions library
       configs[0].cli.actions = require(RepoPath + configs[0].cli.actionsPath);  // add in cli action functions
-      Debug.L2('cli', configs[0].cli);
+      Debug.L3('cli-data', configs[0].cli);
       configs[0].lib = configs[2]; //Add js libraries as a key to main config for easier access
       configs[0].lib.config = config; // Add in config js module for later use.
       configs[0].repoPath = RepoPath; // add repo root path in case it is needed for absolute references

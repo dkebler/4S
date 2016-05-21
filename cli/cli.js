@@ -1,10 +1,40 @@
 let cli = new require('vorpal')();
-// cli.command('config');
 
-let self = module.exports = {
-  build: function(config) {
-    // console.log('in build function');
-    return buildCli(config);
+module.exports = {
+    build: function(data) {
+
+      let actions = data.cli.actions;
+      let commands = data.cli.commands;
+
+      Object.keys(commands).forEach(function(cmd, index) {
+          let command = commands[cmd];
+          Debug.L2('command:', cmd, '\n', command);
+          cli.command(cmd + " " + command.args)
+            .description(command.description)
+            .alias(command.alias)
+            .action(function(args, cb) {
+//the argument "subcmd" is used for sub commands
+            // if command has sub commands
+                if (command.subcmd) {  // if cli data has a subcmd key
+                  if (!args.subcmd) {
+                    args.subcmd = command.default;
+                  }
+                  if (args.subcmd in command.subcmd) {  // will "filter for only valid commands found in the cliData"
+                  Debug.L2('subcommand: ', args.subcmd, '\n', command.subcmd[args.subcmd]);
+                  actions[cmd][args.subcmd](data, args, cb);
+                } else {
+                  this.log(args.subcmd, ' is not a valid sub command')
+                  // call the help here
+                  cb();
+                }
+              } else {
+             // if command just has arguments
+                actions[cmd](data, args, cb);
+              }
+              // call callback in action functions
+            });
+      });
+    return cli;
   },
   start: function(cli, prompt) {
     // console.log('in start', cli)
@@ -13,99 +43,3 @@ let self = module.exports = {
       .show();
   }
 }
-
-function buildCli (data) {
-
-  let actions = data.cli.actions;
-
-  Debug.L2('actions\n', actions);
-
-  cli
-    .command('debug [cmd] [level]')
-    .description(data.cli.commands.debug.viewdescription)
-    .alias('db')
-    .action(function(args, cb) {
-      // this.log('args ', args.cmd, args.level);
-      const valids = ['enable', 'disable', 'status', 'view'];
-        if (valids.indexOf(args.cmd) === -1) {
-        this.log('Please enter a valid debug sub command', valids);
-      } else {
-        actions.debug[args.cmd](args.level)
-      }
-      cb();
-
-    });
-
-    cli
-      .command('view [objPath]')
-      .description('View User Some Obj Path of Master Object [e.g. deploy.s3]')
-      .alias('v')
-      // .options()  //expand functions
-      .action(function(args, cb) {
-        actions.view(data, args.objPath);
-        cb();
-      });
-
-  return cli;
-}
-
-
-// .autocomplete(['list', 'edit', 'merge', 'load']).validate(function(args) {
-//   if (valids.indexOf(args.subcmd) === -1) {
-//     return 'Please enter a valid sub command';
-//   }
-
-
-// if (!args.cmd) {
-//   args.cmd = "enable";
-//   args.level = 3;
-// }
-// // this.log('args ', args.cmd, args.level);
-// const valids = ['enable', 'disable', 'status', 'view'];
-//   if (valids.indexOf(args.cmd) === -1) {
-//   this.log('Please enter a valid debug sub command', valids);
-// } else {
-//   self.actions.debug[args.cmd](args.level)
-// }
-
-
-// function maptofunc(lib, cmd, cb) {}
-// Configuration Commands
-// cli
-// .command('data.cliData.config [cmd]')
-// .description('Manipulates Configuration File(s)')
-// .alias('c')
-// .action(maptofunc(data.lib, args.cmd, cb));
-
-// function(args, callback) {
-// switch (args.cmd) {
-// case 'reload':
-//     this.log('load');
-//     break;
-//   case 'list':
-//     this.log('list');
-//     break;
-//   case 'write':
-//     this.log('write');
-//     break;
-//   case 'edit':
-//     this.log('edit');
-//     break;
-//   default:
-//     this.log('run the help')
-// }
-// callback();
-// });
-
-
-
-// const valids = ['list', 'edit', 'merge', 'load'];
-// vorpal.command('do [subcmd]').autocomplete(valids).validate(function(args) {
-//   if (valids.indexOf(args.subcmd) === -1) {
-//     return 'Please enter a valid sub command';
-//   }
-//   return true;
-// }).action(action);
-//
-
-//

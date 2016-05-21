@@ -5,12 +5,12 @@ actionsPath: "cli/cliActions.js"
 libPath : "cli/cli.js"
 commands:
   debug:
-    args: ["cmd","level"]
+    args: "[subcmd] [level]"
     alias: "db"
     description: "Control the Debug Level"
-    default:"enable 3"
+    default:"enable"
     # options: " "
-    cmd:
+    subcmd:
       view:
         alias: "v"
         description: "View Debug Object and Current Debug Environment Setting"
@@ -24,3 +24,9 @@ commands:
           alias: "d"
       status:
           description: "Displays Which Debugging Levels are current on"
+          alias: "s"
+
+  view :
+    args: "[objPath]"
+    alias: "v"
+    description: "view the master object"
