@@ -26,7 +26,6 @@ module.exports = {
   edit: {},
   write: {},
   view: {}
-
 }
 
 
@@ -39,7 +38,8 @@ let readConfigFile = require('config').util.parseFile; // TODO switch to  https:
 // used for require-all but could be modified for different "readLibs" function below
 let readLibsOptions = {
   filter: /(.*)\.js$/, // only .js files
-  recursive: false // do not look in subdirectories - allows lib subdirectoies to be used for inactive or temp storage
+  excludeDirs :  /^(off)$/,  // put code you don't currently want in the library in the /off subdirectory
+  recursive: true // loads everyting except what is excluded above
 };
 let requireall = require('require-all'); // TODO this is all fs sync so might want to do more than wrap i.e. redo to async/promise.
 // This abstracts the require-all library so can be replaced later with something async/promise

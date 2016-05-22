@@ -4,6 +4,7 @@ cprompt: "4s$" # this is default can be overwritten in 4S configuration files
 actionsPath: "cli/cliActions.js"
 libPath : "cli/cli.js"
 commands:
+
   debug:
     args: "[subcmd] [level]"
     alias: "db"
@@ -20,11 +21,33 @@ commands:
         args: ["level"]
         default: "3"
       disable:
-          description: "Disable all Debugging (use enable to change level)"
-          alias: "d"
+        description: "Disable all Debugging (use enable to change level)"
+        alias: "d"
       status:
-          description: "Displays Which Debugging Levels are current on"
-          alias: "s"
+        description: "Displays Which Debugging Levels are current on"
+        alias: "s"
+
+  deploy:
+    args: "[subcmd] [location]"
+    alias: "dp"
+    description: "Deploy to a service/location"
+    #options: " "
+    default: "ghpages"
+    subcmd:
+      s3:
+        description: "Deploy to an Amazon S3 bucket or bucket folder"
+      ghpages:
+        alias: "gh"
+        description: "Deploy to a Github ghpages repo"
+      local:
+        description: "Deploy to a local directory"
+      remote:
+        description: "Deploy via ssh to remove server"
+      git:
+        description: "Deploy via git and a post-receive hook"
+  development:
+    args: "[subcmd] [location]"
+    alias: "dev"
 
   view :
     args: "[objPath]"

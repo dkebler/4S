@@ -1,12 +1,12 @@
-let cli = new require('vorpal')();
-let pretty = require('js-object-pretty-print').pretty;
+//let pretty = require('js-object-pretty-print').pretty;
 // let pretty = require('prettyjson').render;  // alternate pretty module
-let get = require('get-object');
+// let get = require('get-object');
 
 let self = module.exports = {
   view: function(data, args, cb) {
-    // TODO parse options parameter for use in this call
-    console.log(pretty(get(data, args.objPath), '5', '', false));
+    // TODO parse options argument for use in view (pretty options)
+    data.lib.util.view(data.lib.util.getSubObj(data, args.objPath));
+    Debug.L1('done with view');
     cb();
   },
   debug: {
@@ -39,7 +39,8 @@ let self = module.exports = {
     },
     view: function(data,args,cb) {
       console.log('DEBUG environment:', process.env['DEBUG']);
-      console.log(pretty(Debug, '5', '', false));
+      // TODO parse options argument for use in view/pretty
+      console.log(data.lib.util.view(Debug));
       cb();
     }
   }

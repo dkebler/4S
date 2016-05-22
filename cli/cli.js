@@ -22,6 +22,7 @@ module.exports = {
                   if (args.subcmd in command.subcmd) {  // will "filter for only valid commands found in the cliData"
                   Debug.L2('subcommand: ', args.subcmd, '\n', command.subcmd[args.subcmd]);
                   actions[cmd][args.subcmd](data, args, cb);
+                    // call callback in action functions
                 } else {
                   this.log(args.subcmd, ' is not a valid sub command')
                   // call the help here
@@ -30,8 +31,9 @@ module.exports = {
               } else {
              // if command just has arguments
                 actions[cmd](data, args, cb);
+                  // call callback in action functions
               }
-              // call callback in action functions
+
             });
       });
     return cli;

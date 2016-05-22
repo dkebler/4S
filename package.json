@@ -10,11 +10,13 @@
     "type": "git",
     "url": "https://github.com/dkebler/Super-Static-Site-Starter"
   },
+  "main": "4s.js",
   "scripts": {
     "start": "node 4s.js",
-    "db1": "DEBUG=debug:1 node 4s.js",
-    "db2": "DEBUG=debug:1,debug:2 node 4s.js",
-    "db3": "DEBUG=debug:1,debug:2,debug:3 node 4s.js"
+    "dev": "nodemon --watch lib --watch 4s.js --watch config --watch cli --ignore lib/off",
+    "db1": "DEBUG=debug:1 nodemon",
+    "db2": "DEBUG=debug:1,debug:2 nodemon",
+    "db3": "DEBUG=debug:1,debug:2,debug:3 nodemon"
   },
   "dependencies": {},
   "devDependencies": {
@@ -48,6 +50,7 @@
     "gulp-wait": "0.0.2",
     "js-object-pretty-print": "^0.2.0",
     "jsonfile": "^2.2.3",
+    "nodemon": "^1.9.2",
     "open": "0.0.5",
     "posthtml": "^0.8.2",
     "posthtml-extend": "^0.1.2",
