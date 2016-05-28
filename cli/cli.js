@@ -1,4 +1,6 @@
 let cli = new require('vorpal')();
+// let pretty = require('js-object-pretty-print').pretty;
+let pretty = require('prettyjson').render;
 
 module.exports = {
     build: function(data) {
@@ -24,7 +26,8 @@ module.exports = {
                   actions[cmd][args.subcmd](data, args, cb);
                     // call callback in action functions
                 } else {
-                  this.log(args.subcmd, ' is not a valid sub command')
+                  this.log(args.subcmd, ' is not a valid sub command');
+                  this.log('valid sub commands are: \n', pretty(command.subcmd))
                   // call the help here
                   cb();
                 }

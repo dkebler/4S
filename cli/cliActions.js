@@ -1,12 +1,16 @@
-//let pretty = require('js-object-pretty-print').pretty;
-// let pretty = require('prettyjson').render;  // alternate pretty module
-// let get = require('get-object');
+// Related Actions for all Command Line Commands and Subcommands
 
 let self = module.exports = {
   view: function(data, args, cb) {
     // TODO parse options argument for use in view (pretty options)
     data.lib.util.view(data.lib.util.getSubObj(data, args.objPath));
     Debug.L1('done with view');
+    cb();
+  },
+  development: function(data, args, cb) {
+    Debug.L1('calling dev.js')
+    data.lib.dev(data);
+    Debug.L1('returned from dev.js');
     cb();
   },
   debug: {

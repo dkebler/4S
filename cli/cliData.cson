@@ -44,9 +44,11 @@ commands:
       remote:
         description: "Deploy via ssh to remove server"
       git:
-        description: "Deploy via git and a post-receive hook"
+        description: "Deploy via git (other than github) where git server has a post-receive hook to deploy"
+
   development:
-    args: "[subcmd] [location]"
+    args: ""
+    #options: " "
     alias: "dev"
 
   view :
