@@ -11,15 +11,55 @@ const mainConfigPath = require(RepoPath + 'package').configpath || RepoPath + 'c
 
 let config = require(configJSPath);
 
-init()
-  .then(config => {
-  let cli = config.cli.lib.build(config);
-  // console.log(cli.commands);
-  // Debug.L3(Debug.pretty(cli));
-  //   // Launch Cli here
-  config.cli.lib.start(cli, config.cli.cprompt);
-  })
-  .catch(e => console.log('error', e));
+const cluster = require('cluster');
+
+if (cluster.isMaster) {
+  let app = cluster.fork();
+
+  app.on('message', (message) => {
+    Debug.L1('Message from App to Master:', message);
+    if (message.cmd === 'restart') {
+      Debug.L1('restaring app with fork');
+      //   Debug.L3(message.cli);
+      // process.exit(0);
+      //    need to reproduce the vorpal exit action here
+      //     .action(function (args) {
+      // args.options = args.options || {};
+      // args.options.sessionId = this.session.id;
+      // how to call this??
+      // this.parent.exit(args.options);
+      // });
+      cluster.fork({
+        OLD_CLI_PID: message.pid
+      });
+    }
+
+  });
+} else {
+  console.log('Staring App, pid: ', process.pid);
+
+  if (process.env.OLD_CLI_PID) {
+    Debug.L1('killing:',process.env.OLD_CLI_PID);
+    // process.kill(process.env.OLD_CLI_PID, 'SIGTERM');
+  }
+  start();
+}
+
+
+
+function start() {
+
+  init()
+    .then(config => {
+      //Build CLI
+      let cli = config.cli.lib.build(config);
+      // Launch CLI
+      config.cli.lib.start(cli, config.cli.cprompt);
+      config.cli.emitter = cli;
+    })
+    .catch(e => console.log('error', e));
+}
+
 
 //*************************************
 // Intialize 4S Environment
@@ -43,8 +83,8 @@ function init() {
   return Promise.all([getMainConfig, getCliData, getLibs])
     .then(configs => {
       configs[0].cli = configs[1]; // Add cli configuration data as a key in main config object
-      configs[0].cli.lib = require(RepoPath + configs[0].cli.libPath);  // add cli functions library
-      configs[0].cli.actions = require(RepoPath + configs[0].cli.actionsPath);  // add in cli action functions
+      configs[0].cli.lib = require(RepoPath + configs[0].cli.libPath); // add cli functions library
+      configs[0].cli.actions = require(RepoPath + configs[0].cli.actionsPath); // add in cli action functions
       Debug.L3('cli-data', configs[0].cli);
       configs[0].lib = configs[2]; //Add js libraries as a key to main config for easier access
       configs[0].lib.config = config; // Add in config js module for later use.

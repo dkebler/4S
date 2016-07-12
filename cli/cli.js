@@ -27,18 +27,20 @@ module.exports = {
                     // call callback in action functions
                 } else {
                   this.log(args.subcmd, ' is not a valid sub command');
-                  this.log('valid sub commands are: \n', pretty(command.subcmd))
+                  this.log('valid sub commands are:d \n', pretty(command.subcmd))
                   // call the help here
                   cb();
                 }
               } else {
              // if command just has arguments
+                args.this = this;
                 actions[cmd](data, args, cb);
                   // call callback in action functions
               }
 
             });
       });
+      Debug.L3((cli));
     return cli;
   },
   start: function(cli, prompt) {

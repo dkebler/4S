@@ -50,6 +50,12 @@ commands:
     args: ""
     #options: " "
     alias: "dev"
+    description: "build the dev version of static site, start watches and browser-sync"
+
+  restart:
+    args: ""
+    #options: " "
+    alias: "rs"
 
   view :
     args: "[objPath]"

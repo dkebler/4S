@@ -3,6 +3,7 @@
 let self = module.exports = {
   view: function(data, args, cb) {
     // TODO parse options argument for use in view (pretty options)
+    Debug.L1('before call to view with getsubobj');
     data.lib.util.view(data.lib.util.getSubObj(data, args.objPath));
     Debug.L1('done with view');
     cb();
@@ -11,6 +12,12 @@ let self = module.exports = {
     Debug.L1('calling dev.js')
     data.lib.dev(data);
     Debug.L1('returned from dev.js');
+    cb();
+  },
+  restart: function(data, args, cb) {
+    Debug.L1('restarting \n', args.this.parent.exit );
+    process.send({cmd: 'restart', pid: process.pid});
+    process.exit(0);
     cb();
   },
   debug: {
