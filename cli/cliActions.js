@@ -14,6 +14,12 @@ let self = module.exports = {
     Debug.L1('returned from dev.js');
     cb();
   },
+  test: function(data, args, cb) {
+    Debug.L1('calling test.js')
+    data.lib.test(data);
+    Debug.L1('returned from test.js');
+    cb();
+  },
   restart: function(data, args, cb) {
     Debug.L1('restarting \n', args.this.parent.exit );
     process.send({cmd: 'restart', pid: process.pid});

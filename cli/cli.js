@@ -15,6 +15,8 @@ module.exports = {
             .description(command.description)
             .alias(command.alias)
             .action(function(args, cb) {
+               // args.this = this;
+               data.cli.this = this;
 //the argument "subcmd" is used for sub commands
             // if command has sub commands
                 if (command.subcmd) {  // if cli data has a subcmd key
@@ -33,7 +35,6 @@ module.exports = {
                 }
               } else {
              // if command just has arguments
-                args.this = this;
                 actions[cmd](data, args, cb);
                   // call callback in action functions
               }

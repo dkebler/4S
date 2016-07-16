@@ -1,0 +1,4 @@
+{
+  "BaseURL": "{{ .Site.BaseURL }}",
+  "pageTitle": "{{ .Site.Title }}--{{ .Title }}"
+}

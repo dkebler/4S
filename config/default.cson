@@ -5,9 +5,13 @@ site:
   description: "website about using the super static site starter repo" # Change this
   alias: "AS4" # change this, will be used as shorthand in some urls
   # cliprompt: ""  # uncomment and edit to override default prompt
-build:  # which type of build, "dev" for development, "dist" for distribution suitable for deployment
-  type: "dev"  #default is dev
-  devport: "8090"
+build:  # don't set these here set dynamically based on the build (dev or dist/deploy)
+    type: "dev"  #default is dev
+    port: "8090" # default
+    url: "http://localhost" #default
+dev:
+  port: "8090"
+  url: "http://localhost"
 deploy:
   ghpages:
     location: "default" # if more than one location this is the default.
@@ -37,6 +41,9 @@ deploy:
 html:
   template: "hugo"
   generator: "hugo"
+  transfile: "trans.json"
+  base: "base/"
+  dest: "_default"
 dir: # repo directories you can change to your liking.  All must end with /
   dev: "builds/dev/"  # development build path
   dist: "builds/dist/"  # distribution build path for deployment
@@ -46,7 +53,7 @@ dir: # repo directories you can change to your liking.  All must end with /
   scripts: "assets/scripts/"
   fonts: "assets/fonts/"
   icons: "assets/scripts/"
-  images: "assets/images/"
+  images: "assets/images/"  # site and branding images
   content: "content/" # where the generator specific content lives.  Will use html.template for the subdirectory
   content_images: "content/images" # path or url reposity where images used in content reside (as opposed to site images above)
 

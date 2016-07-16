@@ -1,0 +1,4 @@
+<!--  Adds a class to a block of text.  Used for custom formatting -->
+<div class="{{ range .Params }}{{ . }} {{ end }}">
+{{ .Inner }}
+</div>
