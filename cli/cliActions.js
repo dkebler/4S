@@ -16,7 +16,7 @@ let self = module.exports = {
   },
   test: function(data, args, cb) {
     Debug.L1('calling test.js')
-    data.lib.test(data);
+    data.lib.test.enter(data);
     Debug.L1('returned from test.js');
     cb();
   },
