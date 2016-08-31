@@ -66,6 +66,7 @@
     "promise-waterfall": "^0.1.0",
     "require-all": "^2.0.0",
     "s3": "^4.4.0",
+    "sass-include-paths": "^4.5.1",
     "stringify-object": "^2.4.0",
     "vinyl-fs": "^2.2.1",
     "vorpal": "^1.11.2",
