@@ -30,8 +30,8 @@ module.exports = {
 
 
 // allows single place to change module used for reading multiple config file types
-let readConfigFile = require('config').util.parseFile; // TODO switch to  https://github.com/snowyu/load-config-file.js, as it supports promises
-
+// TODO switch to  https://github.com/snowyu/load-config-file.js, as it supports async,promises
+let readConfigFile = require('config').util.parseFile;
 
 
 // Read library directory

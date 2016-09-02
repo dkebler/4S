@@ -1,0 +1,58 @@
+/* Set a basic variable */
+base-font-size = 12px
+grid-spacing = 2px
+
+/* Set a variable based on result of mixin call */
+body-background = invert(#ccc)
+
+/* Set some basic rules */
+body
+    color #333
+    background #fff
+
+/* Nest rules */
+nav
+    margin 10px
+
+    ul
+        list-style-type none
+
+        > li
+            display inline-block
+
+            &.current
+                background-color lightblue
+
+/* Use calculated values */
+div.column
+    margin-right (grid-spacing / 2)
+    margin-top (grid-spacing * 2)
+
+/* Use an already-set value for this element */
+div.center-column
+    width 200px
+    margin-left -(@width / 2)
+
+/* Get styles for this element from the result of a mixin */
+.promo
+    apply-promo-styles()
+    apply-width-center(400px)
+
+/* Iterate over a loop! */
+table
+    for row in 1 2 3 4 5
+        tr:nth-child({row})
+            height: 10px * row
+
+    /* or.... */
+    for row in (1..5)
+        tr:nth-child({row})
+            height: 10px * row
+
+
+/* Import another Stylus stylesheet */
+/* @import 'links.styl'
+
+/* Extend an existing class */
+  //  .warning
+  //   @extend .noticeBlock
