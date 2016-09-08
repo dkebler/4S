@@ -8,7 +8,7 @@ site:
 build:  # don't set these here set dynamically based on the build (dev or dist/deploy)
     type: "dev"  #default is dev
     port: "8090" # default
-    url: "http://localhost" #default
+    url: "localhost" #default
 dev:
   port: "8090"
   url: "http://localhost"
@@ -39,11 +39,12 @@ deploy:
       url: "david.kebler.net"
       bucket: "david.kebler.net"
 html:
-  template: "hugo"
-  generator: "hugo"
-  transfile: "trans.json"
-  base: "base/"
-  dest: "_default"
+  template: "hugo/"  # template subdirectory under dir.html
+  generator: "hugo"  # static generator to run must match js file the lib/html directory
+  layouts: "layouts/" # subdiretory of where generator expects page layouts
+  transfile: "trans.json"  # translation file from base to templating engine
+  base: "base/"   # location of template indpendent partials and layout
+  dest: "_default/"  # subdirectory of template layouts where generator expects to find files
 dir: # repo directories you can change to your liking.  All must end with /
   dev: "builds/dev/"  # development build path
   dist: "builds/dist/"  # distribution build path for deployment
