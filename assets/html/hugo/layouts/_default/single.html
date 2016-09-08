@@ -23,8 +23,8 @@
     <!-- Fonts -->
 
     <!-- Any Javascripts required.  to be loaded in the head -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.20/webcomponents.min.js"></script>
-    <script src="http://basicwebcomponents.org/basic-web-components/packages/basic-collapsible-panel/dist/basic-collapsible-panel.js"></script>
+
+    <!-- Wired Dep and browserify  JS goes here -->
 
     <script>
         window.addEventListener('load', function() {
@@ -61,20 +61,26 @@
 
                 <div class="sidebar__title"></div>
 
+                <p>Here is some additional content for the nav sidebar prepended</p>
                 Base nav sidebar for nav content that can be appended, prepended or replaced
 
             </aside>
 
             <div class="content holy-grail__content">
-                Base content for article here to be appended, prepended, replaced
+
+                <div id="default__title">{{ .Title }}</div>
+                <div id="default__subtitle">{{ .Params.subtitle }}</div>
+                <div>{{ .Date.Format "Jan 02, 2006" }}</div>
+
+                <div id="default_text"> {{ .Content }} </div>
+
             </div>
 
             <aside class="sidebar">
 
                 <div class="sidebar__title"></div>
 
-                <p> some content </p>
-
+                <p>Here is some additional content for the ads sidebar prepended</p>
                 Base ads sidebar content that can be appended, prepended or replaced
             </aside>
 
