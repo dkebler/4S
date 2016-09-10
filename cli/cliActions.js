@@ -62,14 +62,13 @@ let self = module.exports = {
     }
   },
   deploy: function(data, args,cb) {
-        if (args.type) {
-          data.deploy.type = args.type
-        }
-        if (args.location) {
-          data.deploy[data.deploy.type].location = args.location
-        }
+
         data.build.type = 'dist';
-        data.build.url = data.deploy[data.deploy.type].location.url
+        if (args.type) {data.deploy.type = args.type} else {data.deploy.type = data.deploy.default}
+        if (args.location) {data.deploy[data.deploy.type].location = args.location}
+        data.build.port = '';
+        data.build.url = data.deploy[data.deploy.type][data.deploy[data.deploy.type].location].url;
+        Debug.L1(data.deploy.type, data.deploy[data.deploy.type].location,data.build.url,data.build.port);
         data.lib.deploys(data)
         cb();
     },

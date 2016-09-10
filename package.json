@@ -19,7 +19,8 @@
     "db3n": "DEBUG=debug:1,debug:2,debug:3 nodemon",
     "db1": "DEBUG=debug:1 node 4s.js",
     "db2": "DEBUG=debug:1,debug:2 node 4s.js",
-    "db3": "DEBUG=debug:1,debug:2,debug:3 node 4s.js"
+    "db3": "DEBUG=debug:1,debug:2,debug:3 node 4s.js",
+    "db": "node --debug=5858 4s.js"
   },
   "dependencies": {},
   "devDependencies": {

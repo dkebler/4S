@@ -13,7 +13,8 @@ dev:
   port: "8090"
   url: "http://localhost"
 deploy:
-  type: "gh" # default
+  default: "gh"
+  type: " "
   gh:
     location: "default" # if more than one location this is the default.
     default:
