@@ -28,23 +28,23 @@ commands:
         alias: "s"
 
   deploy:
-    args: "[subcmd] [location]"
+    args: "[type] [location]"
     alias: "dp"
     description: "Deploy to a service/location"
     #options: " "
-    default: "ghpages"
-    subcmd:
-      s3:
-        description: "Deploy to an Amazon S3 bucket or bucket folder"
-      ghpages:
-        alias: "gh"
-        description: "Deploy to a Github ghpages repo"
-      local:
-        description: "Deploy to a local directory"
-      remote:
-        description: "Deploy via ssh to remove server"
-      git:
-        description: "Deploy via git (other than github) where git server has a post-receive hook to deploy"
+    # default: "ghpages"
+    # subcmd:
+      # s3:
+      #   description: "Deploy to an Amazon S3 bucket or bucket folder"
+      # ghpages:
+      #   alias: "gh"
+      #   description: "Deploy to a Github ghpages repo"
+      # local:
+      #   description: "Deploy to a local directory"
+      # remote:
+      #   description: "Deploy via ssh to remove server"
+      # git:
+      #   description: "Deploy via git (other than github) where git server has a post-receive hook to deploy"
 
   development:
     args: ""

@@ -1,7 +1,0 @@
-module.exports = {
-  server: {
-    baseDir: config.dir.build + config.buildSub[`dev`]
-  },
-    files: [config.dir.build + config.dir.buildSub[`dev`] + '**'],
-    port:config.build.localdevport
-}

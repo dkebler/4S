@@ -13,7 +13,7 @@ let self = module.exports = {
     data.lib.dev(data);
     Debug.L1('returned from dev.js');
     cb();
-  },
+    },
   test: function(data, args, cb) {
     Debug.L1('calling test.js')
     data.lib.test.enter(data);
@@ -60,5 +60,17 @@ let self = module.exports = {
       console.log(data.lib.util.view(Debug));
       cb();
     }
-  }
+  },
+  deploy: function(data, args,cb) {
+        if (args.type) {
+          data.deploy.type = args.type
+        }
+        if (args.location) {
+          data.deploy[data.deploy.type].location = args.location
+        }
+        data.build.type = 'dist';
+        data.build.url = data.deploy[data.deploy.type].location.url
+        data.lib.deploys(data)
+        cb();
+    },
 }

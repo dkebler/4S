@@ -13,7 +13,8 @@ dev:
   port: "8090"
   url: "http://localhost"
 deploy:
-  ghpages:
+  type: "gh" # default
+  gh:
     location: "default" # if more than one location this is the default.
     default:
       url: "dkebler.github.io/super-static-site-starter"
@@ -22,8 +23,8 @@ deploy:
       repo: "https://github.com/dkebler/test.git"
   local:
     path: "/var/www/"
-    serverPort: "8080"
-  remote: # for remote server, connect via ssh or git with post push hook.
+    port: "8080"
+  git: # for remote server, connect via ssh or git with post push hook.
     user: ""
     url : ""
   s3:
