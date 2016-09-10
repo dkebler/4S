@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Coots</title>
-    <link>dkebler.github.io/super-static-site-starter/</link>
+    <link>undefined:8090/</link>
     <description>Recent content on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="dkebler.github.io/super-static-site-starter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="#ZgotmplZ" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Complete Site Generator</title>
-      <link>/dkebler.github.io/super-static-site-starter/home/</link>
+      <link>undefined:8090/</link>
       <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/home/</guid>
+      <guid>undefined:8090/</guid>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://meats.com/&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;undefined:8090/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;undefined:8090/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://meats.com/&#34; target=&#34;_blank&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Another fine spare rib you&amp;rsquo;ve gotten us into Olie&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&#34;button large&#34;, target=&#34;new&#34;, href=&#34;http://google.com&#34;&gt;
- Google me&lt;/a&gt;&lt;/p&gt;
+&lt;a class=&#34;button large&#34;, target=&#34;new&#34;, href=&#34;http://google.com&#34;&gt;
+ Google me&lt;/a&gt;
 
 &lt;h1 id=&#34;first-level-header&#34;&gt;First Level Header&lt;/h1&gt;
 
@@ -38,49 +38,71 @@
 
 &lt;h5 id=&#34;fifth-level-header&#34;&gt;Fifth Level Header&lt;/h5&gt;
 
-&lt;pre&gt;&lt;code&gt;A code block block
-more code block
+&lt;pre&gt;&lt;code&gt;        &#39;use strict&#39;;
+
+        var ghconfig  = require(&#39;../config/deploy-gh&#39;);
+        var config = require(&#39;../config/&#39;);
+        var ghpages = require(&#39;gh-pages&#39;);
+
+        module.exports = function(cb) {
+
+        var deploySrc = config.buildDirectory + config.buildSubdirectory[config.buildType];
+        Debug(&#39;deploy-gh&#39;, config.buildType, config.url, ghconfig[ghconfig.location], deploySrc);
+
+        var done = new Promise( function(resolve,reject){
+
+        ghpages.publish(deploySrc, ghconfig[ghconfig.location],function(err,data){
+                     if(err) {
+                       console.log(&#39;gh publish error:&#39;,err);
+                       return reject(err);}
+                     Info(&#39;upload to Github complete&#39;);
+                     resolve(data);
+             });
+
+        });  // end of promise
+
+        return done;  //return promise
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;div data-lorem=2p&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;div data-lorem=2p&gt;&lt;/div&gt;
 
-&lt;p&gt;
+
+
 &lt;div class=&#34;box &#34;&gt;
 &lt;p&gt;This is some text in a box. It uses a hugo shortcode to apply a styling class in this case &amp;ldquo;box&amp;rdquo;
  &lt;div data-lorem=1p&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;/div&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Go Ahead Just Eat Meat</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
-      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
-      
-      <guid>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
-      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+
 </description>
     </item>
     
     <item>
       <title>A Carnivore&#39;s Blog - Just Meat It</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/</link>
+      <link>undefined:8090/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/blog/</guid>
+      <guid>undefined:8090/</guid>
+      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go Ahead Just Eat Meat</title>
+      <link>undefined:8090/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Beef</title>
-      <link>/dkebler.github.io/super-static-site-starter/meat/beef/</link>
+      <link>undefined:8090/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/meat/beef/</guid>
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;Ground round, meatloaf, hamburger&lt;/p&gt;
 
 &lt;p&gt;Some more ground beef&lt;/p&gt;
@@ -89,10 +111,10 @@ more code block
     
     <item>
       <title>Favorite Meats</title>
-      <link>/dkebler.github.io/super-static-site-starter/meat/favs/</link>
+      <link>undefined:8090/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/meat/favs/</guid>
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;Forget the Bacon&lt;/p&gt;
 
 &lt;p&gt;This is a Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.&lt;/p&gt;
@@ -107,10 +129,10 @@ more code block
     
     <item>
       <title>Favorite Veggies</title>
-      <link>/dkebler.github.io/super-static-site-starter/vegetables/favs/</link>
+      <link>undefined:8090/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/vegetables/favs/</guid>
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;Artichoke
 Arugula
 Asparagus
@@ -233,10 +255,10 @@ Zucchini&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>/dkebler.github.io/super-static-site-starter/404/</link>
+      <link>undefined:8090/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/404/</guid>
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;return to the &lt;a href=&#34;../home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
@@ -245,13 +267,13 @@ Zucchini&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>/dkebler.github.io/super-static-site-starter/missing/</link>
+      <link>undefined:8090/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/missing/</guid>
+      <guid>undefined:8090/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;return to the &lt;a href=&#34;dkebler.github.io/super-static-site-starter/home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;return to the &lt;a href=&#34;undefined:8090/home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

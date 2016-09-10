@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Confections on Code Coots</title>
-    <link>dkebler.github.io/super-static-site-starter/tags/confections/</link>
+    <link>undefined:8090/</link>
     <description>Recent content in Confections on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="dkebler.github.io/super-static-site-starter/tags/confections/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="#ZgotmplZ" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Complete Site Generator</title>
-      <link>/dkebler.github.io/super-static-site-starter/home/</link>
+      <link>undefined:8090/</link>
       <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/home/</guid>
+      <guid>undefined:8090/</guid>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://meats.com/&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;undefined:8090/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;undefined:8090/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://meats.com/&#34; target=&#34;_blank&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;Another fine spare rib you&amp;rsquo;ve gotten us into Olie&lt;/p&gt;
 
-&lt;p&gt;&lt;a class=&#34;button large&#34;, target=&#34;new&#34;, href=&#34;http://google.com&#34;&gt;
- Google me&lt;/a&gt;&lt;/p&gt;
+&lt;a class=&#34;button large&#34;, target=&#34;new&#34;, href=&#34;http://google.com&#34;&gt;
+ Google me&lt;/a&gt;
 
 &lt;h1 id=&#34;first-level-header&#34;&gt;First Level Header&lt;/h1&gt;
 
@@ -38,20 +38,42 @@
 
 &lt;h5 id=&#34;fifth-level-header&#34;&gt;Fifth Level Header&lt;/h5&gt;
 
-&lt;pre&gt;&lt;code&gt;A code block block
-more code block
+&lt;pre&gt;&lt;code&gt;        &#39;use strict&#39;;
+
+        var ghconfig  = require(&#39;../config/deploy-gh&#39;);
+        var config = require(&#39;../config/&#39;);
+        var ghpages = require(&#39;gh-pages&#39;);
+
+        module.exports = function(cb) {
+
+        var deploySrc = config.buildDirectory + config.buildSubdirectory[config.buildType];
+        Debug(&#39;deploy-gh&#39;, config.buildType, config.url, ghconfig[ghconfig.location], deploySrc);
+
+        var done = new Promise( function(resolve,reject){
+
+        ghpages.publish(deploySrc, ghconfig[ghconfig.location],function(err,data){
+                     if(err) {
+                       console.log(&#39;gh publish error:&#39;,err);
+                       return reject(err);}
+                     Info(&#39;upload to Github complete&#39;);
+                     resolve(data);
+             });
+
+        });  // end of promise
+
+        return done;  //return promise
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;&lt;div data-lorem=2p&gt;&lt;/div&gt;
-&lt;/p&gt;
+&lt;div data-lorem=2p&gt;&lt;/div&gt;
 
-&lt;p&gt;
+
+
 &lt;div class=&#34;box &#34;&gt;
 &lt;p&gt;This is some text in a box. It uses a hugo shortcode to apply a styling class in this case &amp;ldquo;box&amp;rdquo;
  &lt;div data-lorem=1p&gt;&lt;/div&gt;&lt;/p&gt;
 
 &lt;/div&gt;
-&lt;/p&gt;
+
 </description>
     </item>
     

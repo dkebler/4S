@@ -2,47 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/</loc>
-    <lastmod>2015-11-20T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/dkebler.github.io/super-static-site-starter/home/</loc>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</loc>
+    <loc>undefined:8090/</loc>
+    <lastmod>2015-11-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/</loc>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/meat/beef/</loc>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/meat/favs/</loc>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/vegetables/favs/</loc>
+    <loc>undefined:8090/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/404/</loc>
+    <loc>undefined:8090/</loc>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/missing/</loc>
+    <loc>undefined:8090/</loc>
   </url>
   
 </urlset>
