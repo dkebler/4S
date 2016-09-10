@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cerals on Code Coots</title>
-    <link>undefined:8090/</link>
+    <link>dkebler.github.io/super-static-site-starter:/tags/cerals/</link>
     <description>Recent content in Cerals on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="#ZgotmplZ" rel="self" type="application/rss+xml" />
+    <atom:link href="dkebler.github.io/super-static-site-starter:/tags/cerals/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Complete Site Generator</title>
-      <link>undefined:8090/</link>
+      <link>/dkebler.github.io/super-static-site-starter:/home/</link>
       <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>undefined:8090/</guid>
+      <guid>/dkebler.github.io/super-static-site-starter:/home/</guid>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;undefined:8090/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;undefined:8090/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter:/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter:/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://meats.com/&#34; target=&#34;_blank&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
