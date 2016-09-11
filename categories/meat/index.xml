@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meat on Code Coots</title>
-    <link>dkebler.github.io/categories/meat/</link>
+    <link>dkebler.github.io/super-static-site-starter/categories/meat/</link>
     <description>Recent content in Meat on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Jan 2015 12:51:44 -0800</lastBuildDate>
-    <atom:link href="dkebler.github.io/categories/meat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="dkebler.github.io/super-static-site-starter/categories/meat/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Beef</title>
-      <link>/dkebler.github.io/meat/beef/</link>
+      <link>/dkebler.github.io/super-static-site-starter/meat/beef/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/meat/beef/</guid>
+      <guid>/dkebler.github.io/super-static-site-starter/meat/beef/</guid>
       <description>&lt;p&gt;Ground round, meatloaf, hamburger&lt;/p&gt;
 
 &lt;p&gt;Some more ground beef&lt;/p&gt;
@@ -23,10 +23,10 @@
     
     <item>
       <title>Favorite Meats</title>
-      <link>/dkebler.github.io/meat/favs/</link>
+      <link>/dkebler.github.io/super-static-site-starter/meat/favs/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/meat/favs/</guid>
+      <guid>/dkebler.github.io/super-static-site-starter/meat/favs/</guid>
       <description>&lt;p&gt;Forget the Bacon&lt;/p&gt;
 
 &lt;p&gt;This is a Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.&lt;/p&gt;
