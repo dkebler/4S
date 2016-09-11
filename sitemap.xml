@@ -2,46 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/</loc>
+    <loc>/dkebler.github.io/</loc>
     <lastmod>2015-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/home/</loc>
+    <loc>/dkebler.github.io/home/</loc>
     <lastmod>2015-11-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/</loc>
+    <loc>/dkebler.github.io/blog/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</loc>
+    <loc>/dkebler.github.io/blog/2015/eatmeat/</loc>
     <lastmod>2015-04-16T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/meat/beef/</loc>
+    <loc>/dkebler.github.io/meat/beef/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/meat/favs/</loc>
+    <loc>/dkebler.github.io/meat/favs/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/vegetables/favs/</loc>
+    <loc>/dkebler.github.io/vegetables/favs/</loc>
     <lastmod>2015-01-06T12:51:44-08:00</lastmod>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/404/</loc>
+    <loc>/dkebler.github.io/404/</loc>
   </url>
   
   <url>
-    <loc>/dkebler.github.io/super-static-site-starter/missing/</loc>
+    <loc>/dkebler.github.io/missing/</loc>
   </url>
   
 </urlset>

@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Code Coots</title>
-    <link>dkebler.github.io/super-static-site-starter/</link>
+    <link>dkebler.github.io/</link>
     <description>Recent content on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="dkebler.github.io/super-static-site-starter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="dkebler.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Complete Site Generator</title>
-      <link>/dkebler.github.io/super-static-site-starter/home/</link>
+      <link>/dkebler.github.io/home/</link>
       <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/home/</guid>
+      <guid>/dkebler.github.io/home/</guid>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;dkebler.github.io/super-static-site-starter/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;dkebler.github.io/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;dkebler.github.io/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://meats.com/&#34; target=&#34;_blank&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -79,30 +79,30 @@
     
     <item>
       <title>A Carnivore&#39;s Blog - Just Meat It</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/</link>
+      <link>/dkebler.github.io/blog/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/blog/</guid>
+      <guid>/dkebler.github.io/blog/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Go Ahead Just Eat Meat</title>
-      <link>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
+      <link>/dkebler.github.io/blog/2015/eatmeat/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
+      <guid>/dkebler.github.io/blog/2015/eatmeat/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Beef</title>
-      <link>/dkebler.github.io/super-static-site-starter/meat/beef/</link>
+      <link>/dkebler.github.io/meat/beef/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/meat/beef/</guid>
+      <guid>/dkebler.github.io/meat/beef/</guid>
       <description>&lt;p&gt;Ground round, meatloaf, hamburger&lt;/p&gt;
 
 &lt;p&gt;Some more ground beef&lt;/p&gt;
@@ -111,10 +111,10 @@
     
     <item>
       <title>Favorite Meats</title>
-      <link>/dkebler.github.io/super-static-site-starter/meat/favs/</link>
+      <link>/dkebler.github.io/meat/favs/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/meat/favs/</guid>
+      <guid>/dkebler.github.io/meat/favs/</guid>
       <description>&lt;p&gt;Forget the Bacon&lt;/p&gt;
 
 &lt;p&gt;This is a Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin. Venison tail chuck pork chop, andouille ball tip beef ribs flank boudin bacon. Salami andouille pork belly short ribs flank cow. Salami sirloin turkey kielbasa. Sausage venison pork loin leberkas chuck short loin, cow ham prosciutto pastrami jowl. Ham hock jerky tri-tip, fatback hamburger shoulder swine pancetta ground round. Tri-tip prosciutto meatball turkey, brisket spare ribs shankle chuck cow chicken ham hock boudin meatloaf jowl.&lt;/p&gt;
@@ -129,10 +129,10 @@
     
     <item>
       <title>Favorite Veggies</title>
-      <link>/dkebler.github.io/super-static-site-starter/vegetables/favs/</link>
+      <link>/dkebler.github.io/vegetables/favs/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/vegetables/favs/</guid>
+      <guid>/dkebler.github.io/vegetables/favs/</guid>
       <description>&lt;p&gt;Artichoke
 Arugula
 Asparagus
@@ -255,10 +255,10 @@ Zucchini&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>/dkebler.github.io/super-static-site-starter/404/</link>
+      <link>/dkebler.github.io/404/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/404/</guid>
+      <guid>/dkebler.github.io/404/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
 
 &lt;p&gt;return to the &lt;a href=&#34;../home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
@@ -267,13 +267,13 @@ Zucchini&lt;/p&gt;
     
     <item>
       <title></title>
-      <link>/dkebler.github.io/super-static-site-starter/missing/</link>
+      <link>/dkebler.github.io/missing/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/missing/</guid>
+      <guid>/dkebler.github.io/missing/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Sorry The page you requested is not available&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;return to the &lt;a href=&#34;dkebler.github.io/super-static-site-starter/home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;return to the &lt;a href=&#34;dkebler.github.io/home&#34;&gt;homepage&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     

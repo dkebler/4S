@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vegetables on Code Coots</title>
-    <link>dkebler.github.io/super-static-site-starter/categories/vegetables/</link>
+    <link>dkebler.github.io/categories/vegetables/</link>
     <description>Recent content in Vegetables on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 06 Jan 2015 12:51:44 -0800</lastBuildDate>
-    <atom:link href="dkebler.github.io/super-static-site-starter/categories/vegetables/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="dkebler.github.io/categories/vegetables/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Favorite Veggies</title>
-      <link>/dkebler.github.io/super-static-site-starter/vegetables/favs/</link>
+      <link>/dkebler.github.io/vegetables/favs/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>/dkebler.github.io/super-static-site-starter/vegetables/favs/</guid>
+      <guid>/dkebler.github.io/vegetables/favs/</guid>
       <description>&lt;p&gt;Artichoke
 Arugula
 Asparagus
