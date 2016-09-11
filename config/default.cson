@@ -1,6 +1,7 @@
 # Danger  Master Configuration File for Super Static Starter
 # Make sure you have a backup of some sort before editing this file.
-browser: "firefox"  # your prefered browser to open for dist builds
+browser: "firefox"  # your prefered browser to open (dev and deploy), browser name must match command line launch name for your OS
+# browser: ["google-chrome", "firefox"]  # can be array of browsers
 site:
   name: "About the Super Static Site Starter" # Change to your specific site"
   description: "website about using the super static site starter repo" # Change this
@@ -8,21 +9,20 @@ site:
   # cliprompt: ""  # uncomment and edit to override default prompt
 build:  # don't set these here set dynamically based on the build (dev or dist/deploy)
     type: "dev"  #default is dev
-    port: "8090" # default
-    url: "localhost" #default
+    url: "http://localhost:8090" #default
 dev:
-  port: "8090"
-  url: "http://localhost"
+  url: "http://localhost:8090"
 deploy:
   default: "gh"
   type: " "
   gh:
+    cache: 'node_modules/gh-pages/.cache'
     location: "default" # if more than one location this is the default.
     default:
-      url: "dkebler.github.io/super-static-site-starter"
-    test:
-      url: "dkebler.github.io/test"
-      repo: "https://github.com/dkebler/test.git"
+      url: "https://dkebler.github.io/super-static-site-starter"
+    root:
+      url: "https://dkebler.github.io"
+      repo: "https://github.com/dkebler/dkebler.github.io.git"
   local:
     path: "/var/www/"
     port: "8080"
@@ -34,12 +34,12 @@ deploy:
     testing:
       profile: "DGK-deploy"
       region: "us-west-2"
-      url: "test.david.kebler.net"
+      url: "http://test.david.kebler.net"
       bucket: "test.david.kebler.net"
     live:
       profile: "DGK-deploy"
       region: "us-west-2"
-      url: "david.kebler.net"
+      url: "http://david.kebler.net"
       bucket: "david.kebler.net"
 html:
   template: "hugo/"  # template subdirectory under dir.html
