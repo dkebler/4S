@@ -1,7 +1,7 @@
 {
 	"directory" : "bower_components",
 	"scripts": {
-    "postinstall": "gulp bowersass",
-    "postuninstall": "gulp bowersass"
+    "postinstall": "",
+    "postuninstall": ""
      }
 }

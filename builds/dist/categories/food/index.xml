@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Food on Code Coots</title>
+    <link>https://dkebler.github.io/categories/food/</link>
+    <description>Recent content in Food on Code Coots</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://dkebler.github.io/categories/food/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>A Carnivore&#39;s Blog - Just Meat It</title>
+      <link>https://dkebler.github.io/blog/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dkebler.github.io/blog/</guid>
+      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Go Ahead Just Eat Meat</title>
+      <link>https://dkebler.github.io/blog/2015/eatmeat/</link>
+      <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://dkebler.github.io/blog/2015/eatmeat/</guid>
+      <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,13 +1,5 @@
-<!-- Any Javascripts required.  to be loaded in the head -->
+<!-- Any Javascripts required.  to be loaded in the head !!!
+Only load scripts here if requried to be preloaded in the head
+-->
 
-<!-- Wired Dep and browserify  JS goes here -->
-
-<script>
-window.addEventListener('load', function() {
-  var toggleButton = document.querySelector('#toggleButton');
-  var collapsiblePanel = document.querySelector('#collapsiblePanel');
-  toggleButton.addEventListener('click', function() {
-    collapsiblePanel.toggle();
-  });
-});
-</script>
+<script src="{{ BaseURL }}assets/head.js"></script>
