@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Meat on Code Coots</title>
-    <link>https://dkebler.github.io/super-static-site-starter/tags/meat/</link>
+    <link>https://dkebler.github.io/4S/tags/meat/</link>
     <description>Recent content in Meat on Code Coots</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Nov 2015 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://dkebler.github.io/super-static-site-starter/tags/meat/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dkebler.github.io/4S/tags/meat/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Complete Site Generator</title>
-      <link>https://dkebler.github.io/super-static-site-starter/home/</link>
+      <link>https://dkebler.github.io/4S/home/</link>
       <pubDate>Fri, 20 Nov 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://dkebler.github.io/super-static-site-starter/home/</guid>
+      <guid>https://dkebler.github.io/4S/home/</guid>
       <description>
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://dkebler.github.io/super-static-site-starter/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://dkebler.github.io/super-static-site-starter/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dkebler.github.io/4S/meat/favs&#34;&gt;favorite meats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dkebler.github.io/4S/blog&#34;&gt;meat blog&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;http://meats.com/&#34; target=&#34;_blank&#34;&gt;meats.com&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -79,20 +79,20 @@
     
     <item>
       <title>Go Ahead Just Eat Meat</title>
-      <link>https://dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</link>
+      <link>https://dkebler.github.io/4S/blog/2015/eatmeat/</link>
       <pubDate>Thu, 16 Apr 2015 00:00:00 +0000</pubDate>
       
-      <guid>https://dkebler.github.io/super-static-site-starter/blog/2015/eatmeat/</guid>
+      <guid>https://dkebler.github.io/4S/blog/2015/eatmeat/</guid>
       <description>&lt;p&gt;That right just go ahead and eat meat it won&amp;rsquo;t kill you.&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Beef</title>
-      <link>https://dkebler.github.io/super-static-site-starter/meat/beef/</link>
+      <link>https://dkebler.github.io/4S/meat/beef/</link>
       <pubDate>Tue, 06 Jan 2015 12:51:44 -0800</pubDate>
       
-      <guid>https://dkebler.github.io/super-static-site-starter/meat/beef/</guid>
+      <guid>https://dkebler.github.io/4S/meat/beef/</guid>
       <description>&lt;p&gt;Ground round, meatloaf, hamburger&lt;/p&gt;
 
 &lt;p&gt;Some more ground beef&lt;/p&gt;
