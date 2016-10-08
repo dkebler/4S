@@ -33,6 +33,12 @@
 
 ## Status
 
+**<em>Update 10/8/2016:</em> **
+
+ The branch [working-020](https://github.com/dkebler/4S/tree/working-020) is now significantly different than the last release.  It been almost completely refactored dumping gulp tasks used in 0.1.0 and in place of a new cli based on [vorpal]() and using promise based async/sync control of tasks. This is not ready for release.  There is still some coding to finish and the readme must be redone but hey it's about 2000% better than 0.1.0.  If you watch the repo you'll know when I finally get to it.  It won't be for another month or more but I continue to work on this project.
+
+ ===========
+
 Currently the project supports/uses [Hugo](https://gohugo.io/) (a static site generator) for parsing markdown and building the html pages combined with sass for styling (using libsass), Bower for scss/sass libraries, Gulp for command line tasks and file streams, and finally deployment to an Amazon S3 bucket or gh-pages (no web server needed)!  
 
 In a self-referential way of course this repo is used to deploy the current template/content found in this repo :-).  You can check out how the "front end" is evolving at  http://dkebler.github.io/super-static-site-starter, which will not be generated from the master branch but the [current working branch](https://github.com/dkebler/super-static-site-starter/tree/working-020)  
