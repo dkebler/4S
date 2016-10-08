@@ -1,5 +1,11 @@
 # Super-Static-Site-Starter (4S)
 
+a (getting closer to..) Complete static site builder development environment,  any html templates/generator (hugo), any styling code (sass), Bower for asset libraries,  js based workflow library, S3 and gh-pages for deployment...and more
+
+**<em>Update 10/8/2016:</em>**
+
+ The branch [working-020](https://github.com/dkebler/4S/tree/working-020) is now significantly different than the last release on master.  It been almost completely refactored dumping gulp tasks used in 0.1.0 and in place of a new cli based on [vorpal]() and using promise based async/sync control of tasks. This is not ready for release.  There is still some coding to finish and the readme must be redone but hey it's about 2000% better than 0.1.0.  If you watch the repo you'll know when I finally get to it.  It won't be for another month or more but I continue to work on this project.  So really not much point in forking the master branch right now as it will be deprecated when 0.2.0 is finally ready.
+
 <!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Super-Static-Site-Starter (4S)](#super-static-site-starter-4s)
@@ -33,9 +39,6 @@
 
 ## Status
 
-**<em>Update 10/8/2016:</em> **
-
- The branch [working-020](https://github.com/dkebler/4S/tree/working-020) is now significantly different than the last release.  It been almost completely refactored dumping gulp tasks used in 0.1.0 and in place of a new cli based on [vorpal]() and using promise based async/sync control of tasks. This is not ready for release.  There is still some coding to finish and the readme must be redone but hey it's about 2000% better than 0.1.0.  If you watch the repo you'll know when I finally get to it.  It won't be for another month or more but I continue to work on this project.
 
  ===========
 
