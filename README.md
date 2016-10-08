@@ -1,6 +1,8 @@
 # Super-Static-Site-Starter (4S)
 
-**<em>Update 10/8/2016:</em> **
+is a (getting closer to) Complete static site builder development environment,  any html templates/generator, any styling code, Bower for asset libraries, browserify for client js code,  js based workflow using a vorpal cli and promises, S3 and gh-pages for deployment...and so much more.
+
+**<em>Update 10/8/2016:</em>**
 
  The branch [working-020](https://github.com/dkebler/4S/tree/working-020) is now significantly different than the last release.  It been almost completely refactored dumping gulp tasks used in 0.1.0 and in place of a new cli based on [vorpal]() and using promise based async/sync control of tasks. This is not ready for release.  There is still some coding to finish and the readme must be redone but hey it's about 2000% better than 0.1.0.  If you watch the repo you'll know when I finally get to it.  It won't be for another month or more but I continue to work on this project.
 
