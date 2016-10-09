@@ -1,7 +1,10 @@
 {
   "name": "super-static-site-starter",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "semantic": "semantic-ui#^2.2.4",
+    "jquery": "^3.1.1"
+  },
   "devDependencies": {
     "modular-scale": "~2.1.1",
     "scss-blend-modes": "~0.0.2",
