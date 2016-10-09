@@ -19,7 +19,7 @@ deploy:
     cache: 'node_modules/gh-pages/.cache'
     location: "default" # if more than one location this is the default.
     default:
-      url: "https://dkebler.github.io/super-static-site-starter"
+      url: "https://dkebler.github.io/4S"
     root:
       url: "https://dkebler.github.io"
       repo: "https://github.com/dkebler/dkebler.github.io.git"
