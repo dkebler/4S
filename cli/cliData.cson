@@ -43,6 +43,12 @@ commands:
     #options: " "
     description: "put code in test.js for easy one off testing"
 
+  todos:
+    args: "[type] [location]"
+    terminal: true
+    alias: "td"
+    description: "make a todo from from comments in code, default is markdown/todos.md"
+
   restart:
     args: ""
     #options: " "

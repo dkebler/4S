@@ -1,0 +1,6 @@
+- need to open up for readwrite the config.toml file and write out the contentdir setting with "content" variable. __TODOs__ [config/hugo.js](config/hugo.js)
+- check bucket existence, make a bucket if need be __TODOs__ [lib/deploy-s3.js](lib/deploy-s3.js)
+- Build hugo command line as a function __TODOs__ [lib/hugo.js](lib/hugo.js)
+- add path in s3 config and use for prefix for subdirectory deploy __TODOs__ [lib/deploy-s3.js](lib/deploy-s3.js)
+- add in ability to print objects as tables for use in debugging __TODOs__ [lib/debug.js](lib/debug.js)
+- add detailed description of what and how libraries are used. __TODOs__ [README.md](README.md)

@@ -1,4 +1,4 @@
-# Danger  Master Configuration File for Super Static Starter
+# Master Configuration File for Super Static Starter
 # Make sure you have a backup of some sort before editing this file.
 browser: "firefox"  # your prefered browser to open (dev and deploy), browser name must match command line launch name for your OS
 # browser: ["google-chrome", "firefox"]  # can be array of browsers

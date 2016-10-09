@@ -14,6 +14,12 @@ let self = module.exports = {
     Debug.L1('returned from dev.js');
     cb();
     },
+   todos: function(data, args, cb) {
+     // TODO get leasot TODO working as a command
+      Debug.L1('in todo')
+      Debug.L1('returned from todos');
+      cb();
+    },
   test: function(data, args, cb) {
     Debug.L1('calling test.js')
     data.lib.test.enter(data);
